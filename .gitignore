@@ -15,8 +15,10 @@ out/
 bin/
 gen/
 target/
+gen-external-apklibs/
 
 # Project files
 .idea/
+*.iml
 .project
 .classpath
