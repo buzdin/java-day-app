@@ -7,7 +7,7 @@
                  android:theme="@style/Theme.Sherlock"
                  android:name=".infrastructure.BaseApplication">
 
-        <activity android:name=".presentation.speaker.SpeakersDashboardActivity">
+        <activity android:name=".presentation.speaker.SpeakerDashboardActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>

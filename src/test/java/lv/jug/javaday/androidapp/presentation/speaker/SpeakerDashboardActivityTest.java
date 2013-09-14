@@ -12,12 +12,12 @@ import static org.junit.Assert.assertThat;
 
 @Module(
         includes = {BaseRobolectricTest.class },
-        entryPoints = {SpeakersDashboardActivityTest.class}
+        entryPoints = {SpeakerDashboardActivityTest.class}
 )
-public class SpeakersDashboardActivityTest extends BaseRobolectricTest {
+public class SpeakerDashboardActivityTest extends BaseRobolectricTest {
 
     @Inject
-    SpeakersDashboardActivity activity;
+    SpeakerDashboardActivity activity;
 
     @Test
     public void shouldHaveAnAppName() throws Exception {
