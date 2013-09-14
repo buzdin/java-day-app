@@ -1,4 +1,4 @@
-package lv.jug.javaday.androidapp.presentation.speakers;
+package lv.jug.javaday.androidapp.presentation.speaker;
 
 import dagger.Module;
 import lv.jug.javaday.androidapp.R;
