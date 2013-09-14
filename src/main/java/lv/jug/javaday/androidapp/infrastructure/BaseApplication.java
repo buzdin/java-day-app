@@ -3,6 +3,10 @@ package lv.jug.javaday.androidapp.infrastructure;
 import android.app.Application;
 import dagger.ObjectGraph;
 import lv.jug.javaday.androidapp.infrastructure.dagger.DaggerModule;
+import lv.jug.javaday.androidapp.infrastructure.dagger.MainModule;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class BaseApplication extends Application {
 
@@ -10,11 +14,18 @@ public class BaseApplication extends Application {
 
     @Override public void onCreate() {
         super.onCreate();
-
-        objectGraph = ObjectGraph.create(new DaggerModule(this));
+        DaggerModule[] modules = getModules();
+        objectGraph = ObjectGraph.create(modules);
     }
 
     public static <T> void inject(T instance) {
         if(objectGraph != null) objectGraph.inject(instance);
+    }
+
+    public DaggerModule[] getModules() {
+        List<DaggerModule> modules = Arrays.<DaggerModule>asList(
+                new MainModule(this)
+        );
+        return modules.toArray(new DaggerModule[modules.size()]);
     }
 }
