@@ -5,6 +5,7 @@ import com.squareup.otto.Bus;
 import dagger.Module;
 import dagger.Provides;
 import lv.jug.javaday.androidapp.infrastructure.BaseApplication;
+import lv.jug.javaday.androidapp.presentation.speakers.SpeakerDetailsActivity;
 import lv.jug.javaday.androidapp.presentation.speakers.SpeakersDashboardActivity;
 
 import javax.inject.Singleton;
@@ -12,7 +13,8 @@ import javax.inject.Singleton;
 @Module(
         entryPoints = {
                 BaseApplication.class,
-                SpeakersDashboardActivity.class
+                SpeakersDashboardActivity.class,
+                SpeakerDetailsActivity.class
         }
 )
 public class MainModule implements DaggerModule {
