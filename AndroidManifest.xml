@@ -6,7 +6,7 @@
     <application android:label="@string/app_name"
                  android:theme="@style/Theme.Sherlock"
                  android:name=".infrastructure.BaseApplication">
-        <activity android:name=".presentation.HomeActivity"
+        <activity android:name=".presentation.speakers.SpeakersDashboardActivity"
                   android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

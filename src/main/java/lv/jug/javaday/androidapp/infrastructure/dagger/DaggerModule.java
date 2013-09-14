@@ -5,14 +5,14 @@ import com.squareup.otto.Bus;
 import dagger.Module;
 import dagger.Provides;
 import lv.jug.javaday.androidapp.infrastructure.BaseApplication;
-import lv.jug.javaday.androidapp.presentation.HomeActivity;
+import lv.jug.javaday.androidapp.presentation.speakers.SpeakersDashboardActivity;
 
 import javax.inject.Singleton;
 
 @Module(
         entryPoints = {
                 BaseApplication.class,
-                HomeActivity.class
+                SpeakersDashboardActivity.class
         }
 )
 public class DaggerModule {
