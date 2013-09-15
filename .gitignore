@@ -22,3 +22,6 @@ gen-external-apklibs/
 *.iml
 .project
 .classpath
+
+# Misc
+.DS_Store
