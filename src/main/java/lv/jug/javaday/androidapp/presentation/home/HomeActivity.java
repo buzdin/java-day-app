@@ -9,7 +9,7 @@ public class HomeActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.speakers_dashboard);
+        setContentView(R.layout.home);
     }
 
 }

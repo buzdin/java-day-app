@@ -9,7 +9,7 @@ public class ScheduleDetailsActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.speaker_details);
+        setContentView(R.layout.schedule_details);
     }
 
 }
