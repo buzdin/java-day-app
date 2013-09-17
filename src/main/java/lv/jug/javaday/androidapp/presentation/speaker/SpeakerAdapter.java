@@ -3,7 +3,7 @@ package lv.jug.javaday.androidapp.presentation.speaker;
 import android.content.Context;
 import android.widget.ArrayAdapter;
 import com.actionbarsherlock.R;
-import lv.jug.javaday.androidapp.Speaker;
+import lv.jug.javaday.androidapp.domain.Speaker;
 
 import javax.inject.Inject;
 
