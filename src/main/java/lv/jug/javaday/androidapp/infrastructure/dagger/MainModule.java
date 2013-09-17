@@ -24,6 +24,7 @@ import javax.inject.Singleton;
         }
 )
 public class MainModule implements DaggerModule {
+
     private final Context appContext;
 
     public MainModule(Context appContext) {

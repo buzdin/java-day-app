@@ -9,7 +9,7 @@ public class SpeakerBuilder {
     public SpeakerBuilder() {
         this.name = "Jhon";
         this.company = "Doe company";
-        this.photo = "portrait.jpg";
+        this.photo = "portrait";
         this.info = "Hodor, hodor. Hodor. Hodor, hodor; hodor hodor hodor hodor! Hodor hodor HODOR! Hodor hodor, hodor. Hodor hodor hodor hodor, hodor. Hodor hodor, hodor, hodor hodor. Hodor, hodor. Hodor. Hodor, hodor, hodor. Hodor hodor? Hodor, hodor... Hodor hodor hodor; hodor HODOR hodor, hodor hodor hodor! Hodor, hodor. Hodor. Hodor, hodor... Hodor hodor hodor, hodor. Hodor hodor, hodor. Hodor hodor hodor hodor!";
     }
 
