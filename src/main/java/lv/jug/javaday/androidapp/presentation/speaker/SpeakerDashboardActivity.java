@@ -17,10 +17,12 @@ public class SpeakerDashboardActivity extends BaseActivity {
     ListView speakers;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.speaker_dashboard);
+    protected int contentViewId() {
+        return R.layout.speaker_dashboard;
+    }
 
+    @Override
+    public void init(Bundle savedInstanceState) {
         speakers.setAdapter(adapter);
     }
 

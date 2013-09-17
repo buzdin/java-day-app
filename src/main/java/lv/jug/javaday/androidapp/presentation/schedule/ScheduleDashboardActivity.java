@@ -7,9 +7,7 @@ import lv.jug.javaday.androidapp.presentation.BaseActivity;
 public class ScheduleDashboardActivity extends BaseActivity {
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.schedule_dashboard);
+    protected int contentViewId() {
+        return R.layout.schedule_dashboard;
     }
-
 }
