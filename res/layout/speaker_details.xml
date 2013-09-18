@@ -10,7 +10,6 @@
 
     <ImageView android:layout_width="100px"
                android:layout_height="100px"
-               android:src="@drawable/portrait"
                android:id="@+id/speakerphoto"
                android:layout_columnSpan="3"
                android:layout_rowSpan="2"
