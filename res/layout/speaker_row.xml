@@ -5,27 +5,27 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
 
-    <ImageView android:layout_width="100px"
-               android:layout_height="100px"
-               android:src="@drawable/portrait"
+    <ImageView android:layout_width="100dp"
+               android:layout_height="100dp"
                android:id="@+id/speakerphoto"
-               android:layout_columnSpan="3"
-               android:layout_rowSpan="2"
-               android:contentDescription="speaker photo"/>
+               android:contentDescription="@string/no_img_found"/>
 
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:id="@+id/speakername"
-              android:text="Name"
-              android:layout_columnSpan="2"
               android:layout_gravity="center_vertical"/>
 
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:id="@+id/speakercompany"
-              android:text="Company"
-              android:layout_columnSpan="2"
               android:layout_gravity="center_vertical"/>
 
+    <ImageButton android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:id="@+id/getspeakerinfo"
+                 android:background="@null"
+                 android:layout_gravity="center"
+                 android:src="@drawable/button_more"
+                 android:contentDescription="@string/no_img_found"/>
 
 </LinearLayout>

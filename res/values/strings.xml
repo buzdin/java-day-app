@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Javaday 2013</string>
+    <string name="no_img_found">No IMG found</string>
 </resources>
