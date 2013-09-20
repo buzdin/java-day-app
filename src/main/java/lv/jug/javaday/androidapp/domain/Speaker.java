@@ -1,6 +1,9 @@
 package lv.jug.javaday.androidapp.domain;
 
-public class Speaker {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Speaker implements Parcelable {
 
     private String name;
 
@@ -15,6 +18,13 @@ public class Speaker {
         this.company = company;
         this.photo = photo;
         this.info = info;
+    }
+
+    private Speaker(Parcel in) {
+        name = in.readString();
+        company = in.readString();
+        photo = in.readString();
+        info = in.readString();
     }
 
     public String getName() {
@@ -48,4 +58,27 @@ public class Speaker {
     public void setPhoto(String photo) {
         this.photo = photo;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel out, int flags) {
+        out.writeString(name);
+        out.writeString(company);
+        out.writeString(photo);
+        out.writeString(info);
+    }
+
+    public static final Parcelable.Creator<Speaker> CREATOR = new Parcelable.Creator<Speaker>() {
+        public Speaker createFromParcel(Parcel in) {
+            return new Speaker(in);
+        }
+
+        public Speaker[] newArray(int size) {
+            return new Speaker[size];
+        }
+    };
 }

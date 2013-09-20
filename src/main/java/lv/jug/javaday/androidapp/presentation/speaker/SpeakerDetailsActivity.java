@@ -2,6 +2,7 @@ package lv.jug.javaday.androidapp.presentation.speaker;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.widget.ImageView;
 import android.widget.TextView;
 import butterknife.InjectView;
@@ -14,6 +15,8 @@ import lv.jug.javaday.androidapp.presentation.BaseActivity;
 import javax.inject.Inject;
 
 public class SpeakerDetailsActivity extends BaseActivity {
+
+    public static final String KEY_SPEAKER = "speaker";
 
     @Inject
     DrawableService drawableService;
@@ -37,7 +40,8 @@ public class SpeakerDetailsActivity extends BaseActivity {
 
     @Override
     public void init(Bundle savedInstanceState) {
-        showSpeaker(new SpeakerBuilder().createSpeaker());
+        Speaker speaker = getParcelableFromIntent(KEY_SPEAKER);
+        showSpeaker(speaker);
     }
 
     private void showSpeaker(Speaker speaker) {

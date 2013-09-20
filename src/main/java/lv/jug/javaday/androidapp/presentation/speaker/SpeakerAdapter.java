@@ -1,10 +1,12 @@
 package lv.jug.javaday.androidapp.presentation.speaker;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
+import butterknife.OnClick;
 import butterknife.Views;
 import com.actionbarsherlock.R;
 import lv.jug.javaday.androidapp.application.DrawableService;
@@ -56,8 +58,6 @@ public class SpeakerAdapter extends BaseAdapter {
 
         TextView company = Views.findById(view, R.id.speakercompany);
         company.setText(speaker.getCompany());
-
-        ImageButton more = Views.findById(view, R.id.getspeakerinfo);
 
         return view;
     }

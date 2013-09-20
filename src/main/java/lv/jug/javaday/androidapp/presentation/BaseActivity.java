@@ -2,6 +2,7 @@ package lv.jug.javaday.androidapp.presentation;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Parcelable;
 import butterknife.Views;
 import com.squareup.otto.Bus;
 import lv.jug.javaday.androidapp.infrastructure.BaseApplication;
@@ -38,4 +39,8 @@ public abstract class BaseActivity extends Activity {
     protected abstract int contentViewId();
 
     protected void init(Bundle state){};
+
+    protected <T extends Parcelable> T getParcelableFromIntent(String key) {
+        return getIntent().getParcelableExtra(key);
+    }
 }
