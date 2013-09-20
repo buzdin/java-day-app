@@ -10,6 +10,21 @@
     <packaging>apk</packaging>
     <name>Javaday App</name>
 
+    <repositories>
+        <repository>
+            <id>android.support-mvn-repo</id>
+            <url>https://raw.github.com/kmchugh/android.support/mvn-repo</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <properties>
+        <android-platform>16</android-platform>
+    </properties>
+
     <dependencies>
 
         <dependency>
@@ -19,13 +34,21 @@
             <scope>provided</scope>
         </dependency>
 
-        <!--Dependencies for ActionBarSherlock-->
+        <!-- Android Support Libraries -->
         <dependency>
-            <groupId>com.actionbarsherlock</groupId>
-            <artifactId>actionbarsherlock</artifactId>
-            <version>4.2.0</version>
-            <type>apklib</type>
+            <groupId>uk.co.icatalyst</groupId>
+            <artifactId>android-support-v4</artifactId>
+            <version>18</version>
+            <scope>compile</scope>
         </dependency>
+
+        <!--&lt;!&ndash;Dependencies for ActionBarSherlock&ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>com.actionbarsherlock</groupId>-->
+            <!--<artifactId>actionbarsherlock</artifactId>-->
+            <!--<version>4.2.0</version>-->
+            <!--<type>apklib</type>-->
+        <!--</dependency>-->
 
         <!--Dependencies for Dagger-->
         <dependency>
@@ -33,6 +56,7 @@
             <artifactId>dagger</artifactId>
             <version>0.9.1</version>
         </dependency>
+
         <dependency>
             <groupId>com.squareup</groupId>
             <artifactId>dagger-compiler</artifactId>
@@ -51,6 +75,13 @@
             <groupId>com.jakewharton</groupId>
             <artifactId>butterknife</artifactId>
             <version>3.0.0</version>
+        </dependency>
+
+        <!--Dependency for ORMLite-->
+        <dependency>
+            <groupId>com.j256.ormlite</groupId>
+            <artifactId>ormlite-android</artifactId>
+            <version>4.46</version>
         </dependency>
 
         <!--Dependencies for Tests-->
@@ -75,27 +106,6 @@
             <version>1.2</version>
             <scope>test</scope>
         </dependency>
-
-        <!--!!! Attention !!!-->
-        <!--Robolectric requires com.google.android.maps to work without warnings
-            It is lacking from MavenRepos, so You will have to use local repo
-            To put Android SDK into local repository use Maven Android SDK Deployer
-            https://github.com/mosabua/maven-android-sdk-deployer/#readme
-            if Robolectric isn't required comment following dependencies and uncomment com.google.android-->
-        
-        <!--<dependency>
-            <groupId>android</groupId>
-            <artifactId>android</artifactId>
-            <version>4.0_r3</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.google.android.maps</groupId>
-            <artifactId>maps</artifactId>
-            <version>4_r2</version>
-            <scope>provided</scope>
-        </dependency>-->
     </dependencies>
 
     <build>
@@ -119,7 +129,7 @@
                 <configuration>
                     <sdk>
                         <!-- platform or api level (api level 16 = platform 4.1)-->
-                        <platform>16</platform>
+                        <platform>${android-platform}</platform>
                     </sdk>
                 </configuration>
             </plugin>

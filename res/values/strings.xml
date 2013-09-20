@@ -2,4 +2,15 @@
 <resources>
     <string name="app_name">Javaday 2013</string>
     <string name="no_img_found">No IMG found</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="app_not_available">App not available</string>
+
+    <string-array name="navigation_drawer">
+        <item>Home</item>
+        <item>Schedule</item>
+        <item>Speakers</item>
+        <item>Twitter</item>
+    </string-array>
+
 </resources>

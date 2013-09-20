@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.*;
 import butterknife.OnClick;
 import butterknife.Views;
-import com.actionbarsherlock.R;
+import lv.jug.javaday.androidapp.R;
 import lv.jug.javaday.androidapp.application.DrawableService;
 import lv.jug.javaday.androidapp.domain.Speaker;
 

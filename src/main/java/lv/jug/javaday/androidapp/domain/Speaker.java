@@ -2,11 +2,16 @@ package lv.jug.javaday.androidapp.domain;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
 
+@DatabaseTable(tableName = "speakers")
 public class Speaker implements Parcelable {
 
+    @DatabaseField(id = true)
     private String name;
 
+    @DatabaseField
     private String company;
 
     private String photo;
@@ -26,6 +31,8 @@ public class Speaker implements Parcelable {
         photo = in.readString();
         info = in.readString();
     }
+
+    public Speaker() {}
 
     public String getName() {
         return name;
