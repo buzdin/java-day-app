@@ -39,8 +39,8 @@ public class SpeakerDetailsFragment extends BaseFragment {
 
     @Override
     public void init(Bundle savedInstanceState) {
-//        Speaker speaker = getParcelableFromIntent(KEY_SPEAKER);
-//        showSpeaker(speaker);
+        Speaker speaker = getArguments().getParcelable(KEY_SPEAKER);
+        showSpeaker(speaker);
     }
 
     private void showSpeaker(Speaker speaker) {

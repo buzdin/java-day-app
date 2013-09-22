@@ -36,6 +36,7 @@ public class SpeakerDashboardFragment extends BaseFragment implements AdapterVie
         speakers.setAdapter(adapter);
     }
 
+    // TODO: Stub. Should be deleted later
     List<Speaker> mockData = Arrays.asList(
             new SpeakerBuilder().createSpeaker(),
             new SpeakerBuilder().createSpeaker(),
@@ -50,10 +51,14 @@ public class SpeakerDashboardFragment extends BaseFragment implements AdapterVie
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//        Speaker speaker = adapter.getItem(position);
-//        Intent intent = new Intent(this, SpeakerDetailsFragment.class);
-//        intent.putExtra(SpeakerDetailsFragment.KEY_SPEAKER, speaker);
-//
-//        startActivity(intent);
+        Speaker speaker = adapter.getItem(position);
+
+        Bundle data = new Bundle();
+        data.putParcelable(SpeakerDetailsFragment.KEY_SPEAKER, speaker);
+
+        SpeakerDetailsFragment fragment = new SpeakerDetailsFragment();
+        fragment.setArguments(data);
+
+        ((MainActivity) getActivity()).changeFragment(fragment);
     }
 }

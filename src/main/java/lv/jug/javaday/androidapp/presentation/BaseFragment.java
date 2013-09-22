@@ -21,6 +21,7 @@ public abstract class BaseFragment extends Fragment {
         View view = inflater.inflate(contentViewId(), container, false);
         Views.inject(this, view);
         init(savedInstanceState);
+
         return view;
     }
 

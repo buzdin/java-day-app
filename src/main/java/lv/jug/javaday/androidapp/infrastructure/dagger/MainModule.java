@@ -17,8 +17,8 @@ import javax.inject.Singleton;
 @Module(
         entryPoints = {
                 BaseApplication.class,
-                HomeFragment.class,
                 MainActivity.class,
+                HomeFragment.class,
                 SpeakerDashboardFragment.class,
                 SpeakerDetailsFragment.class,
                 ScheduleDashboardFragment.class,

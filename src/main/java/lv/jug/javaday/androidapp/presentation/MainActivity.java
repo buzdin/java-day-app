@@ -3,9 +3,9 @@ package lv.jug.javaday.androidapp.presentation;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -59,6 +59,35 @@ public class MainActivity extends Activity {
         bus.unregister(this);
     }
 
+
+    @Override protected void onPostCreate(Bundle state) {
+        super.onPostCreate(state);
+        drawerToggle.syncState();
+    }
+
+    @Override public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        drawerToggle.onConfigurationChanged(newConfig);
+    }
+
+    @Override public boolean onOptionsItemSelected(MenuItem item) {
+        return drawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
+    }
+
+    private Fragment getFragment(String selectedItem) {
+        Fragment fragment = null;
+        if(selectedItem.equals(getString(R.string.home))) {
+            fragment = new HomeFragment();
+        } else if(selectedItem.equals(getString(R.string.schedule))) {
+            fragment = new ScheduleDashboardFragment();
+        } else if(selectedItem.equals(getString(R.string.speakers))) {
+            fragment = new SpeakerDashboardFragment();
+        } else if(selectedItem.equals(getString(R.string.twitter))) {
+            fragment = new HomeFragment();
+        }
+        return fragment;
+    }
+
     private void initDrawerLayout(Bundle state) {
         String[] navigationItems = getResources().getStringArray(R.array.navigation_drawer);
 
@@ -108,27 +137,11 @@ public class MainActivity extends Activity {
         getActionBar().setTitle(title);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // The action bar home/up action should open or close the drawer.
-        return drawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
-    }
-
     private void selectItem(int position) {
         String[] navigationItems = getResources().getStringArray(R.array.navigation_drawer);
-
-        Fragment fragment = null;
-
         String selectedItem = navigationItems[position];
-        if(selectedItem.equals(getString(R.string.home))) {
-            fragment = new HomeFragment();
-        } else if(selectedItem.equals(getString(R.string.schedule))) {
-            fragment = new ScheduleDashboardFragment();
-        } else if(selectedItem.equals(getString(R.string.speakers))) {
-            fragment = new SpeakerDashboardFragment();
-        } else if(selectedItem.equals(getString(R.string.twitter))) {
 
-        }
+        Fragment fragment = getFragment(selectedItem);
 
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
@@ -138,21 +151,12 @@ public class MainActivity extends Activity {
         drawerLayout.closeDrawer(drawerList);
     }
 
-    @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-        // Sync the toggle state after onRestoreInstanceState has occurred.
-        drawerToggle.syncState();
-    }
+    public void changeFragment(Fragment fragment) {
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        // Pass any configuration change to the drawer toggls
-        drawerToggle.onConfigurationChanged(newConfig);
-    }
+        transaction.replace(R.id.content_frame, fragment);
+        transaction.addToBackStack(null);
 
-    protected <T extends Parcelable> T getParcelableFromIntent(String key) {
-        return getIntent().getParcelableExtra(key);
+        transaction.commit();
     }
 }
