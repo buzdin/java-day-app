@@ -5,6 +5,7 @@ import com.squareup.otto.Bus;
 import dagger.Module;
 import dagger.Provides;
 import lv.jug.javaday.androidapp.infrastructure.BaseApplication;
+import lv.jug.javaday.androidapp.presentation.MainActivity;
 import lv.jug.javaday.androidapp.presentation.home.HomeActivity;
 import lv.jug.javaday.androidapp.presentation.schedule.ScheduleDashboardActivity;
 import lv.jug.javaday.androidapp.presentation.schedule.ScheduleDetailsActivity;
@@ -17,6 +18,7 @@ import javax.inject.Singleton;
         entryPoints = {
                 BaseApplication.class,
                 HomeActivity.class,
+                MainActivity.class,
                 SpeakerDashboardActivity.class,
                 SpeakerDetailsActivity.class,
                 ScheduleDashboardActivity.class,

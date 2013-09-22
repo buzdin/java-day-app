@@ -23,7 +23,7 @@ import lv.jug.javaday.androidapp.presentation.speaker.SpeakerDashboardActivity;
 
 import javax.inject.Inject;
 
-public abstract class BaseActivity extends Activity {
+public class MainActivity extends Activity {
 
     @Inject
     Bus bus;
@@ -45,11 +45,10 @@ public abstract class BaseActivity extends Activity {
 
         // Android constructs Activity instances so we must find the ObjectGraph instance and inject this.
         BaseApplication.inject(this);
-        setContentView(contentViewId());
+        setContentView(R.layout.navigation_drawer);
         Views.inject(this);
 
         initDrawerLayout(state);
-        init(state);
     }
 
     @Override protected void onResume() {
@@ -63,9 +62,8 @@ public abstract class BaseActivity extends Activity {
     }
 
     // Butterknife works only after contentview is set
-    protected abstract int contentViewId();
+//    protected abstract int contentViewId();
 
-    protected void init(Bundle state){}
 
     private void initDrawerLayout(Bundle state) {
         String[] navigationItems = getResources().getStringArray(R.array.navigation_drawer);

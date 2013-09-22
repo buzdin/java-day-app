@@ -9,14 +9,13 @@ import butterknife.InjectView;
 import lv.jug.javaday.androidapp.R;
 import lv.jug.javaday.androidapp.domain.Speaker;
 import lv.jug.javaday.androidapp.domain.SpeakerBuilder;
-import lv.jug.javaday.androidapp.presentation.BaseActivity;
+import lv.jug.javaday.androidapp.presentation.MainActivity;
 
 import javax.inject.Inject;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class SpeakerDashboardActivity extends BaseActivity implements AdapterView.OnItemClickListener {
+public class SpeakerDashboardActivity extends MainActivity implements AdapterView.OnItemClickListener {
 
     @Inject
     SpeakerAdapter adapter;
@@ -24,12 +23,12 @@ public class SpeakerDashboardActivity extends BaseActivity implements AdapterVie
     @InjectView(R.id.speakers)
     ListView speakers;
 
-    @Override
+//    @Override
     protected int contentViewId() {
         return R.layout.speaker_dashboard;
     }
 
-    @Override
+//    @Override
     public void init(Bundle savedInstanceState) {
         adapter.setData(mockData);
         speakers.setOnItemClickListener(this);

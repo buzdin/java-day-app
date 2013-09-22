@@ -1,43 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.v4.widget.DrawerLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/drawer_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/content_frame"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:useDefaultMargins="true"
+            android:alignmentMode="alignBounds"
+            android:columnOrderPreserved="false"
+            android:columnCount="5">
 
-    <GridLayout android:id="@+id/content_frame"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:useDefaultMargins="true"
-                android:alignmentMode="alignBounds"
-                android:columnOrderPreserved="false"
-                android:columnCount="5">
+    <ImageView android:layout_width="100px"
+               android:layout_height="100px"
+               android:id="@+id/speakerphoto"
+               android:layout_columnSpan="3"
+               android:layout_rowSpan="2"
+               android:contentDescription="speaker photo"/>
 
-        <ImageView android:layout_width="100px"
-                   android:layout_height="100px"
-                   android:id="@+id/speakerphoto"
-                   android:layout_columnSpan="3"
-                   android:layout_rowSpan="2"
-                   android:contentDescription="speaker photo"/>
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/speakername"
+              android:layout_columnSpan="2"
+              android:layout_gravity="center_vertical"/>
 
-        <TextView android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:id="@+id/speakername"
-                  android:layout_columnSpan="2"
-                  android:layout_gravity="center_vertical"/>
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/speakercompany"
+              android:layout_columnSpan="2"
+              android:layout_gravity="center_vertical"/>
 
-        <TextView android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:id="@+id/speakercompany"
-                  android:layout_columnSpan="2"
-                  android:layout_gravity="center_vertical"/>
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/speakerinfo"/>
 
-        <TextView android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:id="@+id/speakerinfo"/>
-
-    </GridLayout>
-
-    <include layout="@layout/navigation_drawer"/>
-</android.support.v4.widget.DrawerLayout>
+</GridLayout>
