@@ -9,15 +9,15 @@
 
                  android:name=".infrastructure.BaseApplication">
         <!--android:theme="@style/Theme.Sherlock"-->
-        <activity android:name=".presentation.home.HomeActivity"/>
-
-        <activity android:name=".presentation.speaker.SpeakerDetailsActivity"/>
-        <activity android:name=".presentation.speaker.SpeakerDashboardActivity">
+        <activity android:name=".presentation.home.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity android:name=".presentation.speaker.SpeakerDetailsActivity"/>
+        <activity android:name=".presentation.speaker.SpeakerDashboardActivity"/>
 
         <activity android:name=".presentation.schedule.ScheduleDetailsActivity"/>
         <activity android:name=".presentation.schedule.ScheduleDashboardActivity"/>

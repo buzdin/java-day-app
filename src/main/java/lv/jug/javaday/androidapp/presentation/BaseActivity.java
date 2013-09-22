@@ -1,6 +1,8 @@
 package lv.jug.javaday.androidapp.presentation;
 
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -102,6 +104,10 @@ public abstract class BaseActivity extends Activity {
             }
         };
         drawerLayout.setDrawerListener(drawerToggle);
+
+        if (state == null) {
+            selectItem(0);
+        }
     }
 
     @Override
@@ -119,20 +125,13 @@ public abstract class BaseActivity extends Activity {
     private void selectItem(int position) {
         String[] navigationItems = getResources().getStringArray(R.array.navigation_drawer);
 
-        String navigationItem = navigationItems[position];
+        Fragment fragment = new PlanetFragment();
 
-        if(navigationItem.equals(getString(R.string.home))) {
-            startActivity(HomeActivity.class);
-        } else if(navigationItem.equals(getString(R.string.schedule))) {
-            startActivity(ScheduleDashboardActivity.class);
-        } else if(navigationItem.equals(getString(R.string.speakers))) {
-            startActivity(SpeakerDashboardActivity.class);
-        } else if(navigationItem.equals(getString(R.string.twitter))) {
-
-        }
-
+        FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
 
         drawerList.setItemChecked(position, true);
+        setTitle(navigationItems[position]);
         drawerLayout.closeDrawer(drawerList);
     }
 
@@ -150,11 +149,31 @@ public abstract class BaseActivity extends Activity {
         drawerToggle.onConfigurationChanged(newConfig);
     }
 
-    protected <T extends Parcelable> T getParcelableFromIntent(String key) {
-        return getIntent().getParcelableExtra(key);
+    /**
+     * Fragment that appears in the "content_frame", shows a planet
+     */
+    public static int i = 0;
+    public static class PlanetFragment extends Fragment {
+        public static final String ARG_PLANET_NUMBER = "planet_number";
+
+        public PlanetFragment() {
+            // Empty constructor required for fragment subclasses
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            View rootView;
+            if(i++ % 2 == 0){
+                rootView = inflater.inflate(R.layout.speaker_row, container, false);
+            } else {
+                rootView = inflater.inflate(R.layout.drawer_list_item, container, false);
+            }
+            return rootView;
+        }
     }
 
-    private void startActivity(Class<? extends Activity> activityClass) {
-        startActivity(new Intent(this, activityClass));
+    protected <T extends Parcelable> T getParcelableFromIntent(String key) {
+        return getIntent().getParcelableExtra(key);
     }
 }
