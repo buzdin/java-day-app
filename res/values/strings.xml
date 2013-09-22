@@ -6,11 +6,16 @@
     <string name="drawer_close">Close</string>
     <string name="app_not_available">App not available</string>
 
+    <string name="home">Home</string>
+    <string name="schedule">Schedule</string>
+    <string name="speakers">Speakers</string>
+    <string name="twitter">Twitter</string>
+
     <string-array name="navigation_drawer">
-        <item>Home</item>
-        <item>Schedule</item>
-        <item>Speakers</item>
-        <item>Twitter</item>
+        <item>@string/home</item>
+        <item>@string/schedule</item>
+        <item>@string/speakers</item>
+        <item>@string/twitter</item>
     </string-array>
 
 </resources>
