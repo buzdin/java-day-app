@@ -8,11 +8,12 @@ import butterknife.InjectView;
 import lv.jug.javaday.androidapp.R;
 import lv.jug.javaday.androidapp.application.DrawableService;
 import lv.jug.javaday.androidapp.domain.Speaker;
+import lv.jug.javaday.androidapp.presentation.BaseFragment;
 import lv.jug.javaday.androidapp.presentation.MainActivity;
 
 import javax.inject.Inject;
 
-public class SpeakerDetailsActivity extends MainActivity {
+public class SpeakerDetailsFragment extends BaseFragment {
 
     public static final String KEY_SPEAKER = "speaker";
 
@@ -31,15 +32,15 @@ public class SpeakerDetailsActivity extends MainActivity {
     @InjectView(R.id.speakerinfo)
     TextView speakerInfo;
 
-//    @Override
+    @Override
     protected int contentViewId() {
         return R.layout.speaker_details;
     }
 
-//    @Override
+    @Override
     public void init(Bundle savedInstanceState) {
-        Speaker speaker = getParcelableFromIntent(KEY_SPEAKER);
-        showSpeaker(speaker);
+//        Speaker speaker = getParcelableFromIntent(KEY_SPEAKER);
+//        showSpeaker(speaker);
     }
 
     private void showSpeaker(Speaker speaker) {

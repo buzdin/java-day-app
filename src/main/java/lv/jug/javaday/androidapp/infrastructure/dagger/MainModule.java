@@ -4,25 +4,25 @@ import android.content.Context;
 import com.squareup.otto.Bus;
 import dagger.Module;
 import dagger.Provides;
-import lv.jug.javaday.androidapp.infrastructure.BaseApplication;
+import lv.jug.javaday.androidapp.presentation.BaseApplication;
 import lv.jug.javaday.androidapp.presentation.MainActivity;
-import lv.jug.javaday.androidapp.presentation.home.HomeActivity;
-import lv.jug.javaday.androidapp.presentation.schedule.ScheduleDashboardActivity;
-import lv.jug.javaday.androidapp.presentation.schedule.ScheduleDetailsActivity;
-import lv.jug.javaday.androidapp.presentation.speaker.SpeakerDashboardActivity;
-import lv.jug.javaday.androidapp.presentation.speaker.SpeakerDetailsActivity;
+import lv.jug.javaday.androidapp.presentation.home.HomeFragment;
+import lv.jug.javaday.androidapp.presentation.schedule.ScheduleDashboardFragment;
+import lv.jug.javaday.androidapp.presentation.schedule.ScheduleDetailsFragment;
+import lv.jug.javaday.androidapp.presentation.speaker.SpeakerDashboardFragment;
+import lv.jug.javaday.androidapp.presentation.speaker.SpeakerDetailsFragment;
 
 import javax.inject.Singleton;
 
 @Module(
         entryPoints = {
                 BaseApplication.class,
-                HomeActivity.class,
+                HomeFragment.class,
                 MainActivity.class,
-                SpeakerDashboardActivity.class,
-                SpeakerDetailsActivity.class,
-                ScheduleDashboardActivity.class,
-                ScheduleDetailsActivity.class
+                SpeakerDashboardFragment.class,
+                SpeakerDetailsFragment.class,
+                ScheduleDashboardFragment.class,
+                ScheduleDetailsFragment.class
         }
 )
 public class MainModule implements DaggerModule {

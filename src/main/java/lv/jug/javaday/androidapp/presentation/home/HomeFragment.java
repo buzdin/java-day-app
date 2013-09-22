@@ -1,12 +1,19 @@
 package lv.jug.javaday.androidapp.presentation.home;
 
+import android.os.Bundle;
 import lv.jug.javaday.androidapp.R;
+import lv.jug.javaday.androidapp.presentation.BaseFragment;
 import lv.jug.javaday.androidapp.presentation.MainActivity;
 
-public class HomeActivity extends MainActivity {
+public class HomeFragment extends BaseFragment {
 
-//    @Override
+    @Override
     protected int contentViewId() {
         return R.layout.home;
+    }
+
+    @Override
+    protected void init(Bundle savedInstanceState) {
+
     }
 }

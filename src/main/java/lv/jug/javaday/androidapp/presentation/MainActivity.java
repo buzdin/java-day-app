@@ -3,7 +3,6 @@ package lv.jug.javaday.androidapp.presentation;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -16,10 +15,9 @@ import butterknife.InjectView;
 import butterknife.Views;
 import com.squareup.otto.Bus;
 import lv.jug.javaday.androidapp.R;
-import lv.jug.javaday.androidapp.infrastructure.BaseApplication;
-import lv.jug.javaday.androidapp.presentation.home.HomeActivity;
-import lv.jug.javaday.androidapp.presentation.schedule.ScheduleDashboardActivity;
-import lv.jug.javaday.androidapp.presentation.speaker.SpeakerDashboardActivity;
+import lv.jug.javaday.androidapp.presentation.home.HomeFragment;
+import lv.jug.javaday.androidapp.presentation.schedule.ScheduleDashboardFragment;
+import lv.jug.javaday.androidapp.presentation.speaker.SpeakerDashboardFragment;
 
 import javax.inject.Inject;
 
@@ -60,10 +58,6 @@ public class MainActivity extends Activity {
         super.onPause();
         bus.unregister(this);
     }
-
-    // Butterknife works only after contentview is set
-//    protected abstract int contentViewId();
-
 
     private void initDrawerLayout(Bundle state) {
         String[] navigationItems = getResources().getStringArray(R.array.navigation_drawer);
@@ -123,13 +117,24 @@ public class MainActivity extends Activity {
     private void selectItem(int position) {
         String[] navigationItems = getResources().getStringArray(R.array.navigation_drawer);
 
-        Fragment fragment = new PlanetFragment();
+        Fragment fragment = null;
+
+        String selectedItem = navigationItems[position];
+        if(selectedItem.equals(getString(R.string.home))) {
+            fragment = new HomeFragment();
+        } else if(selectedItem.equals(getString(R.string.schedule))) {
+            fragment = new ScheduleDashboardFragment();
+        } else if(selectedItem.equals(getString(R.string.speakers))) {
+            fragment = new SpeakerDashboardFragment();
+        } else if(selectedItem.equals(getString(R.string.twitter))) {
+
+        }
 
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
 
         drawerList.setItemChecked(position, true);
-        setTitle(navigationItems[position]);
+        setTitle(selectedItem);
         drawerLayout.closeDrawer(drawerList);
     }
 
@@ -145,30 +150,6 @@ public class MainActivity extends Activity {
         super.onConfigurationChanged(newConfig);
         // Pass any configuration change to the drawer toggls
         drawerToggle.onConfigurationChanged(newConfig);
-    }
-
-    /**
-     * Fragment that appears in the "content_frame", shows a planet
-     */
-    public static int i = 0;
-    public static class PlanetFragment extends Fragment {
-        public static final String ARG_PLANET_NUMBER = "planet_number";
-
-        public PlanetFragment() {
-            // Empty constructor required for fragment subclasses
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView;
-            if(i++ % 2 == 0){
-                rootView = inflater.inflate(R.layout.speaker_row, container, false);
-            } else {
-                rootView = inflater.inflate(R.layout.drawer_list_item, container, false);
-            }
-            return rootView;
-        }
     }
 
     protected <T extends Parcelable> T getParcelableFromIntent(String key) {

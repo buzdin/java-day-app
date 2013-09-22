@@ -7,21 +7,20 @@ import org.junit.Test;
 
 import javax.inject.Inject;
 
-import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 
 @Module(
         includes = {BaseRobolectricTest.class },
-        entryPoints = {SpeakerDashboardActivityTest.class}
+        entryPoints = {SpeakerDashboardFragmentTest.class}
 )
-public class SpeakerDashboardActivityTest extends BaseRobolectricTest {
+public class SpeakerDashboardFragmentTest extends BaseRobolectricTest {
 
     @Inject
-    SpeakerDashboardActivity activity;
+    SpeakerDashboardFragment activity;
 
     @Test
     public void shouldHaveAnAppName() throws Exception {
-        String appName = activity.getResources().getString(R.string.app_name);
+//        String appName = activity.getResources().getString(R.string.app_name);
 //        assertThat(appName, equalTo("Javaday 2013"));
     }
 

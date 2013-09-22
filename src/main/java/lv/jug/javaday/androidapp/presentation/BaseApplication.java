@@ -1,4 +1,4 @@
-package lv.jug.javaday.androidapp.infrastructure;
+package lv.jug.javaday.androidapp.presentation;
 
 import android.app.Application;
 import dagger.ObjectGraph;
