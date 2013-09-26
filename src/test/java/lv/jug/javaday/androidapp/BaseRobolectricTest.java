@@ -1,4 +1,4 @@
-package lv.jug.javaday.androidapp.presentation;
+package lv.jug.javaday.androidapp;
 
 import com.xtremelabs.robolectric.Robolectric;
 import com.xtremelabs.robolectric.RobolectricTestRunner;
