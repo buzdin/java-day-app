@@ -7,6 +7,7 @@ import android.app.FragmentTransaction;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.*;
@@ -21,7 +22,7 @@ import lv.jug.javaday.androidapp.presentation.speaker.SpeakerDashboardFragment;
 
 import javax.inject.Inject;
 
-public class MainActivity extends Activity {
+public class MainActivity extends FragmentActivity {
 
     @Inject
     Bus bus;
