@@ -1,29 +1,29 @@
-package lv.jug.javaday.androidapp.presentation.speaker;
+package lv.jug.javaday.androidapp.presentation.schedule;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.*;
-import butterknife.Views;
+import android.widget.BaseAdapter;
 import lv.jug.javaday.androidapp.R;
 import lv.jug.javaday.androidapp.application.DrawableService;
+import lv.jug.javaday.androidapp.domain.Event;
 import lv.jug.javaday.androidapp.domain.Speaker;
 
 import javax.inject.Inject;
 import java.util.List;
 
-public class SpeakerAdapter extends BaseAdapter {
+public class ScheduleAdapter extends BaseAdapter {
 
     private Context context;
 
-    private List<Speaker> data;
+    private List<Event> data;
 
     @Inject
     DrawableService drawableService;
 
     @Inject
-    public SpeakerAdapter(Context context) {
+    public ScheduleAdapter(Context context) {
         this.context = context;
     }
 
@@ -33,7 +33,7 @@ public class SpeakerAdapter extends BaseAdapter {
     }
 
     @Override
-    public Speaker getItem(int position) {
+    public Event getItem(int position) {
         return data.get(position);
     }
 
@@ -44,23 +44,14 @@ public class SpeakerAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Speaker speaker = data.get(position);
+        Event event = data.get(position);
 
         View view = LayoutInflater.from(context).inflate(R.layout.speaker_row, parent, false);
-
-        ImageView photo = Views.findById(view, R.id.speakerphoto);
-        photo.setImageDrawable(drawableService.loadDrawableByName(speaker.getPhoto()));
-
-        TextView name = Views.findById(view, R.id.speakername);
-        name.setText(speaker.getName());
-
-        TextView company = Views.findById(view, R.id.speakercompany);
-        company.setText(speaker.getCompany());
 
         return view;
     }
 
-    public void setData(List<Speaker> data) {
+    public void setData(List<Event> data) {
         this.data = data;
         notifyDataSetChanged();
     }
