@@ -9,19 +9,12 @@
 
                  android:name=".presentation.BaseApplication">
         <!--android:theme="@style/Theme.Sherlock"-->
-        <activity android:name=".presentation.home.HomeFragment"/>
         <activity android:name=".presentation.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
-        <activity android:name=".presentation.speaker.SpeakerDetailsFragment"/>
-        <activity android:name=".presentation.speaker.SpeakerDashboardFragment"/>
-
-        <activity android:name=".presentation.schedule.ScheduleDetailsFragment"/>
-        <activity android:name=".presentation.schedule.ScheduleDashboardFragment"/>
 
     </application>
 </manifest> 
