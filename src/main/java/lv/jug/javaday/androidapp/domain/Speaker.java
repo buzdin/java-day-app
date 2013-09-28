@@ -14,8 +14,10 @@ public class Speaker implements Parcelable {
     @DatabaseField
     private String company;
 
+    @DatabaseField
     private String photo;
 
+    @DatabaseField
     private String info;
 
     public Speaker(String name, String company, String photo, String info) {
