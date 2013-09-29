@@ -13,9 +13,13 @@ import lv.jug.javaday.androidapp.domain.Event;
 import lv.jug.javaday.androidapp.presentation.BaseApplication;
 
 import javax.inject.Inject;
+import java.util.ArrayList;
 import java.util.List;
 
 public class RoomScheduleFragment extends Fragment {
+
+    private static final String TITLE_KEY = "title";
+    private static final String EVENTS_KEY = "events";
 
     @Inject
     ScheduleAdapter adapter;
@@ -25,9 +29,11 @@ public class RoomScheduleFragment extends Fragment {
 
     private String title;
 
-    private List<Event> events;
+    private ArrayList<Event> events;
 
-    public RoomScheduleFragment(String title, List<Event> events) {
+    public RoomScheduleFragment() {}
+
+    public RoomScheduleFragment(String title, ArrayList<Event> events) {
         this.title = title;
         this.events = events;
     }
@@ -42,6 +48,23 @@ public class RoomScheduleFragment extends Fragment {
         listView.setAdapter(adapter);
 
         return view;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString(TITLE_KEY, title);
+        outState.putParcelableArrayList(EVENTS_KEY, events);
+    }
+
+    @Override
+    public void onActivityCreated(Bundle inState) {
+        super.onViewStateRestored(inState);
+
+        if (inState != null) {
+            title = inState.getString(TITLE_KEY);
+            events = inState.getParcelableArrayList(EVENTS_KEY);
+        }
     }
 
     public CharSequence getTitle() {

@@ -31,7 +31,16 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             Log.i(DatabaseHelper.class.getName(), "onCreate");
             TableUtils.createTable(connectionSource, Speaker.class);
 
-            speakerDao.create(new Speaker("Name", "Company", "portrait", "Info"));
+            speakerDao.create(new Speaker("Name1", "Company", "portrait", "Info"));
+            speakerDao.create(new Speaker("Name2", "Company", "portrait", "Info"));
+            speakerDao.create(new Speaker("Name3", "Company", "portrait", "Info"));
+            speakerDao.create(new Speaker("Name4", "Company", "portrait", "Info"));
+            speakerDao.create(new Speaker("Name5", "Company", "portrait", "Info"));
+            speakerDao.create(new Speaker("Name6", "Company", "portrait", "Info"));
+            speakerDao.create(new Speaker("Name7", "Company", "portrait", "Info"));
+            speakerDao.create(new Speaker("Name8", "Company", "portrait", "Info"));
+            speakerDao.create(new Speaker("Name9", "Company", "portrait", "Info"));
+            speakerDao.create(new Speaker("Name10", "Company", "portrait", "Info"));
 
         } catch (SQLException e) {
             Log.e(DatabaseHelper.class.getName(), "Can't create database", e);

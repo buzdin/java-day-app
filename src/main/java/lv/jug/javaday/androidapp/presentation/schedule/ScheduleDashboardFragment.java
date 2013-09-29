@@ -49,10 +49,17 @@ public class ScheduleDashboardFragment extends BaseFragment {
     private List<RoomScheduleFragment> getFragments(){
         List<RoomScheduleFragment> fragments = new ArrayList<RoomScheduleFragment>();
 
-        List<Event> events1 = Arrays.asList(new Event());
-        List<Event> events2 = Arrays.asList(new Event(), new Event());
-        List<Event> events3 = Arrays.asList(new Event(), new Event(), new Event());
+        ArrayList<Event> events1 = new ArrayList<Event>();
+        events1.add(new Event());
 
+        ArrayList<Event> events2 = new ArrayList<Event>();
+        events2.add(new Event());
+        events2.add(new Event());
+
+        ArrayList<Event> events3 = new ArrayList<Event>();
+        events3.add(new Event());
+        events3.add(new Event());
+        events3.add(new Event());
 
         fragments.add(new RoomScheduleFragment("Room 4", events1));
         fragments.add(new RoomScheduleFragment("Room 5", events2));
