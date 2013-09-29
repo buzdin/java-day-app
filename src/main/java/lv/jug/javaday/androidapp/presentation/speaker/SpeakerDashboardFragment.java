@@ -13,6 +13,7 @@ import lv.jug.javaday.androidapp.R;
 import lv.jug.javaday.androidapp.domain.DatabaseHelper;
 import lv.jug.javaday.androidapp.domain.Speaker;
 import lv.jug.javaday.androidapp.domain.SpeakerBuilder;
+import lv.jug.javaday.androidapp.domain.SpeakerRepository;
 import lv.jug.javaday.androidapp.presentation.BaseFragment;
 import lv.jug.javaday.androidapp.presentation.MainActivity;
 
@@ -24,10 +25,10 @@ import java.util.List;
 public class SpeakerDashboardFragment extends BaseFragment implements AdapterView.OnItemClickListener {
 
     @Inject
-    DatabaseHelper helper;
+    SpeakerAdapter adapter;
 
     @Inject
-    SpeakerAdapter adapter;
+    SpeakerRepository repository;
 
     @InjectView(R.id.speakers)
     ListView speakersListView;
@@ -39,22 +40,11 @@ public class SpeakerDashboardFragment extends BaseFragment implements AdapterVie
 
     @Override
     public void init(Bundle savedInstanceState) {
-        try {
+        List<Speaker> speakers = repository.loadAll();
+        adapter.setData(speakers);
 
-            Dao<Speaker, String> dao = helper.getSpeakerDao();
-            QueryBuilder<Speaker, String> builder = dao.queryBuilder();
-            PreparedQuery<Speaker> preparedQuery = builder.prepare();
-
-            List<Speaker> speakers = dao.query(preparedQuery);
-
-
-            adapter.setData(speakers);
-            speakersListView.setOnItemClickListener(this);
-            speakersListView.setAdapter(adapter);
-
-        } catch (SQLException e){
-            Log.e(SpeakerDashboardFragment.class.getName(), e.getLocalizedMessage());
-        }
+        speakersListView.setOnItemClickListener(this);
+        speakersListView.setAdapter(adapter);
     }
 
     @Override

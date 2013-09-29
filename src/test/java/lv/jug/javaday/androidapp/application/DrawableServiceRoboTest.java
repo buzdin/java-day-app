@@ -26,7 +26,6 @@ public class DrawableServiceRoboTest extends BaseRobolectricTest {
     DrawableService service;
 
     @Test
-    @Ignore
     public void shouldFindPortraitDrawable() {
         Drawable expected = context.getResources().getDrawable(R.drawable.portrait);
         Drawable actual = service.loadDrawableByName("portrait");
