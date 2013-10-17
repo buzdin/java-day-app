@@ -1,9 +1,8 @@
 package lv.jug.javaday.androidapp.presentation;
 
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -39,7 +38,8 @@ public class MainActivity extends FragmentActivity {
 
     ActionBarDrawerToggle drawerToggle;
 
-    @Override protected void onCreate(Bundle state) {
+    @Override
+    protected void onCreate(Bundle state) {
         super.onCreate(state);
 
         // Android constructs Activity instances so we must find the ObjectGraph instance and inject this.
@@ -50,28 +50,33 @@ public class MainActivity extends FragmentActivity {
         initDrawerLayout(state);
     }
 
-    @Override protected void onResume() {
+    @Override
+    protected void onResume() {
         super.onResume();
         bus.register(this);
     }
 
-    @Override protected void onPause() {
+    @Override
+    protected void onPause() {
         super.onPause();
         bus.unregister(this);
     }
 
 
-    @Override protected void onPostCreate(Bundle state) {
+    @Override
+    protected void onPostCreate(Bundle state) {
         super.onPostCreate(state);
         drawerToggle.syncState();
     }
 
-    @Override public void onConfigurationChanged(Configuration newConfig) {
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         drawerToggle.onConfigurationChanged(newConfig);
     }
 
-    @Override public boolean onOptionsItemSelected(MenuItem item) {
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
         return drawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
 
@@ -144,7 +149,7 @@ public class MainActivity extends FragmentActivity {
 
         Fragment fragment = getFragment(selectedItem);
 
-        FragmentManager fragmentManager = getFragmentManager();
+        FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
 
         drawerList.setItemChecked(position, true);
@@ -153,7 +158,7 @@ public class MainActivity extends FragmentActivity {
     }
 
     public void changeFragment(Fragment fragment) {
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
         transaction.replace(R.id.content_frame, fragment);
         transaction.addToBackStack(null);

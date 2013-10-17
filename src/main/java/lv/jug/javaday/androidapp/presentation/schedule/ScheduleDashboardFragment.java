@@ -40,7 +40,7 @@ public class ScheduleDashboardFragment extends BaseFragment {
 //        bar.setDisplayOptions(0, ActionBar.DISPLAY_SHOW_TITLE);
 
         List<RoomScheduleFragment> fragments = getFragments();
-        pageAdapter = new SchedulePageAdapter(((FragmentActivity) getActivity()).getSupportFragmentManager(), fragments);
+        pageAdapter = new SchedulePageAdapter((getActivity()).getSupportFragmentManager(), fragments);
         pager.setAdapter(pageAdapter);
 
         pageIndicator.setViewPager(pager);
@@ -61,9 +61,24 @@ public class ScheduleDashboardFragment extends BaseFragment {
         events3.add(new Event());
         events3.add(new Event());
 
-        fragments.add(new RoomScheduleFragment("Room 4", events1));
-        fragments.add(new RoomScheduleFragment("Room 5", events2));
-        fragments.add(new RoomScheduleFragment("Room 6", events3));
+        RoomScheduleFragment fragment1 = new RoomScheduleFragment();
+        fragment1.setTitle("Room 4");
+        fragment1.setEvents(events1);
+        fragment1.setRetainInstance(true);
+        fragments.add(fragment1);
+
+
+        RoomScheduleFragment fragment2 = new RoomScheduleFragment();
+        fragment2.setTitle("Room 5");
+        fragment2.setEvents(events2);
+        fragment2.setRetainInstance(true);
+        fragments.add(fragment2);
+
+        RoomScheduleFragment fragment3 = new RoomScheduleFragment();
+        fragment3.setTitle("Room 6");
+        fragment3.setEvents(events3);
+        fragment3.setRetainInstance(true);
+        fragments.add(fragment3);
 
         return fragments;
     }
