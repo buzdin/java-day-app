@@ -19,7 +19,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     private Dao<Speaker, String> speakerDao;
-    private Dao<Event, String> eventDao;
+    private Dao<Event, Integer> eventDao;
 
     @Inject
     public DatabaseHelper(Context context) {
@@ -81,7 +81,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         return speakerDao;
      }
 
-     public Dao<Event, String> getEventDao() throws SQLException {
+     public Dao<Event, Integer> getEventDao() throws SQLException {
         if (eventDao == null) {
             eventDao = getDao(Event.class);
         }

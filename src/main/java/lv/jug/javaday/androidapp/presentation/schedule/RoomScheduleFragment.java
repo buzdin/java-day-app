@@ -5,10 +5,12 @@ import android.widget.ListView;
 import butterknife.InjectView;
 import lv.jug.javaday.androidapp.R;
 import lv.jug.javaday.androidapp.domain.Event;
+import lv.jug.javaday.androidapp.domain.EventRepository;
 import lv.jug.javaday.androidapp.presentation.BaseFragment;
 
 import javax.inject.Inject;
 import java.util.ArrayList;
+import java.util.List;
 
 public class RoomScheduleFragment extends BaseFragment {
 
@@ -18,12 +20,14 @@ public class RoomScheduleFragment extends BaseFragment {
     @Inject
     ScheduleAdapter adapter;
 
+    @Inject
+    EventRepository repository;
+
     @InjectView(R.id.event)
     ListView listView;
 
+    private int roomId;
     private String title;
-
-    private ArrayList<Event> events;
 
     @Override
     protected int contentViewId() {
@@ -32,6 +36,8 @@ public class RoomScheduleFragment extends BaseFragment {
 
     @Override
     protected void init(Bundle savedInstanceState) {
+        List<Event> events = repository.loadByRoom(roomId);
+
         adapter.setData(events);
         listView.setAdapter(adapter);
     }
@@ -44,7 +50,7 @@ public class RoomScheduleFragment extends BaseFragment {
         this.title = title;
     }
 
-    public void setEvents(ArrayList<Event> events) {
-        this.events = events;
+    public void setRoomId(int roomId) {
+        this.roomId = roomId;
     }
 }
