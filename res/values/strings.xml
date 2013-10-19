@@ -66,7 +66,7 @@
         building tools for the Scala language.
         He spends most of his time working on the Scala IDE for Eclipse and related ecosystem.
         His interests include concurrency, both OO and functional programming, software design, and testing.
-        Mirco enjoys tweeting as @mircodotta. In his freetime, you'll often see him next to a foosball table.</string>
+        Mirco enjoys tweeting as @mircodotta. In his freetime, you\'ll often see him next to a foosball table.</string>
 
     <!--tero-->
     <string name="tero_name">Tero Parviainen</string>
@@ -85,8 +85,8 @@
     <string name="patroklos_description">Patroklos Papapetrou is a Java architect,
         addicted to software quality and an agile team leader with more than 15 years of experience in software development.
         He believes and invests in people and team spirit seeking quality excellence.
-        He's co-authoring Sonar in action book, he is an active Sonar community member and plugin contributor.
-        He treats software systems as flowers that's why he prefers calling himself a software gardener.</string>
+        He\'s co-authoring Sonar in action book, he is an active Sonar community member and plugin contributor.
+        He treats software systems as flowers that\'s why he prefers calling himself a software gardener.</string>
 
     <!--kuksenko-->
     <string name="kuksenko_name">Sergey Kuksenko</string>
@@ -135,7 +135,7 @@
         developer, architect, manager and "on site disaster engineer ".
         He was involved in small, medium and horribly and nonsense large systems,
         from "waterfall" through Agile to "no methodology" methodology.
-        It all lead him to conclusion that it doesn't matter what you do as long as you do it right,
+        It all lead him to conclusion that it doesn\'t matter what you do as long as you do it right,
         keep it simple and use the right tool to do the job for you. In the meantime he fell in love it TDD,
         Software Craftmanship and beautiful and simple ideas like REST, JavaScript and NOSQL.
         From time to time you can hear his low quality jokes about architecture on conferences in Poland.
