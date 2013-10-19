@@ -51,6 +51,6 @@ public class SpeakerDashboardFragment extends BaseFragment implements AdapterVie
         SpeakerDetailsFragment fragment = new SpeakerDetailsFragment();
         fragment.setArguments(data);
 
-        ((MainActivity) getActivity()).changeFragment(fragment);
+        getMainActivity().changeFragment(fragment);
     }
 }

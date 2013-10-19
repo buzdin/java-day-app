@@ -1,6 +1,8 @@
 package lv.jug.javaday.androidapp.presentation.schedule;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import butterknife.InjectView;
 import lv.jug.javaday.androidapp.R;
@@ -9,13 +11,9 @@ import lv.jug.javaday.androidapp.domain.EventRepository;
 import lv.jug.javaday.androidapp.presentation.BaseFragment;
 
 import javax.inject.Inject;
-import java.util.ArrayList;
 import java.util.List;
 
-public class RoomScheduleFragment extends BaseFragment {
-
-    private static final String TITLE_KEY = "title";
-    private static final String EVENTS_KEY = "events";
+public class RoomScheduleFragment extends BaseFragment implements AdapterView.OnItemClickListener {
 
     @Inject
     ScheduleAdapter adapter;
@@ -40,6 +38,22 @@ public class RoomScheduleFragment extends BaseFragment {
 
         adapter.setData(events);
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(this);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Event event = adapter.getItem(position);
+
+        if(event.getDescription() != null) {
+            Bundle data = new Bundle();
+            data.putParcelable(ScheduleDetailsFragment.KEY_EVENT, event);
+
+            ScheduleDetailsFragment fragment = new ScheduleDetailsFragment();
+            fragment.setArguments(data);
+
+            getMainActivity().changeFragment(fragment);
+        }
     }
 
     public CharSequence getTitle() {

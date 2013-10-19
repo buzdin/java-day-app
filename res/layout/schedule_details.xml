@@ -6,10 +6,28 @@
               android:layout_width="fill_parent"
               android:layout_height="fill_parent">
 
-    <TextView
-            android:id="@+id/textView"
+    <ImageView
+            android:id="@+id/speaker_photo"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Schedule Details, MyActivity"
+            android:contentDescription="@string/no_img_found"/>
+
+    <TextView
+            android:id="@+id/speaker_name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
             />
+
+    <TextView
+            android:id="@+id/event_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            />
+
+    <TextView
+            android:id="@+id/event_description"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            />
+
 </LinearLayout>

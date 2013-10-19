@@ -29,7 +29,7 @@
 
     <ImageView android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:id="@+id/additionalDetails"
+               android:id="@+id/additionalDetailsImg"
                android:background="@null"
                android:layout_gravity="center"
                android:contentDescription="@string/no_img_found"/>

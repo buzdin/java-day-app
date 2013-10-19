@@ -9,11 +9,14 @@ import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
+import lv.jug.javaday.androidapp.infrastructure.common.ClassLogger;
 
 import javax.inject.Inject;
 import java.sql.SQLException;
 
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
+
+    private static ClassLogger logger = new ClassLogger(DatabaseHelper.class);
 
     private static final String DATABASE_NAME = "javaday.db";
     private static final int DATABASE_VERSION = 1;
@@ -29,7 +32,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) {
         try {
-            Log.i(DatabaseHelper.class.getName(), "onCreate");
+            logger.i("onCreate");
             TableUtils.createTable(connectionSource, Speaker.class);
             TableUtils.createTable(connectionSource, Event.class);
 
@@ -48,6 +51,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             getEventDao();
             eventDao.create(new Event(4, "8:30", "Registration", null, null, null));
             eventDao.create(new Event(4, "9:45", "Conference Opening", null, null, null));
+            eventDao.create(new Event(4, "10:00", "Project Lambda: Functional Programming Constructs and Simpler Concurrency in Java SE 8", "description", "Name1", null));
 
             eventDao.create(new Event(5, "8:30", "Registration", null, null, null));
             eventDao.create(new Event(5, "9:45", "Conference Opening", null, null, null));
@@ -56,7 +60,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             eventDao.create(new Event(6, "9:45", "Conference Opening", null, null, null));
 
         } catch (SQLException e) {
-            Log.e(DatabaseHelper.class.getName(), "Can't create database", e);
+            logger.e("Can't create database", e);
             throw new RuntimeException(e);
         }
     }
@@ -64,12 +68,12 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, ConnectionSource connectionSource, int oldVersion, int newVersion) {
         try {
-            Log.i(DatabaseHelper.class.getName(), "onUpgrade");
+            logger.i("onUpgrade");
             TableUtils.dropTable(connectionSource, Speaker.class, true);
             TableUtils.dropTable(connectionSource, Event.class, true);
             onCreate(db, connectionSource);
         } catch (SQLException e) {
-            Log.e(DatabaseHelper.class.getName(), "Can't drop databases", e);
+            logger.e("Can't drop databases", e);
             throw new RuntimeException(e);
         }
     }
