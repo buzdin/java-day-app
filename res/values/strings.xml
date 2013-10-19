@@ -18,4 +18,15 @@
         <item>@string/twitter</item>
     </string-array>
 
+
+    <string name="conf_title">Java Day Riga conference 2013</string>
+    <string name="where">Kino Citadele</string>
+    <string name="adress">13 Janvara st. 8, LV 1050 Riga, Latvia</string>
+    <string name="when">Thu, Nov 28, 2013 8:30 AM - 7:00 PM</string>
+    <string name="description">Description</string>
+    <string name="descripion_info">
+        The conference is organised by Latvian Java User Group and Oracle at November 28th in Riga, Latvia.
+        This is going to be a major Baltic IT event welcoming more than 250 Java programmers from the region.
+        For any questions please contact Latvian JUG.
+    </string>
 </resources>
