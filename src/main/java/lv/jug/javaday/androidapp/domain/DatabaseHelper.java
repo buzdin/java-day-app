@@ -19,6 +19,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     private Dao<Speaker, String> speakerDao;
+    private Dao<Event, String> eventDao;
 
     @Inject
     public DatabaseHelper(Context context) {
@@ -30,7 +31,9 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         try {
             Log.i(DatabaseHelper.class.getName(), "onCreate");
             TableUtils.createTable(connectionSource, Speaker.class);
+            TableUtils.createTable(connectionSource, Event.class);
 
+            getSpeakerDao();
             speakerDao.create(new Speaker("Name1", "Company", "portrait", "Info"));
             speakerDao.create(new Speaker("Name2", "Company", "portrait", "Info"));
             speakerDao.create(new Speaker("Name3", "Company", "portrait", "Info"));
@@ -41,6 +44,16 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             speakerDao.create(new Speaker("Name8", "Company", "portrait", "Info"));
             speakerDao.create(new Speaker("Name9", "Company", "portrait", "Info"));
             speakerDao.create(new Speaker("Name10", "Company", "portrait", "Info"));
+
+            getEventDao();
+            eventDao.create(new Event(4, "8:30", "Registration", null, null, null));
+            eventDao.create(new Event(4, "9:45", "Conference Opening", null, null, null));
+
+            eventDao.create(new Event(5, "8:30", "Registration", null, null, null));
+            eventDao.create(new Event(5, "9:45", "Conference Opening", null, null, null));
+
+            eventDao.create(new Event(6, "8:30", "Registration", null, null, null));
+            eventDao.create(new Event(6, "9:45", "Conference Opening", null, null, null));
 
         } catch (SQLException e) {
             Log.e(DatabaseHelper.class.getName(), "Can't create database", e);
@@ -53,6 +66,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         try {
             Log.i(DatabaseHelper.class.getName(), "onUpgrade");
             TableUtils.dropTable(connectionSource, Speaker.class, true);
+            TableUtils.dropTable(connectionSource, Event.class, true);
             onCreate(db, connectionSource);
         } catch (SQLException e) {
             Log.e(DatabaseHelper.class.getName(), "Can't drop databases", e);
@@ -65,5 +79,12 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             speakerDao = getDao(Speaker.class);
         }
         return speakerDao;
+     }
+
+     public Dao<Event, String> getEventDao() throws SQLException {
+        if (eventDao == null) {
+            eventDao = getDao(Event.class);
+        }
+        return eventDao;
      }
 }

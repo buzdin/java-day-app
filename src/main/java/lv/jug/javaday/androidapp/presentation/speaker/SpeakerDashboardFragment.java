@@ -1,18 +1,12 @@
 package lv.jug.javaday.androidapp.presentation.speaker;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import butterknife.InjectView;
-import com.j256.ormlite.dao.Dao;
-import com.j256.ormlite.stmt.PreparedQuery;
-import com.j256.ormlite.stmt.QueryBuilder;
 import lv.jug.javaday.androidapp.R;
-import lv.jug.javaday.androidapp.domain.DatabaseHelper;
 import lv.jug.javaday.androidapp.domain.Speaker;
-import lv.jug.javaday.androidapp.domain.SpeakerBuilder;
 import lv.jug.javaday.androidapp.domain.SpeakerRepository;
 import lv.jug.javaday.androidapp.presentation.BaseFragment;
 import lv.jug.javaday.androidapp.presentation.MainActivity;
