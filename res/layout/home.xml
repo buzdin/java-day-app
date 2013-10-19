@@ -4,98 +4,189 @@
               android:layout_height="match_parent"
               android:orientation="vertical"
               android:background="@color/screen_background_light"
-              android:weightSum="10"
         >
-
-    <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="0px"
-            android:layout_weight="3"
-            android:background="@android:color/darker_gray"/>
-
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:orientation="vertical">
-        <TextView
-                android:layout_height="wrap_content"
+    <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+        <LinearLayout
                 android:layout_width="fill_parent"
-                android:text="@string/conf_title"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:fontFamily="sans"
-                android:textColor="@color/almost_black"/>
-
-        <TextView
                 android:layout_height="wrap_content"
-                android:layout_width="fill_parent"
-                android:text="@string/when"
-                android:paddingTop="3dp"
-                android:fontFamily="sans-serif"
-                android:textSize="14sp"
-                android:textColor="@color/dark_grey"/>
+                android:weightSum="10"
+                android:orientation="vertical">
 
-        <TextView
-                android:layout_height="wrap_content"
-                android:layout_width="fill_parent"
-                android:text="@string/where"
-                android:paddingTop="10dp"
-                android:textSize="14sp"
-                android:fontFamily="sans-serif"
-                android:textStyle="bold"
-                android:textColor="@color/lighted_black"/>
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:paddingBottom="2dp"
+                    android:background="@color/lighter_gray">
 
-        <TextView
-                android:layout_height="wrap_content"
-                android:layout_width="fill_parent"
-                android:text="@string/adress"
-                android:textSize="14sp"
-                android:fontFamily="sans-serif"
-                android:textColor="@color/dark_grey"/>
+                <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/riga_scaled"/>
+            </LinearLayout>
 
-    </LinearLayout>
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:orientation="vertical">
+                <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="fill_parent"
+                        android:text="@string/conf_title"
+                        android:textSize="18sp"
+                        android:singleLine="true"
+                        android:ellipsize="none"
+                        android:textStyle="bold"
+                        android:fontFamily="sans"
+                        android:textColor="@color/almost_black"/>
+
+                <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="fill_parent"
+                        android:text="@string/when"
+                        android:paddingTop="3dp"
+                        android:fontFamily="sans-serif"
+                        android:textSize="14sp"
+                        android:textColor="@color/dark_grey"/>
+
+                <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="fill_parent"
+                        android:text="@string/where"
+                        android:paddingTop="10dp"
+                        android:textSize="14sp"
+                        android:fontFamily="sans-serif"
+                        android:textStyle="bold"
+                        android:textColor="@color/lighted_black"/>
+
+                <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="fill_parent"
+                        android:text="@string/adress"
+                        android:textSize="14sp"
+                        android:fontFamily="sans-serif"
+                        android:textColor="@color/dark_grey"/>
+
+            </LinearLayout>
+
+            <!--description start-->
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="10dp"
+                    android:padding="10dp"
+                    android:background="@drawable/solid_round_shape"
+                    >
+
+                <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="fill_parent"
+                        android:text="@string/description"
+                        android:paddingBottom="2dp"
+                        android:paddingLeft="10dp"
+                        android:textAllCaps="true"
+                        android:textSize="13sp"
+                        android:fontFamily="sans"
+                        android:textColor="@color/almost_black"/>
+
+                <ImageView android:layout_height="1dp"
+                           android:background="@color/border_color"
+                           android:layout_width="fill_parent"/>
+
+                <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="fill_parent"
+                        android:text="@string/descripion_info"
+                        android:padding="10dp"
+                        android:textSize="14sp"
+                        android:fontFamily="sans"
+                        android:textColor="@color/almost_black"/>
+            </LinearLayout>
+            <!--description end-->
+
+            <!--sponsors block start-->
+            <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:weightSum="2"
+                    >
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_height="0dp"
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:weightSum="3"
+                        >
+                    <ImageView
+                            android:layout_height="wrap_content"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:src="@drawable/odnoklassniki"/>
+                    <ImageView
+                            android:layout_height="wrap_content"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:src="@drawable/ctco_logo"/>
+
+                    <ImageView
+                            android:layout_height="wrap_content"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:src="@drawable/fourfinance"/>
+                </LinearLayout>
 
 
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="10dp"
-            android:padding="10dp"
-            android:background="@drawable/solid_round_shape"
-            >
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_height="0dp"
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:weightSum="3"
+                        >
+                    <ImageView
+                            android:layout_height="wrap_content"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:src="@drawable/askfm"/>
+                    <ImageView
+                            android:layout_height="wrap_content"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:src="@drawable/skills_matter_logo"/>
+                    <ImageView
+                            android:layout_height="wrap_content"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:src="@drawable/ipr"/>
+                </LinearLayout>
+            </LinearLayout>
+            <!--sponsors block end-->
 
-        <TextView
-                android:layout_height="wrap_content"
-                android:layout_width="fill_parent"
-                android:text="@string/description"
-                android:paddingBottom="2dp"
-                android:paddingLeft="10dp"
-                android:textAllCaps="true"
-                android:textSize="13sp"
-                android:fontFamily="sans"
-                android:textColor="@color/almost_black"/>
+        </LinearLayout>
 
-        <ImageView android:layout_height="1dp"
-                   android:background="@color/border_color"
-                   android:layout_width="fill_parent"/>
-
-        <TextView
-                android:layout_height="wrap_content"
-                android:layout_width="fill_parent"
-                android:text="@string/descripion_info"
-                android:padding="10dp"
-                android:textSize="14sp"
-                android:fontFamily="sans"
-                android:textColor="@color/almost_black"/>
-    </LinearLayout>
-
-    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="@string/home"
-            />
+    </ScrollView>
 
 
 </LinearLayout>
