@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
+import butterknife.Views;
 import lv.jug.javaday.androidapp.R;
 import lv.jug.javaday.androidapp.application.DrawableService;
 import lv.jug.javaday.androidapp.domain.Event;
@@ -47,6 +49,8 @@ public class ScheduleAdapter extends BaseAdapter {
         Event event = data.get(position);
 
         View view = LayoutInflater.from(context).inflate(R.layout.speaker_row, parent, false);
+        TextView speakerName = Views.findById(view, R.id.speakercompany);
+        speakerName.setText(event.getTitle());
 
         return view;
     }

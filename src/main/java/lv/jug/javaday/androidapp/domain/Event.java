@@ -8,6 +8,10 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "events")
 public class Event implements Parcelable {
 
+    public static final String ID_ID = "id";
+    public static final String ROOM_ID_ID = "roomId";
+
+
     @DatabaseField(generatedId = true, allowGeneratedIdInsert=true)
     private int id;
 
