@@ -28,19 +28,19 @@ public class Event implements Parcelable {
     private String description;
 
     @DatabaseField
-    private String speakerId;
+    private String speakerName;
 
     @DatabaseField
     private String icon;
 
     public Event() {}
 
-    public Event(int roomId, String startingTime, String title, String description, String speakerId, String icon) {
+    public Event(int roomId, String startingTime, String title, String description, String speakerName, String icon) {
         this.roomId = roomId;
         this.startingTime = startingTime;
         this.title = title;
         this.description = description;
-        this.speakerId = speakerId;
+        this.speakerName = speakerName;
         this.icon = icon;
     }
 
@@ -48,7 +48,7 @@ public class Event implements Parcelable {
         roomId = in.readInt();
         startingTime = in.readString();
         title = in.readString();
-        speakerId = in.readString();
+        speakerName = in.readString();
         icon = in.readString();
         description = in.readString();
     }
@@ -77,12 +77,12 @@ public class Event implements Parcelable {
         this.title = title;
     }
 
-    public String getSpeakerId() {
-        return speakerId;
+    public String getSpeakerName() {
+        return speakerName;
     }
 
-    public void setSpeakerId(String speakerId) {
-        this.speakerId = speakerId;
+    public void setSpeakerName(String speakerName) {
+        this.speakerName = speakerName;
     }
 
     public String getIcon() {
@@ -119,7 +119,7 @@ public class Event implements Parcelable {
         out.writeInt(roomId);
         out.writeString(startingTime);
         out.writeString(title);
-        out.writeString(speakerId);
+        out.writeString(speakerName);
         out.writeString(icon);
         out.writeString(description);
     }

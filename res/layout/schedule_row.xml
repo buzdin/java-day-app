@@ -5,27 +5,33 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
 
+    <ImageView android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:id="@+id/eventIcon"
+               android:background="@null"
+               android:layout_gravity="center"
+               android:contentDescription="@string/no_img_found"/>
+
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:id="@+id/eventtime"
+              android:id="@+id/eventTime"
               android:layout_gravity="center_vertical"/>
 
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:id="@+id/eventname"
+              android:id="@+id/eventTitle"
               android:layout_gravity="center_vertical"/>
 
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:id="@+id/speakername"
+              android:id="@+id/speakerName"
               android:layout_gravity="center_vertical"/>
 
     <ImageView android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:id="@+id/getspeakerinfo"
+               android:id="@+id/additionalDetails"
                android:background="@null"
                android:layout_gravity="center"
-               android:src="@drawable/button_more"
                android:contentDescription="@string/no_img_found"/>
 
 </LinearLayout>

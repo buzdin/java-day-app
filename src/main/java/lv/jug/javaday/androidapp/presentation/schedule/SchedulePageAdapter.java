@@ -28,6 +28,5 @@ public class SchedulePageAdapter extends FragmentPagerAdapter {
     @Override
     public CharSequence getPageTitle(int i) {
         return fragments.get(i).getTitle();
-
     }
 }
