@@ -29,4 +29,166 @@
         This is going to be a major Baltic IT event welcoming more than 250 Java programmers from the region.
         For any questions please contact Latvian JUG.
     </string>
+
+
+    <!--speakers start-->
+
+    <!--simon-->
+    <string name="simon_ritter_name">Simon Ritter</string>
+    <string name="simon_ritter_company">Oracle</string>
+    <string name="simon_ritter_presentation_title">
+        Project Lambda: Functional Programming Constructs and Simpler Concurrency in Java SE 8</string>
+    <string name="simon_ritter_description">
+        Simon Ritter is a Java Technology Evangelist at Oracle Corporation.
+        Simon has been in the IT business since 1984 and holds a Bachelor of Science degree in Physics from Brunel University in the U.K.
+        Originally working in the area of UNIX development for AT&amp;T UNIX System Labs and then Novell,
+        Simon moved to Sun in 1996. At this time he started working with Java technology and has spent time working both in Java technology development and consultancy.
+        Having moved to Oracle as part of the Sun acquisition he now focuses on the core Java platform, Java for client applications and embedded Java.
+        He also continues to develop demonstrations that push the boundaries of Java for applications like gestural interfaces and embedded robot controllers.
+        Follow him on Twitter, @speakjava and his blog at blogs.oracle.com/speakjava.</string>
+
+    <!--cedric-->
+    <string name="cedric_name">Cédric Champeau</string>
+    <string name="cedric_company">Pivotal</string>
+    <string name="cedric_presentation_title">10 years of Groovy!</string>
+    <string name="cedric_description">
+        Cédric Champeau is a core Groovy committer.
+        He joined SpringSource, a division of VMware, in order to help developing the language.
+        Prior to that, he spent several years at using Groovy in multiple industrial contexts including DSLs for natural language processing, scripting or even workflows.
+        He worked on the implementation of static type checking and static compilation for Groovy 2.</string>
+
+    <!--mirco-->
+    <string name="mirco_dotta_name">Mirco Dotta</string>
+    <string name="mirco_dotta_company">Typesafe</string>
+    <string name="mirco_dotta_presentation_title">Effective Scala</string>
+    <string name="mirco_dotta_description">
+        Mirco Dotta is a Software Engineer at Typesafe,
+        building tools for the Scala language.
+        He spends most of his time working on the Scala IDE for Eclipse and related ecosystem.
+        His interests include concurrency, both OO and functional programming, software design, and testing.
+        Mirco enjoys tweeting as @mircodotta. In his freetime, you'll often see him next to a foosball table.</string>
+
+    <!--tero-->
+    <string name="tero_name">Tero Parviainen</string>
+    <string name="tero_company">Independent</string>
+    <string name="tero_presentation_title">Immutable Java</string>
+    <string name="tero_description">Tero Parviainen is an independent software maker with 12 years of professional yak shaving under the belt.
+        During this time he has worn many different hats, ranging from consultant to startup CTO.
+        His weapons of choice are Clojure, JavaScript, Java, and Ruby.
+        Tero is currently putting together the Clojure Cup programming competition and has also just finished writing a book
+        called Real-time Web Application Development with Vert.x 2.0.</string>
+
+    <!--patraklos-->
+    <string name="patroklos_name">Patroklos Papapetrou</string>
+    <string name="patroklos_company">FoodTec Solutions Inc.</string>
+    <string name="patroklos_presentation_title">Tracking and Improving Software Quality with Sonar</string>
+    <string name="patroklos_description">Patroklos Papapetrou is a Java architect,
+        addicted to software quality and an agile team leader with more than 15 years of experience in software development.
+        He believes and invests in people and team spirit seeking quality excellence.
+        He's co-authoring Sonar in action book, he is an active Sonar community member and plugin contributor.
+        He treats software systems as flowers that's why he prefers calling himself a software gardener.</string>
+
+    <!--kuksenko-->
+    <string name="kuksenko_name">Sergey Kuksenko</string>
+    <string name="kuksenko_company">Oracle</string>
+    <string name="kuksenko_presentation_title">JDK8: Stream style</string>
+    <string name="kuksenko_description">Sergey is Java Performance Engineer working for Oracle.
+        His primary skills are performance engineering, benchmarking, JVMs, JIT compilers, and class libraries.
+        He’s been accelerating JVMs since 2005 when he was worked for Intel in Apache Harmony performance team.</string>
+
+    <!--sizov-->
+    <string name="sizov_name">Eduard Sizov</string>
+    <string name="sizov_company">4finance</string>
+    <string name="sizov_presentation_title">Micro Service Architecture</string>
+    <string name="sizov_description">CEduards is software craftsman passionate about every aspect of software development.
+        His interests include lightweight architectures, clean code, domain-driven design, automation,
+        continuous delivery and other spices. Being a Chief Software Architect in 4finance,
+        he is responsible for building a premier kick-ass financial platform speaking Java,
+        running in the form of various products around the globe.</string>
+
+    <!--gulati-->
+    <string name="gulati_name">Shekhar Gulati</string>
+    <string name="gulati_company">Red Hat</string>
+    <string name="gulati_presentation_title">Thinking Beyond RDBMS : Building Polyglot Persistence Java Applications</string>
+    <string name="gulati_description">Shekhar Gulati is Principal OpenShift Developer Evangelist working with Red Hat.
+        He has 8 years of software web development experience. He regularly speaks at various conference and user groups around the world.
+        Shekhar is an active writer and has written many technical articles for IBM DeveloperWorks, Developer.com, and JavaLobby.
+        His current interests are NoSQL databases, cloud computing, mainly Platform-as-a-Service (PaaS), mobile development,
+        javascript frameworks, and new things happening in Java community.
+        When he is not traveling, he loves to write code and read technology books. You can follow him on twitter @ shekhargulati.</string>
+
+    <!--valenta-->
+    <string name="valenta_name">Jan Valenta</string>
+    <string name="valenta_company">Oracle</string>
+    <string name="valenta_presentation_title">JavaFX Deployment</string>
+    <string name="valenta_description">Jan Valenta has been developing physics algorithms and
+        designing user interface for experiments at CERN before he joined Sun Microsystems in 2006.
+        At Sun, he contributed to Java Wireless Toolkit project, participated on the SVG Tiny implementation and low level renderer development.
+        In the JavaFX area, he worked on support for hardware accelerated devices and recently focuses on
+        tools support, deployment, and javadoc doclet.</string>
+
+    <!--palka-->
+    <string name="jaroslaw_palka_name">Jarosław Pałka</string>
+    <string name="jaroslaw_palka_company">Lumesse</string>
+    <string name="jaroslaw_palka_presentation_title">Practical Spring Data</string>
+    <string name="jaroslaw_palka_description">Jarek spent last 15 years of his life in IT working as database and system administrator,
+        developer, architect, manager and "on site disaster engineer ".
+        He was involved in small, medium and horribly and nonsense large systems,
+        from "waterfall" through Agile to "no methodology" methodology.
+        It all lead him to conclusion that it doesn't matter what you do as long as you do it right,
+        keep it simple and use the right tool to do the job for you. In the meantime he fell in love it TDD,
+        Software Craftmanship and beautiful and simple ideas like REST, JavaScript and NOSQL.
+        From time to time you can hear his low quality jokes about architecture on conferences in Poland.
+        He is trying to make a world a better place as member of SSEEP and blog author at http://geekyprimitives.wordpress.com.</string>
+
+    <!--zeeb-->
+    <string name="zeeb_name">Nick Zeeb</string>
+    <string name="zeeb_company">LMAX</string>
+    <string name="zeeb_presentation_title">High Performance Design</string>
+    <string name="zeeb_description">Nick Zeeb is a core Java developer at LMAX Exchange in London.
+        LMAX operates a financial exchange that is capable of handling 20,000 orders per second with a
+        mean latency of 1.5 milliseconds. Nick has been involved in the financial industry since 2006 and
+        has seen some interesting times while working at a hedge fund, an investment bank and now an exchange.</string>
+
+    <!--fedorov-->
+    <string name="fedorov_name">Alexey Fedorov</string>
+    <string name="fedorov_company">Oracle</string>
+    <string name="fedorov_presentation_title">Java platform trade-offs</string>
+    <string name="fedorov_description">Alexey graduated Saint-Petersburg State University,
+        where he defended his diploma and PhD thesis on the theory of dynamical systems.
+        He works in Oracle, Java Platform group, Java Compatibility Kit (JCK).
+        Alexey is one of the leaders of the St. Petersburg Java User Group and cross-technology community CodeFreeze.
+        Also he is one of the organizers of the St. Petersburg Java-conferences JPoint and Joker.</string>
+
+    <!--luciano-->
+    <string name="luciano_name">Luciano Fiandesio</string>
+    <string name="luciano_company">Aestas/IT</string>
+    <string name="luciano_presentation_title">Groovy DevOps in the Cloud</string>
+    <string name="luciano_description">Luciano Fiandesio is a programmer, technology enthusiast and entrepreneur living in Zurich, Switzerland.
+        Luciano has been working for the last 18 years in 12 different countries as architect and developer for large
+        corporations and small start-ups: Nokia, European Central Bank, BNP Paribas, Ericsson are among his clients.
+        He loves coding and designing solutions that are both elegant and rock solid. When not busy learning the next big thing,
+        he likes playing with his analogue cameras and cooking Italian food.
+        Two years ago he started a consulting company focused on software factory automation, Aestas IT, where Groovy plays a big role.
+        He holds a Master Degree in Literature and Philosophy from Rome University.</string>
+
+    <!--antipin-->
+    <string name="antipin_name">Roman Antipin</string>
+    <string name="antipin_company">Odnoklassniki</string>
+    <string name="antipin_presentation_title">Managing highly concurrent data at Odnoklassniki</string>
+    <string name="antipin_description">Roman is a leading developer at Odnoklassniki since 2010.
+        As a platform team member, he is engaged in the development and implementation of distributed storage systems.
+        Before joining Odnoklassniki team he gained distributed systems experience developing server side of a real-time
+        network distributed monitoring system at Devexperts company.</string>
+
+    <!--Magda-->
+    <string name="magda_name">Denis Magda</string>
+    <string name="magda_company">Oracle</string>
+    <string name="magda_presentation_title">Modernize Your Home or Garage with Java ME Embedded</string>
+    <string name="magda_description">Denis is a technical lead of Java ME Embedded porting team at Oracle.
+        The team is responsible for the Java ME Embedded porting process on wide variety of systems on a chip,
+        micro controllers and other constrained devices. Before Denis moved its interest
+        into the small embedded world he was working as a member of Java ME Multimedia team at Oracle for several years.</string>
+
+    <!--speakers end-->
 </resources>
