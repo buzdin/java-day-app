@@ -1,5 +1,7 @@
 package lv.jug.javaday.androidapp.presentation.schedule;
 
+import android.app.Activity;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,6 +16,9 @@ import javax.inject.Inject;
 import java.util.List;
 
 public class RoomScheduleFragment extends BaseFragment implements AdapterView.OnItemClickListener {
+
+    public static final String KEY_ROOM_ID = "roomId";
+    public static final String KEY_TITLE = "title";
 
     @Inject
     ScheduleAdapter adapter;
@@ -34,11 +39,23 @@ public class RoomScheduleFragment extends BaseFragment implements AdapterView.On
 
     @Override
     protected void init(Bundle savedInstanceState) {
+        if (savedInstanceState != null) {
+            roomId = savedInstanceState.getInt(KEY_ROOM_ID);
+            title = savedInstanceState.getString(KEY_TITLE);
+        }
+
         List<Event> events = repository.loadByRoom(roomId);
 
         adapter.setData(events);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(this);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle out) {
+        super.onSaveInstanceState(out);
+        out.putInt(KEY_ROOM_ID, roomId);
+        out.putString(KEY_TITLE, title);
     }
 
     @Override

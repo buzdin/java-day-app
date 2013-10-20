@@ -2,21 +2,15 @@ package lv.jug.javaday.androidapp.presentation.schedule;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 import butterknife.InjectView;
 import com.viewpagerindicator.TitlePageIndicator;
 import lv.jug.javaday.androidapp.R;
-import lv.jug.javaday.androidapp.domain.Event;
 import lv.jug.javaday.androidapp.presentation.BaseFragment;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public class ScheduleDashboardFragment extends BaseFragment {
 
@@ -39,14 +33,13 @@ public class ScheduleDashboardFragment extends BaseFragment {
 //        bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 //        bar.setDisplayOptions(0, ActionBar.DISPLAY_SHOW_TITLE);
 
-        List<RoomScheduleFragment> fragments = getFragments();
-        pageAdapter = new SchedulePageAdapter((getActivity()).getSupportFragmentManager(), fragments);
+        pageAdapter = new SchedulePageAdapter((getActivity()).getSupportFragmentManager(), createFragments());
         pager.setAdapter(pageAdapter);
 
         pageIndicator.setViewPager(pager);
     }
 
-    private List<RoomScheduleFragment> getFragments(){
+    private List<RoomScheduleFragment> createFragments(){
         List<RoomScheduleFragment> fragments = new ArrayList<RoomScheduleFragment>();
 
         RoomScheduleFragment fragment1 = new RoomScheduleFragment();
@@ -66,5 +59,17 @@ public class ScheduleDashboardFragment extends BaseFragment {
         fragments.add(fragment3);
 
         return fragments;
+    }
+
+
+    public void notifyDataSetChanged() {
+        pager.invalidate();
+        pageAdapter.setFragments(createFragments());
+        pager.getAdapter().notifyDataSetChanged();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
     }
 }
