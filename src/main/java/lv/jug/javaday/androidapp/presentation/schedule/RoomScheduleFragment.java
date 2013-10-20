@@ -32,16 +32,28 @@ public class RoomScheduleFragment extends BaseFragment implements AdapterView.On
     private int roomId;
     private String title;
 
+    public static RoomScheduleFragment newInstance(int roomId, String title) {
+        Bundle args = new Bundle();
+        args.putInt(KEY_ROOM_ID, roomId);
+        args.putString(KEY_TITLE, title);
+
+        RoomScheduleFragment fragment = new RoomScheduleFragment();
+        fragment.setArguments(args);
+
+        return fragment;
+    }
+
     @Override
     protected int contentViewId() {
         return R.layout.room_schedule;
     }
 
     @Override
-    protected void init(Bundle savedInstanceState) {
-        if (savedInstanceState != null) {
-            roomId = savedInstanceState.getInt(KEY_ROOM_ID);
-            title = savedInstanceState.getString(KEY_TITLE);
+    protected void init(Bundle in) {
+        Bundle bundle = in != null ? in : getArguments();
+        if (bundle != null) {
+            roomId = bundle.getInt(KEY_ROOM_ID);
+            title = bundle.getString(KEY_TITLE);
         }
 
         List<Event> events = repository.loadByRoom(roomId);
@@ -76,13 +88,5 @@ public class RoomScheduleFragment extends BaseFragment implements AdapterView.On
 
     public CharSequence getTitle() {
         return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setRoomId(int roomId) {
-        this.roomId = roomId;
     }
 }

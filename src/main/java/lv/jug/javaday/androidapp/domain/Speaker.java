@@ -20,6 +20,8 @@ public class Speaker implements Parcelable {
     @DatabaseField
     private String info;
 
+    public Speaker() {}
+
     public Speaker(String name, String company, String photo, String info) {
         this.name = name;
         this.company = company;
@@ -33,8 +35,6 @@ public class Speaker implements Parcelable {
         photo = in.readString();
         info = in.readString();
     }
-
-    public Speaker() {}
 
     public String getName() {
         return name;

@@ -39,30 +39,20 @@ public class ScheduleDashboardFragment extends BaseFragment {
         pageIndicator.setViewPager(pager);
     }
 
+    @Override
+    public void onViewStateRestored(Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+
+        init(savedInstanceState);
+    }
+
     private List<RoomScheduleFragment> createFragments(){
         List<RoomScheduleFragment> fragments = new ArrayList<RoomScheduleFragment>();
 
-        RoomScheduleFragment fragment1 = new RoomScheduleFragment();
-        fragment1.setTitle("Room 4");
-        fragment1.setRoomId(4);
-        fragments.add(fragment1);
-
-
-        RoomScheduleFragment fragment2 = new RoomScheduleFragment();
-        fragment2.setTitle("Room 5");
-        fragment2.setRoomId(5);
-        fragments.add(fragment2);
-
-        RoomScheduleFragment fragment3 = new RoomScheduleFragment();
-        fragment3.setTitle("Room 6");
-        fragment3.setRoomId(6);
-        fragments.add(fragment3);
+        fragments.add(RoomScheduleFragment.newInstance(4, "Room 4"));
+        fragments.add(RoomScheduleFragment.newInstance(5, "Room 5"));
+        fragments.add(RoomScheduleFragment.newInstance(6, "Room 6"));
 
         return fragments;
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
     }
 }

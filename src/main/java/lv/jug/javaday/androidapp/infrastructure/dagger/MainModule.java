@@ -40,7 +40,8 @@ public class MainModule implements DaggerModule {
         return new Bus();
     }
 
-    @Provides Context provideContext() {
+    @Provides
+    Context provideContext() {
         return appContext;
     }
 

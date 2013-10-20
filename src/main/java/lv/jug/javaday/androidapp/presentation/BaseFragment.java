@@ -38,9 +38,9 @@ public abstract class BaseFragment extends Fragment {
         bus.unregister(this);
     }
 
-    protected abstract int contentViewId();
+    protected void init(Bundle savedInstanceState){}
 
-    protected abstract void init(Bundle savedInstanceState);
+    protected abstract int contentViewId();
 
     public MainActivity getMainActivity() {
         return (MainActivity) getActivity();

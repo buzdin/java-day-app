@@ -147,7 +147,6 @@ public class MainActivity extends FragmentActivity {
         drawerLayout.closeDrawer(drawerList);
     }
 
-    // TODO: Should be refactored
     private Fragment loadFragment(String selectedItem) {
         Fragment fragment;
         if(selectedItem.equals(getString(R.string.home))) {

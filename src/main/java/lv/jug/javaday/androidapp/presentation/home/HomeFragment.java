@@ -11,9 +11,4 @@ public class HomeFragment extends BaseFragment {
     protected int contentViewId() {
         return R.layout.home;
     }
-
-    @Override
-    protected void init(Bundle savedInstanceState) {
-
-    }
 }
