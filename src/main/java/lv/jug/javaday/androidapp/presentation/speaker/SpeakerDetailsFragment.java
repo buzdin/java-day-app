@@ -9,7 +9,6 @@ import lv.jug.javaday.androidapp.R;
 import lv.jug.javaday.androidapp.application.DrawableService;
 import lv.jug.javaday.androidapp.domain.Speaker;
 import lv.jug.javaday.androidapp.presentation.BaseFragment;
-import lv.jug.javaday.androidapp.presentation.MainActivity;
 
 import javax.inject.Inject;
 
@@ -44,7 +43,7 @@ public class SpeakerDetailsFragment extends BaseFragment {
     }
 
     private void showSpeaker(Speaker speaker) {
-        Drawable portrait = drawableService.loadDrawableByName(speaker.getPhoto());
+        Drawable portrait = drawableService.loadDrawable(speaker.getPhoto());
 
         speakerName.setText(speaker.getName());
         speakerCompany.setText(speaker.getCompany());

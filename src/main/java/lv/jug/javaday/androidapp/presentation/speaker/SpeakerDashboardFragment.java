@@ -43,7 +43,7 @@ public class SpeakerDashboardFragment extends BaseFragment implements AdapterVie
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Speaker speaker = adapter.getItem(position);
+        Speaker speaker = (Speaker) adapter.getItem(position);
 
         Bundle data = new Bundle();
         data.putParcelable(SpeakerDetailsFragment.KEY_SPEAKER, speaker);

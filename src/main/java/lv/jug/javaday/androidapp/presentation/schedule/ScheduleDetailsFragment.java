@@ -52,7 +52,7 @@ public class ScheduleDetailsFragment extends BaseFragment {
         Speaker speaker = speakerRepository.loadByName(speakerId);
 
         speakerName.setText(speakerId);
-        Drawable drawable = drawableService.loadDrawableByName(speaker.getPhoto());
+        Drawable drawable = drawableService.loadDrawable(speaker.getPhoto());
         speakerPhoto.setImageDrawable(drawable);
 
         eventTitle.setText(event.getTitle());

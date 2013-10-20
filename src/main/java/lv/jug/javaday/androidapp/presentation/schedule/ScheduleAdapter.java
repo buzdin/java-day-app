@@ -1,59 +1,33 @@
 package lv.jug.javaday.androidapp.presentation.schedule;
 
-import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import butterknife.Views;
 import lv.jug.javaday.androidapp.R;
 import lv.jug.javaday.androidapp.application.DrawableService;
 import lv.jug.javaday.androidapp.domain.Event;
+import lv.jug.javaday.androidapp.presentation.common.CommonBaseAdapter;
 
 import javax.inject.Inject;
-import java.util.List;
 
-public class ScheduleAdapter extends BaseAdapter {
-
-    private Context context;
-
-    private List<Event> data;
+public class ScheduleAdapter extends CommonBaseAdapter {
 
     @Inject
     DrawableService drawableService;
 
-    @Inject
-    public ScheduleAdapter(Context context) {
-        this.context = context;
-    }
-
-    @Override
-    public int getCount() {
-        return data.size();
-    }
-
-    @Override
-    public Event getItem(int position) {
-        return data.get(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View view = LayoutInflater.from(context).inflate(R.layout.schedule_row, parent, false);
-        Event event = data.get(position);
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.schedule_row, parent, false);
+        Event event = (Event) getItem(position);
 
         ImageView icon = Views.findById(view, R.id.eventIcon);
         String iconName = event.getIcon();
         if(iconName != null) {
-            Drawable drawable = drawableService.loadDrawableByName(iconName);
+            Drawable drawable = drawableService.loadDrawable(iconName);
             icon.setImageDrawable(drawable);
         }
 
@@ -68,15 +42,10 @@ public class ScheduleAdapter extends BaseAdapter {
 
         ImageView moreButton = Views.findById(view, R.id.additionalDetailsImg);
         if (event.getDescription() != null) {
-            Drawable drawable = context.getResources().getDrawable(R.drawable.button_more);
+            Drawable drawable = drawableService.loadDrawable(R.drawable.button_more);
             moreButton.setImageDrawable(drawable);
         }
 
         return view;
-    }
-
-    public void setData(List<Event> data) {
-        this.data = data;
-        notifyDataSetChanged();
     }
 }

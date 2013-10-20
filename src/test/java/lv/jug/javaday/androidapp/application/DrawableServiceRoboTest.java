@@ -5,7 +5,6 @@ import android.graphics.drawable.Drawable;
 import dagger.Module;
 import lv.jug.javaday.androidapp.R;
 import lv.jug.javaday.androidapp.BaseRobolectricTest;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import javax.inject.Inject;
@@ -28,7 +27,7 @@ public class DrawableServiceRoboTest extends BaseRobolectricTest {
     @Test
     public void shouldFindPortraitDrawable() {
         Drawable expected = context.getResources().getDrawable(R.drawable.portrait);
-        Drawable actual = service.loadDrawableByName("portrait");
+        Drawable actual = service.loadDrawable("portrait");
 
         assertThat(actual.toString(), equalTo(expected.toString()));
     }

@@ -1,6 +1,5 @@
 package lv.jug.javaday.androidapp.presentation.speaker;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,47 +8,24 @@ import butterknife.Views;
 import lv.jug.javaday.androidapp.R;
 import lv.jug.javaday.androidapp.application.DrawableService;
 import lv.jug.javaday.androidapp.domain.Speaker;
+import lv.jug.javaday.androidapp.presentation.common.CommonBaseAdapter;
 
 import javax.inject.Inject;
 import java.util.List;
 
-public class SpeakerAdapter extends BaseAdapter {
-
-    private Context context;
-
-    private List<Speaker> data;
+public class SpeakerAdapter extends CommonBaseAdapter {
 
     @Inject
     DrawableService drawableService;
 
-    @Inject
-    public SpeakerAdapter(Context context) {
-        this.context = context;
-    }
-
-    @Override
-    public int getCount() {
-        return data.size();
-    }
-
-    @Override
-    public Speaker getItem(int position) {
-        return data.get(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Speaker speaker = data.get(position);
+        Speaker speaker = (Speaker) getItem(position);
 
-        View view = LayoutInflater.from(context).inflate(R.layout.speaker_row, parent, false);
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.speaker_row, parent, false);
 
         ImageView photo = Views.findById(view, R.id.speakerphoto);
-        photo.setImageDrawable(drawableService.loadDrawableByName(speaker.getPhoto()));
+        photo.setImageDrawable(drawableService.loadDrawable(speaker.getPhoto()));
 
         TextView name = Views.findById(view, R.id.speakername);
         name.setText(speaker.getName());
@@ -58,10 +34,5 @@ public class SpeakerAdapter extends BaseAdapter {
         company.setText(speaker.getCompany());
 
         return view;
-    }
-
-    public void setData(List<Speaker> data) {
-        this.data = data;
-        notifyDataSetChanged();
     }
 }

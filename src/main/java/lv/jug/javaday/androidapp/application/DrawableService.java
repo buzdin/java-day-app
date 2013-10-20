@@ -11,9 +11,14 @@ public class DrawableService {
     @Inject
     Context context;
 
-    public Drawable loadDrawableByName(String photo) {
+    public Drawable loadDrawable(String photo) {
         Resources resources = context.getResources();
         int id = resources.getIdentifier(photo, "drawable", context.getPackageName());
         return resources.getDrawable(id);
+    }
+
+    public Drawable loadDrawable(int photo) {
+        Resources resources = context.getResources();
+        return resources.getDrawable(photo);
     }
 }
