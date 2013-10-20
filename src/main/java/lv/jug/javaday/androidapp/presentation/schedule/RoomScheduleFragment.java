@@ -54,6 +54,7 @@ public class RoomScheduleFragment extends BaseFragment implements AdapterView.On
     @Override
     public void onSaveInstanceState(Bundle out) {
         super.onSaveInstanceState(out);
+        setUserVisibleHint(true);
         out.putInt(KEY_ROOM_ID, roomId);
         out.putString(KEY_TITLE, title);
     }

@@ -3,13 +3,14 @@ package lv.jug.javaday.androidapp.presentation.schedule;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.List;
 
-public class SchedulePageAdapter extends FragmentPagerAdapter {
+public class SchedulePageAdapter extends FragmentStatePagerAdapter {
 
     private List<RoomScheduleFragment> fragments;
 
@@ -23,19 +24,6 @@ public class SchedulePageAdapter extends FragmentPagerAdapter {
         return this.fragments.get(position);
     }
 
-//    @Override
-//    public void destroyItem(ViewGroup container, int position, Object object) {
-//        super.destroyItem(container, position, object);
-//        fragments.remove(position);
-//    }
-
-//    @Override
-//    public void destroyItem(ViewGroup collection, int position, Object view) {
-//        super.destroyItem(collection, position, view);
-//        collection.removeView((View) view);
-//        ((Fragment) view).
-//    }
-
     @Override
     public int getCount() {
         return this.fragments.size();
@@ -46,8 +34,27 @@ public class SchedulePageAdapter extends FragmentPagerAdapter {
         return fragments.get(i).getTitle();
     }
 
-    public int getItemPosition(Object object) {
-        return POSITION_NONE;
+    public int getItemPosition(Object item) {
+        RoomScheduleFragment fragment = (RoomScheduleFragment)item;
+        String title = (String) fragment.getTitle();
+        int position = findByTitle(fragments, title);
+
+        if (position >= 0) {
+            return position;
+        } else {
+            return POSITION_NONE;
+        }
+    }
+
+    private int findByTitle(List<RoomScheduleFragment> fragments, String title) {
+        for (int i = 0; i < fragments.size(); i++){
+            RoomScheduleFragment fragment = fragments.get(i);
+            if (fragment.getTitle().equals(title)){
+                return i;
+            }
+        }
+
+        return -1;
     }
 
     public void setFragments(List<RoomScheduleFragment> fragments) {

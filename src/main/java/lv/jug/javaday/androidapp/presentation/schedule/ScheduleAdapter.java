@@ -66,12 +66,11 @@ public class ScheduleAdapter extends BaseAdapter {
         TextView speakerName = Views.findById(view, R.id.speakerName);
         speakerName.setText(event.getSpeakerName());
 
-        // TODO: Some crazy bug here
-//        ImageView moreButton = Views.findById(view, R.id.additionalDetailsImg);
-//        if (event.getDescription() != null) {
-//            Drawable drawable = context.getResources().getDrawable(R.drawable.button_more);
-//            moreButton.setImageDrawable(drawable);
-//        }
+        ImageView moreButton = Views.findById(view, R.id.additionalDetailsImg);
+        if (event.getDescription() != null) {
+            Drawable drawable = context.getResources().getDrawable(R.drawable.button_more);
+            moreButton.setImageDrawable(drawable);
+        }
 
         return view;
     }
