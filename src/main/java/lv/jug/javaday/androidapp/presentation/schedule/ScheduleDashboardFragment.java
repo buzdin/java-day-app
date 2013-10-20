@@ -61,13 +61,6 @@ public class ScheduleDashboardFragment extends BaseFragment {
         return fragments;
     }
 
-
-    public void notifyDataSetChanged() {
-        pager.invalidate();
-        pageAdapter.setFragments(createFragments());
-        pager.getAdapter().notifyDataSetChanged();
-    }
-
     @Override
     public void onResume() {
         super.onResume();

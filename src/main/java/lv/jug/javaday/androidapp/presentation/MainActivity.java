@@ -133,34 +133,33 @@ public class MainActivity extends FragmentActivity {
         String[] navigationItems = getResources().getStringArray(R.array.navigation_drawer);
         String selectedItem = navigationItems[position];
 
-        Fragment fragment = getFragment(selectedItem);
+        Fragment fragment = getSupportFragmentManager().findFragmentByTag(selectedItem);
+        Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.content_frame);
+        if(currentFragment == null || ! (currentFragment.equals(fragment))){
+            fragment = loadFragment(selectedItem);
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.content_frame, fragment, selectedItem).commit();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.content_frame, fragment, selectedItem).commit();
+        }
 
         drawerList.setItemChecked(position, true);
         setTitle(selectedItem);
         drawerLayout.closeDrawer(drawerList);
     }
 
-    private Fragment getFragment(String selectedItem) {
-        Fragment fragment = getSupportFragmentManager().findFragmentByTag(selectedItem);
-        if(fragment == null) {
-            if(selectedItem.equals(getString(R.string.home))) {
-                fragment = new HomeFragment();
-            } else if(selectedItem.equals(getString(R.string.schedule))) {
-                fragment = new ScheduleDashboardFragment();
-            } else if(selectedItem.equals(getString(R.string.speakers))) {
-                fragment = new SpeakerDashboardFragment();
-            } else if(selectedItem.equals(getString(R.string.twitter))) {
-                fragment = new HomeFragment();
-            } else {
-                fragment = new HomeFragment();
-            }
+    // TODO: Should be refactored
+    private Fragment loadFragment(String selectedItem) {
+        Fragment fragment;
+        if(selectedItem.equals(getString(R.string.home))) {
+            fragment = new HomeFragment();
+        } else if(selectedItem.equals(getString(R.string.schedule))) {
+            fragment = new ScheduleDashboardFragment();
+        } else if(selectedItem.equals(getString(R.string.speakers))) {
+            fragment = new SpeakerDashboardFragment();
+        } else if(selectedItem.equals(getString(R.string.twitter))) {
+            fragment = new HomeFragment();
         } else {
-            if(fragment instanceof ScheduleDashboardFragment){
-                ((ScheduleDashboardFragment) fragment).notifyDataSetChanged();
-            }
+            fragment = new HomeFragment();
         }
 
         return fragment;

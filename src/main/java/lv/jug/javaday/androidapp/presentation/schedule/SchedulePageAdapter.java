@@ -56,9 +56,4 @@ public class SchedulePageAdapter extends FragmentStatePagerAdapter {
 
         return -1;
     }
-
-    public void setFragments(List<RoomScheduleFragment> fragments) {
-        this.fragments = fragments;
-        notifyDataSetChanged();
-    }
 }
