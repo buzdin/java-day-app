@@ -21,7 +21,14 @@ public class SpeakerAdapter extends BaseListAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         Speaker speaker = get(position);
 
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.speaker_row, parent, false);
+        int resource;
+        if(position % 2 == 0) {
+            resource = R.layout.speaker_row_left;
+        } else {
+            resource = R.layout.speaker_row_right;
+        }
+        View view = LayoutInflater.from(getContext()).inflate(resource, parent, false);
+
 
         ImageView photo = Views.findById(view, R.id.speakerphoto);
         photo.setImageDrawable(drawableService.loadDrawable(speaker.getPhoto()));

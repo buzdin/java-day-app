@@ -20,12 +20,4 @@
               android:id="@+id/speakercompany"
               android:layout_gravity="center_vertical"/>
 
-    <ImageView android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:id="@+id/getspeakerinfo"
-               android:background="@null"
-               android:layout_gravity="center"
-               android:src="@drawable/button_more"
-               android:contentDescription="@string/no_img_found"/>
-
 </LinearLayout>
