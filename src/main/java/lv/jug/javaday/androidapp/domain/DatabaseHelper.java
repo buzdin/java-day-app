@@ -166,7 +166,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         String description = null;
         if (speakerName != null) {
             title = strings.loadString(speakerName + "_presentation_title");
-            description = "DESCRIPTION"; // strings.loadString(speakerName + "_presentation_description");
+            description = strings.loadString(speakerName + "_presentation_description");
             speakerName = strings.loadString(speakerName + "_name");
         }
         return new Event(roomId,
