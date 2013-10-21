@@ -12,14 +12,14 @@ import lv.jug.javaday.androidapp.presentation.common.BaseListAdapter;
 
 import javax.inject.Inject;
 
-public class SpeakerAdapter extends BaseListAdapter<Speaker> {
+public class SpeakerAdapter extends BaseListAdapter {
 
     @Inject
     DrawableService drawableService;
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Speaker speaker = getItem(position);
+        Speaker speaker = get(position);
 
         View view = LayoutInflater.from(getContext()).inflate(R.layout.speaker_row, parent, false);
 

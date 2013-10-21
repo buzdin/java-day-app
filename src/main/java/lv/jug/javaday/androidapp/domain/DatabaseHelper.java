@@ -9,6 +9,8 @@ import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
+import lv.jug.javaday.androidapp.R;
+import lv.jug.javaday.androidapp.application.StringService;
 import lv.jug.javaday.androidapp.infrastructure.common.ClassLogger;
 
 import javax.inject.Inject;
@@ -25,6 +27,9 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private Dao<Event, Integer> eventDao;
 
     @Inject
+    StringService strings;
+
+    @Inject
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -37,16 +42,21 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.createTable(connectionSource, Event.class);
 
             getSpeakerDao();
-            speakerDao.create(new Speaker("Name1", "Company", "portrait", "Info"));
-            speakerDao.create(new Speaker("Name2", "Company", "portrait", "Info"));
-            speakerDao.create(new Speaker("Name3", "Company", "portrait", "Info"));
-            speakerDao.create(new Speaker("Name4", "Company", "portrait", "Info"));
-            speakerDao.create(new Speaker("Name5", "Company", "portrait", "Info"));
-            speakerDao.create(new Speaker("Name6", "Company", "portrait", "Info"));
-            speakerDao.create(new Speaker("Name7", "Company", "portrait", "Info"));
-            speakerDao.create(new Speaker("Name8", "Company", "portrait", "Info"));
-            speakerDao.create(new Speaker("Name9", "Company", "portrait", "Info"));
-            speakerDao.create(new Speaker("Name10", "Company", "portrait", "Info"));
+            speakerDao.create(newSpeaker("simon_ritter"));
+            speakerDao.create(newSpeaker("cedric"));
+            speakerDao.create(newSpeaker("mirco_dotta"));
+            speakerDao.create(newSpeaker("tero"));
+            speakerDao.create(newSpeaker("patroklos"));
+            speakerDao.create(newSpeaker("kuksenko"));
+            speakerDao.create(newSpeaker("sizov"));
+            speakerDao.create(newSpeaker("gulati"));
+            speakerDao.create(newSpeaker("valenta"));
+            speakerDao.create(newSpeaker("jaroslaw_palka"));
+            speakerDao.create(newSpeaker("zeeb"));
+            speakerDao.create(newSpeaker("fedorov"));
+            speakerDao.create(newSpeaker("luciano"));
+            speakerDao.create(newSpeaker("antipin"));
+            speakerDao.create(newSpeaker("magda"));
 
             getEventDao();
             eventDao.create(new Event(4, "8:30", "Registration", null, null, null));
@@ -91,4 +101,12 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         }
         return eventDao;
      }
+
+    private Speaker newSpeaker(String name) {
+        // TODO: should change portrait
+        return new Speaker(strings.loadString(name + "_name"),
+                           strings.loadString(name + "_company"),
+                           "portrait",
+                           strings.loadString(name + "_description"));
+    }
 }

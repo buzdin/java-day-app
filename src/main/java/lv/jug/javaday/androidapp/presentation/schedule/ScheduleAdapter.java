@@ -14,7 +14,7 @@ import lv.jug.javaday.androidapp.presentation.common.BaseListAdapter;
 
 import javax.inject.Inject;
 
-public class ScheduleAdapter extends BaseListAdapter<Event> {
+public class ScheduleAdapter extends BaseListAdapter {
 
     @Inject
     DrawableService drawableService;
@@ -22,7 +22,7 @@ public class ScheduleAdapter extends BaseListAdapter<Event> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = LayoutInflater.from(getContext()).inflate(R.layout.schedule_row, parent, false);
-        Event event = getItem(position);
+        Event event = get(position);
 
         ImageView icon = Views.findById(view, R.id.eventIcon);
         String iconName = event.getIcon();
