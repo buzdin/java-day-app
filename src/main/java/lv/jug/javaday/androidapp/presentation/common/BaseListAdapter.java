@@ -6,7 +6,7 @@ import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class CommonBaseAdapter extends BaseAdapter {
+public abstract class BaseListAdapter<T> extends BaseAdapter {
 
     @Inject
     Context context;
@@ -19,8 +19,8 @@ public abstract class CommonBaseAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int position) {
-        return getData().get(position);
+    public T getItem(int position) {
+        return (T) getData().get(position);
     }
 
     @Override

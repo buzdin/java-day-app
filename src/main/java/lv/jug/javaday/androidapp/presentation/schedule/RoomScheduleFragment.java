@@ -73,7 +73,7 @@ public class RoomScheduleFragment extends BaseFragment implements AdapterView.On
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Event event = (Event) adapter.getItem(position);
+        Event event = adapter.getItem(position);
 
         if(event.getDescription() != null) {
             Bundle data = new Bundle();

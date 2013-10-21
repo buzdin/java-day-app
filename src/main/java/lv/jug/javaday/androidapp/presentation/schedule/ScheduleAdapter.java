@@ -10,11 +10,11 @@ import butterknife.Views;
 import lv.jug.javaday.androidapp.R;
 import lv.jug.javaday.androidapp.application.DrawableService;
 import lv.jug.javaday.androidapp.domain.Event;
-import lv.jug.javaday.androidapp.presentation.common.CommonBaseAdapter;
+import lv.jug.javaday.androidapp.presentation.common.BaseListAdapter;
 
 import javax.inject.Inject;
 
-public class ScheduleAdapter extends CommonBaseAdapter {
+public class ScheduleAdapter extends BaseListAdapter<Event> {
 
     @Inject
     DrawableService drawableService;
@@ -22,7 +22,7 @@ public class ScheduleAdapter extends CommonBaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = LayoutInflater.from(getContext()).inflate(R.layout.schedule_row, parent, false);
-        Event event = (Event) getItem(position);
+        Event event = getItem(position);
 
         ImageView icon = Views.findById(view, R.id.eventIcon);
         String iconName = event.getIcon();
