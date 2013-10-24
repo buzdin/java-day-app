@@ -1,35 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/content_frame"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:useDefaultMargins="true"
-            android:alignmentMode="alignBounds"
-            android:columnOrderPreserved="false"
-            android:columnCount="5">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/content_frame"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:id="@+id/speakerHead">
 
-    <ImageView android:layout_width="100px"
-               android:layout_height="100px"
-               android:id="@+id/speakerphoto"
-               android:layout_columnSpan="3"
-               android:layout_rowSpan="2"
-               android:contentDescription="@string/no_img_found"/>
+        <ImageView android:layout_width="100px"
+                   android:layout_height="100px"
+                   android:id="@+id/speakerphoto"
+                   android:src="@drawable/portrait"
+                   android:contentDescription="@string/no_img_found"/>
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical"
+                android:layout_marginLeft="10dp">
 
-    <TextView android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:id="@+id/speakername"
-              android:layout_columnSpan="2"
-              android:layout_gravity="center_vertical"/>
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:id="@+id/speakername"
+                      android:textStyle="bold"
+                      android:textSize="24sp"
+                      android:fontFamily="sans-serif-condensed"
+                      android:textColor="@color/almost_black"/>
 
-    <TextView android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:id="@+id/speakercompany"
-              android:layout_columnSpan="2"
-              android:layout_gravity="center_vertical"/>
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:id="@+id/speakercompany"
+                      android:fontFamily="sans-serif"
+                      android:textSize="14sp"
+                      android:textColor="@color/dark_grey"/>
+        </LinearLayout>
+    </LinearLayout>
 
-    <TextView android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:id="@+id/speakerinfo"/>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:paddingBottom="10dp"
+            android:id="@+id/speakerDescription">
 
-</GridLayout>
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:lineSpacingExtra="2sp"
+                  android:textColor="@color/lighted_black"
+                  android:id="@+id/speakerinfo"/>
+    </LinearLayout>
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!-->-->
+    <!--<ImageView android:layout_height="1dp"-->
+    <!--android:background="@color/border_color"-->
+    <!--android:layout_width="fill_parent"/>-->
+
+
+    <!--</LinearLayout>-->
+
+</LinearLayout>
