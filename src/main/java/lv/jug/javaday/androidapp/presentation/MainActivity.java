@@ -16,6 +16,7 @@ import butterknife.Views;
 import com.squareup.otto.Bus;
 import lv.jug.javaday.androidapp.R;
 import lv.jug.javaday.androidapp.application.StringService;
+import lv.jug.javaday.androidapp.presentation.feed.TwitterFeedFragment;
 import lv.jug.javaday.androidapp.presentation.home.HomeFragment;
 import lv.jug.javaday.androidapp.presentation.schedule.ScheduleDashboardFragment;
 import lv.jug.javaday.androidapp.presentation.speaker.SpeakerDashboardFragment;
@@ -138,8 +139,7 @@ public class MainActivity extends FragmentActivity {
     }
 
     private void selectItem(int position) {
-        String[] navigationItems = getResources().getStringArray(R.array.navigation_drawer);
-        String selectedItem = navigationItems[position];
+        String selectedItem = stringService.loadStringArrayItem(R.array.navigation_drawer, position);
 
         Fragment fragment = getSupportFragmentManager().findFragmentByTag(selectedItem);
         Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.content_frame);
@@ -162,7 +162,7 @@ public class MainActivity extends FragmentActivity {
         } else if(selectedItem.equals(getString(R.string.speakers))) {
             fragment = new SpeakerDashboardFragment();
         } else if(selectedItem.equals(getString(R.string.twitter))) {
-            fragment = new HomeFragment();
+            fragment = new TwitterFeedFragment();
         } else {
             fragment = new HomeFragment();
         }

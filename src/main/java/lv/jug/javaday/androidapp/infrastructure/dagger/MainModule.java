@@ -6,6 +6,7 @@ import dagger.Module;
 import dagger.Provides;
 import lv.jug.javaday.androidapp.presentation.BaseApplication;
 import lv.jug.javaday.androidapp.presentation.MainActivity;
+import lv.jug.javaday.androidapp.presentation.feed.TwitterFeedFragment;
 import lv.jug.javaday.androidapp.presentation.home.HomeFragment;
 import lv.jug.javaday.androidapp.presentation.schedule.RoomScheduleFragment;
 import lv.jug.javaday.androidapp.presentation.schedule.ScheduleDashboardFragment;
@@ -20,6 +21,7 @@ import javax.inject.Singleton;
                 BaseApplication.class,
                 MainActivity.class,
                 HomeFragment.class,
+                TwitterFeedFragment.class,
                 RoomScheduleFragment.class,
                 SpeakerDashboardFragment.class,
                 SpeakerDetailsFragment.class,

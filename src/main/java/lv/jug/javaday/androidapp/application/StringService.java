@@ -31,4 +31,12 @@ public class StringService {
         Resources resources = context.getResources();
         return resources.getStringArray(id);
     }
+
+    public String loadStringArrayItem(int id, int index) {
+        return loadStringArray(id)[index];
+    }
+
+    public String loadStringArrayItem(String name, int index) {
+        return loadStringArray(name)[index];
+    }
 }
