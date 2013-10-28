@@ -12,28 +12,15 @@ import lv.jug.javaday.androidapp.infrastructure.common.ClassLogger;
 import javax.inject.Inject;
 import java.sql.SQLException;
 
+import static lv.jug.javaday.androidapp.domain.Speaker.*;
+import static lv.jug.javaday.androidapp.domain.CountryCodes.*;
+
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
     private static ClassLogger logger = new ClassLogger(DatabaseHelper.class);
 
-    public static final String SIMON_RITTER = "simon_ritter";
-    public static final String CEDRIC_CHAMPEAU = "cedric";
-    public static final String MIRCO_DOTTA = "mirco_dotta";
-    public static final String TERO_PARVIAINEN = "tero";
-    public static final String PATROKLOS_PAPAPERROU = "patroklos";
-    public static final String SERGEY_KUKSENKO = "kuksenko";
-    public static final String EDUARD_SIZOV = "sizov";
-    public static final String SHEKHAR_GULATI = "gulati";
-    public static final String JAN_VALENTA = "valenta";
-    public static final String JAROSLAW_PALKA = "jaroslaw_palka";
-    public static final String NICK_ZEEB = "zeeb";
-    public static final String ALEXEY_FEDOROV = "fedorov";
-    public static final String LUCIANO_FIANDESIQ = "luciano";
-    public static final String ROMAN_ANTIPIN = "antipin";
-    public static final String DENIS_MAGDA = "magda";
-
     private static final String DATABASE_NAME = "javaday.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     private Dao<Speaker, String> speakerDao;
     private Dao<Event, Integer> eventDao;
@@ -54,21 +41,23 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.createTable(connectionSource, Event.class);
 
             getSpeakerDao();
-            speakerDao.create(newSpeaker(SIMON_RITTER));
-            speakerDao.create(newSpeaker(CEDRIC_CHAMPEAU));
-            speakerDao.create(newSpeaker(MIRCO_DOTTA));
-            speakerDao.create(newSpeaker(TERO_PARVIAINEN));
-            speakerDao.create(newSpeaker(PATROKLOS_PAPAPERROU));
-            speakerDao.create(newSpeaker(SERGEY_KUKSENKO));
-            speakerDao.create(newSpeaker(EDUARD_SIZOV));
-            speakerDao.create(newSpeaker(SHEKHAR_GULATI));
-            speakerDao.create(newSpeaker(JAN_VALENTA));
-            speakerDao.create(newSpeaker(JAROSLAW_PALKA));
-            speakerDao.create(newSpeaker(NICK_ZEEB));
-            speakerDao.create(newSpeaker(ALEXEY_FEDOROV));
-            speakerDao.create(newSpeaker(LUCIANO_FIANDESIQ));
-            speakerDao.create(newSpeaker(ROMAN_ANTIPIN));
-            speakerDao.create(newSpeaker(DENIS_MAGDA));
+            speakerDao.create(newSpeaker(SIMON_RITTER, UK));
+            speakerDao.create(newSpeaker(CEDRIC_CHAMPEAU, FR));
+            speakerDao.create(newSpeaker(MIRCO_DOTTA, CH));
+            speakerDao.create(newSpeaker(TERO_PARVIAINEN, FI));
+            speakerDao.create(newSpeaker(PATROKLOS_PAPAPERROU, GR));
+            speakerDao.create(newSpeaker(SERGEY_KUKSENKO, RU));
+            speakerDao.create(newSpeaker(EDUARD_SIZOV, LV));
+            speakerDao.create(newSpeaker(SHEKHAR_GULATI, IN));
+            speakerDao.create(newSpeaker(JAN_VALENTA, CZ));
+            speakerDao.create(newSpeaker(JAROSLAW_PALKA, PL));
+            speakerDao.create(newSpeaker(NICK_ZEEB, UK));
+            speakerDao.create(newSpeaker(ALEXEY_FEDOROV, RU));
+            speakerDao.create(newSpeaker(LUCIANO_FIANDESIQ, IT));
+            speakerDao.create(newSpeaker(ROMAN_ANTIPIN, RU));
+            speakerDao.create(newSpeaker(DENIS_MAGDA, RU));
+            // TODO: Deal with multiple speakers for presentation
+//            speakerDao.create(newSpeaker(ANDREY_ADAMOVICH, LV));
 
             getEventDao();
             // Room 4
@@ -153,16 +142,16 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         return eventDao;
      }
 
-    private Speaker newSpeaker(String name) {
+    private Speaker newSpeaker(String name, String country) {
         // TODO: should change portrait
         return new Speaker(strings.loadString(name + "_name"),
                            strings.loadString(name + "_company"),
                            "portrait",
-                           strings.loadString(name + "_description"));
+                           strings.loadString(name + "_description"),
+                           country);
     }
 
     private Event newEvent(int roomId, String time, String title, String speakerName, String icon) {
-        // TODO: add description to strings.xml
         String description = null;
         if (speakerName != null) {
             title = strings.loadString(speakerName + "_presentation_title");
