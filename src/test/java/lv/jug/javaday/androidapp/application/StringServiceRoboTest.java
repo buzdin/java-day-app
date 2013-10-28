@@ -10,6 +10,7 @@ import org.junit.Test;
 import javax.inject.Inject;
 
 import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.collection.IsArrayContainingInOrder.arrayContaining;
 import static org.junit.Assert.assertThat;
 
 @Module(
@@ -25,11 +26,19 @@ public class StringServiceRoboTest extends BaseRobolectricTest {
     StringService service;
 
     @Test
-    public void shouldFindPortraitDrawable() {
+    public void shouldFindString() {
         String expected = context.getResources().getString(R.string.where);
         String actual = service.loadString("where");
 
         assertThat(actual, equalTo(expected));
+    }
+
+    @Test
+    public void shouldFindStringArray() {
+        String[] expected = context.getResources().getStringArray(R.array.navigation_drawer);
+        String[] actual = service.loadStringArray("navigation_drawer");
+
+        assertThat(actual, arrayContaining(expected));
     }
 
 }

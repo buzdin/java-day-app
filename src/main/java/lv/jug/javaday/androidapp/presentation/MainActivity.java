@@ -15,6 +15,7 @@ import butterknife.InjectView;
 import butterknife.Views;
 import com.squareup.otto.Bus;
 import lv.jug.javaday.androidapp.R;
+import lv.jug.javaday.androidapp.application.StringService;
 import lv.jug.javaday.androidapp.presentation.home.HomeFragment;
 import lv.jug.javaday.androidapp.presentation.schedule.ScheduleDashboardFragment;
 import lv.jug.javaday.androidapp.presentation.speaker.SpeakerDashboardFragment;
@@ -25,6 +26,9 @@ public class MainActivity extends FragmentActivity {
 
     @Inject
     Bus bus;
+
+    @Inject
+    StringService stringService;
 
     @InjectView(R.id.drawer_layout)
     DrawerLayout drawerLayout;
@@ -119,7 +123,11 @@ public class MainActivity extends FragmentActivity {
         drawerLayout.setDrawerListener(drawerToggle);
 
         if (state == null) {
-            selectItem(0);
+            String tag = stringService.loadString(R.string.home);
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.content_frame, new HomeFragment(), tag)
+                    .commit();
         }
     }
 
@@ -135,11 +143,9 @@ public class MainActivity extends FragmentActivity {
 
         Fragment fragment = getSupportFragmentManager().findFragmentByTag(selectedItem);
         Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.content_frame);
-        if(currentFragment == null || ! (currentFragment.equals(fragment))){
+        if(! (currentFragment.equals(fragment))){
             fragment = loadFragment(selectedItem);
-
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.content_frame, fragment, selectedItem).commit();
+            changeFragment(fragment, selectedItem);
         }
 
         drawerList.setItemChecked(position, true);
@@ -165,11 +171,14 @@ public class MainActivity extends FragmentActivity {
     }
 
     public void changeFragment(Fragment fragment) {
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        changeFragment(fragment, null);
+    }
 
-        transaction.replace(R.id.content_frame, fragment);
-        transaction.addToBackStack(null);
-
-        transaction.commit();
+    public void changeFragment(Fragment fragment, String tag) {
+        getSupportFragmentManager()
+            .beginTransaction()
+            .replace(R.id.content_frame, fragment, tag)
+            .addToBackStack(null)
+            .commit();
     }
 }
