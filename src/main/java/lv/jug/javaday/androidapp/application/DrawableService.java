@@ -9,7 +9,7 @@ import javax.inject.Inject;
 public class DrawableService {
 
     @Inject
-    Context context;
+    public Context context;
 
     public Drawable loadDrawable(String photo) {
         Resources resources = context.getResources();

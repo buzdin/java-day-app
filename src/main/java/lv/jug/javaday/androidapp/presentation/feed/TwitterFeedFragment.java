@@ -10,6 +10,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 import butterknife.InjectView;
 import lv.jug.javaday.androidapp.R;
+import lv.jug.javaday.androidapp.application.AssetsService;
 import lv.jug.javaday.androidapp.application.NetworkService;
 import lv.jug.javaday.androidapp.application.StringService;
 import lv.jug.javaday.androidapp.presentation.BaseFragment;
@@ -21,6 +22,9 @@ public class TwitterFeedFragment extends BaseFragment {
 
     @Inject
     StringService stringService;
+
+    @Inject
+    AssetsService assetsService;
 
     @Inject
     NetworkService networkService;
@@ -66,7 +70,7 @@ public class TwitterFeedFragment extends BaseFragment {
         } else {
             progressBar.setVisibility(View.VISIBLE);
             String message = stringService.loadString(R.string.no_internet);
-            Toast.makeText(getActivity(), message, Toast.LENGTH_LONG);
+            Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
         }
     }
 
@@ -76,15 +80,5 @@ public class TwitterFeedFragment extends BaseFragment {
                 "data-widget-id=\"394922021928173568\">" +
                     "Tweets about \"#jdayriga\"" +
             "</a>" +
-            "<script>!function(d,s,id){" +
-                        "var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';" +
-                        "if(!d.getElementById(id)){" +
-                            "js=d.createElement(s);" +
-                            "js.id=id;" +
-                            "js.src=p+\"://platform.twitter.com/widgets.js\";" +
-                            "fjs.parentNode.insertBefore(js,fjs);" +
-                        "}" +
-                    "}" +
-                    "(document,\"script\",\"twitter-wjs\");" +
-            "</script>";
+            "<script src=\"file:///android_asset/widgets.js\"></script>";
 }

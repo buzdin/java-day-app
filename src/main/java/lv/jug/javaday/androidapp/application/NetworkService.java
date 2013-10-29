@@ -12,7 +12,7 @@ public class NetworkService {
     ClassLogger logger = new ClassLogger(NetworkService.class);
 
     @Inject
-    Context context;
+    public Context context;
 
     public boolean internetAvailable()
     {

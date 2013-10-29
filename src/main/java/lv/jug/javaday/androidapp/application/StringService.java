@@ -8,7 +8,7 @@ import javax.inject.Inject;
 public class StringService {
 
     @Inject
-    Context context;
+    public Context context;
 
     public String loadString(String name) {
         Resources resources = context.getResources();
