@@ -12,15 +12,17 @@ import lv.jug.javaday.androidapp.infrastructure.common.ClassLogger;
 import javax.inject.Inject;
 import java.sql.SQLException;
 
-import static lv.jug.javaday.androidapp.domain.Speaker.*;
 import static lv.jug.javaday.androidapp.domain.CountryCodes.*;
+import static lv.jug.javaday.androidapp.domain.IconCodes.COFFEE_ICON;
+import static lv.jug.javaday.androidapp.domain.IconCodes.LUNCH_ICON;
+import static lv.jug.javaday.androidapp.domain.Speaker.*;
 
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
     private static ClassLogger logger = new ClassLogger(DatabaseHelper.class);
 
     private static final String DATABASE_NAME = "javaday.db";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
 
     private Dao<Speaker, String> speakerDao;
     private Dao<Event, Integer> eventDao;
@@ -64,12 +66,12 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             eventDao.create(newEvent(4, "8:30", "Registration", null));
             eventDao.create(newEvent(4, "9:45", "Conference Opening", null));
             eventDao.create(newEvent(4, "10:00", SIMON_RITTER));
-            eventDao.create(newEvent(4, "11:00", "Coffee Pause", null));
+            eventDao.create(newEvent(4, "11:00", "Coffee Pause", COFFEE_ICON));
             eventDao.create(newEvent(4, "11:30", TERO_PARVIAINEN));
-            eventDao.create(newEvent(4, "12:30", "Lunch", null));
+            eventDao.create(newEvent(4, "12:30", "Lunch", LUNCH_ICON));
             eventDao.create(newEvent(4, "13:30", MIRCO_DOTTA));
             eventDao.create(newEvent(4, "14:30", NICK_ZEEB));
-            eventDao.create(newEvent(4, "15:30", "Coffee Pause", null));
+            eventDao.create(newEvent(4, "15:30", "Coffee Pause", COFFEE_ICON));
             eventDao.create(newEvent(4, "16:00", SERGEY_KUKSENKO));
             eventDao.create(newEvent(4, "17:00", DENIS_MAGDA));
             eventDao.create(newEvent(4, "17:50", "Conference Closing", null));
@@ -80,12 +82,12 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             eventDao.create(newEvent(5, "8:30", "Registration", null));
             eventDao.create(newEvent(5, "9:45", "Conference Opening", null));
             eventDao.create(newEvent(5, "10:00", "Room 4", null));
-            eventDao.create(newEvent(5, "11:00", "Coffee Pause", null));
+            eventDao.create(newEvent(5, "11:00", "Coffee Pause", COFFEE_ICON));
             eventDao.create(newEvent(5, "11:30", ALEXEY_FEDOROV));
-            eventDao.create(newEvent(5, "12:30", "Lunch", null));
+            eventDao.create(newEvent(5, "12:30", "Lunch", LUNCH_ICON));
             eventDao.create(newEvent(5, "13:30", EDUARD_SIZOV));
             eventDao.create(newEvent(5, "14:30", JAN_VALENTA));
-            eventDao.create(newEvent(5, "15:30", "Coffee Pause", null));
+            eventDao.create(newEvent(5, "15:30", "Coffee Pause", COFFEE_ICON));
             eventDao.create(newEvent(5, "16:00", SHEKHAR_GULATI));
             eventDao.create(newEvent(5, "17:00", CEDRIC_CHAMPEAU));
             eventDao.create(newEvent(5, "17:50", "Conference Closing", null));
@@ -96,12 +98,12 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             eventDao.create(newEvent(6, "8:30", "Registration", null));
             eventDao.create(newEvent(6, "9:45", "Conference Opening", null));
             eventDao.create(newEvent(6, "10:00", "Room 4", null));
-            eventDao.create(newEvent(6, "11:00", "Coffee Pause", null));
+            eventDao.create(newEvent(6, "11:00", "Coffee Pause", COFFEE_ICON));
             eventDao.create(newEvent(6, "11:30", LUCIANO_FIANDESIQ));
-            eventDao.create(newEvent(6, "12:30", "Lunch", null));
+            eventDao.create(newEvent(6, "12:30", "Lunch", LUNCH_ICON));
             eventDao.create(newEvent(6, "13:30", PATROKLOS_PAPAPERROU));
             eventDao.create(newEvent(6, "14:30", JAROSLAW_PALKA));
-            eventDao.create(newEvent(6, "15:30", "Coffee Pause", null));
+            eventDao.create(newEvent(6, "15:30", "Coffee Pause", COFFEE_ICON));
             eventDao.create(newEvent(6, "16:00", ROMAN_ANTIPIN));
             eventDao.create(newEvent(6, "17:00", "Room 4", null));
             eventDao.create(newEvent(6, "17:50", "Conference Closing", null));
