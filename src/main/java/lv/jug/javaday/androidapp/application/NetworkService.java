@@ -7,17 +7,17 @@ import lv.jug.javaday.androidapp.infrastructure.common.ClassLogger;
 
 import javax.inject.Inject;
 
-public class NetworkService extends AndroidService {
+public class NetworkService {
 
     ClassLogger logger = new ClassLogger(NetworkService.class);
 
     @Inject
-    public NetworkService() {}
+    Context context;
 
     public boolean internetAvailable()
     {
         NetworkInfo info = ((ConnectivityManager)
-                getContext().getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo();
+                context.getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo();
 
         if (info == null) {
             logger.d("no internet connection");
