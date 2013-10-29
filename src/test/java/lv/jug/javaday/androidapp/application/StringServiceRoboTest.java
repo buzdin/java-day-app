@@ -1,10 +1,10 @@
 package lv.jug.javaday.androidapp.application;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import dagger.Module;
 import lv.jug.javaday.androidapp.BaseRobolectricTest;
 import lv.jug.javaday.androidapp.R;
+import lv.jug.javaday.androidapp.infrastructure.dagger.DaggerModule;
 import org.junit.Test;
 
 import javax.inject.Inject;
@@ -13,10 +13,6 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.collection.IsArrayContainingInOrder.arrayContaining;
 import static org.junit.Assert.assertThat;
 
-@Module(
-        includes = {BaseRobolectricTest.class },
-        entryPoints = {StringServiceRoboTest.class}
-)
 public class StringServiceRoboTest extends BaseRobolectricTest {
 
     @Inject
@@ -41,4 +37,11 @@ public class StringServiceRoboTest extends BaseRobolectricTest {
         assertThat(actual, arrayContaining(expected));
     }
 
+    @Override
+    public DaggerModule getModule() {
+        return new TestModule();
+    }
+
+    @Module(includes = BaseTestModule.class, injects = StringServiceRoboTest.class)
+    static class TestModule implements DaggerModule {}
 }

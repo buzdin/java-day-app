@@ -1,34 +1,33 @@
 package lv.jug.javaday.androidapp.application;
 
-import android.content.Context;
 import android.content.res.Resources;
 
 import javax.inject.Inject;
 
-public class StringService {
+public class StringService extends AndroidService {
 
     @Inject
-    Context context;
+    public StringService() {}
 
     public String loadString(String name) {
-        Resources resources = context.getResources();
-        int id = resources.getIdentifier(name, "string", context.getPackageName());
+        Resources resources = getContext().getResources();
+        int id = resources.getIdentifier(name, "string", getContext().getPackageName());
         return resources.getString(id);
     }
 
     public String loadString(int id) {
-        Resources resources = context.getResources();
+        Resources resources = getContext().getResources();
         return resources.getString(id);
     }
 
     public String[] loadStringArray(String name) {
-        Resources resources = context.getResources();
-        int id = resources.getIdentifier(name, "array", context.getPackageName());
+        Resources resources = getContext().getResources();
+        int id = resources.getIdentifier(name, "array", getContext().getPackageName());
         return resources.getStringArray(id);
     }
 
     public String[] loadStringArray(int id) {
-        Resources resources = context.getResources();
+        Resources resources = getContext().getResources();
         return resources.getStringArray(id);
     }
 

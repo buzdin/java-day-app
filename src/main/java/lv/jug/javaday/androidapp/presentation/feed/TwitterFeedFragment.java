@@ -2,18 +2,28 @@ package lv.jug.javaday.androidapp.presentation.feed;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 import butterknife.InjectView;
 import lv.jug.javaday.androidapp.R;
+import lv.jug.javaday.androidapp.application.NetworkService;
+import lv.jug.javaday.androidapp.application.StringService;
 import lv.jug.javaday.androidapp.presentation.BaseFragment;
 import org.apache.http.protocol.HTTP;
 
+import javax.inject.Inject;
+
 public class TwitterFeedFragment extends BaseFragment {
+
+    @Inject
+    StringService stringService;
+
+    @Inject
+    NetworkService networkService;
 
     @InjectView(R.id.progressBar)
     ProgressBar progressBar;
@@ -42,8 +52,7 @@ public class TwitterFeedFragment extends BaseFragment {
 
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                view.loadUrl(url);
-                return true;
+                return false;
             }
 
             @Override
@@ -51,7 +60,14 @@ public class TwitterFeedFragment extends BaseFragment {
                 progressBar.setVisibility(View.GONE);
             }
         });
-        webView.loadDataWithBaseURL("https://twitter.com", data, "text/html", HTTP.UTF_8, null);
+
+        if (networkService.internetAvailable()){
+            webView.loadDataWithBaseURL("https://twitter.com", data, "text/html", HTTP.UTF_8, null);
+        } else {
+            progressBar.setVisibility(View.VISIBLE);
+            String message = stringService.loadString(R.string.no_internet);
+            Toast.makeText(getActivity(), message, Toast.LENGTH_LONG);
+        }
     }
 
     private String data =

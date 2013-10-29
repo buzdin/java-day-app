@@ -17,7 +17,7 @@ import lv.jug.javaday.androidapp.presentation.speaker.SpeakerDetailsFragment;
 import javax.inject.Singleton;
 
 @Module(
-        entryPoints = {
+        injects = {
                 BaseApplication.class,
                 MainActivity.class,
                 HomeFragment.class,

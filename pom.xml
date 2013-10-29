@@ -23,6 +23,7 @@
 
     <properties>
         <android-platform>16</android-platform>
+        <dagger.version>1.1.0</dagger.version>
     </properties>
 
     <dependencies>
@@ -67,22 +68,21 @@
 
         <!--Dependencies for Dagger-->
         <dependency>
-            <groupId>com.squareup</groupId>
+            <groupId>com.squareup.dagger</groupId>
             <artifactId>dagger</artifactId>
-            <version>0.9.1</version>
+            <version>${dagger.version}</version>
         </dependency>
-
         <dependency>
-            <groupId>com.squareup</groupId>
+            <groupId>com.squareup.dagger</groupId>
             <artifactId>dagger-compiler</artifactId>
-            <version>0.9.1</version>
+            <version>${dagger.version}</version>
             <optional>true</optional>
         </dependency>
 
         <dependency>
             <groupId>com.squareup</groupId>
             <artifactId>otto</artifactId>
-            <version>1.3.3</version>
+            <version>1.3.4</version>
         </dependency>
 
         <!--Dependency for ButterKnife-->
@@ -153,6 +153,14 @@
                         <!-- platform or api level (api level 16 = platform 4.1)-->
                         <platform>${android-platform}</platform>
                     </sdk>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
                 </configuration>
             </plugin>
         </plugins>
