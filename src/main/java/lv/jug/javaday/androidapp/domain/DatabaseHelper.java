@@ -7,10 +7,13 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import lv.jug.javaday.androidapp.application.StringService;
+import lv.jug.javaday.androidapp.application.StringUtils;
 import lv.jug.javaday.androidapp.infrastructure.common.ClassLogger;
 
 import javax.inject.Inject;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import static lv.jug.javaday.androidapp.domain.CountryCodes.*;
 import static lv.jug.javaday.androidapp.domain.IconCodes.COFFEE_ICON;
@@ -22,13 +25,13 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private static ClassLogger logger = new ClassLogger(DatabaseHelper.class);
 
     private static final String DATABASE_NAME = "javaday.db";
-    private static final int DATABASE_VERSION = 6;
+    private static final int DATABASE_VERSION = 10;
 
     private Dao<Speaker, String> speakerDao;
     private Dao<Event, Integer> eventDao;
 
     @Inject
-    StringService strings;
+    StringService stringService;
 
     @Inject
     public DatabaseHelper(Context context) {
@@ -55,10 +58,9 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             speakerDao.create(newSpeaker(JAROSLAW_PALKA, POLAND));
             speakerDao.create(newSpeaker(NICK_ZEEB, UK));
             speakerDao.create(newSpeaker(ALEXEY_FEDOROV, RUSSIA));
-            speakerDao.create(newSpeaker(LUCIANO_FIANDESIQ, ITALY));
+            speakerDao.create(newSpeaker(LUCIANO_FIANDESIO, ITALY));
             speakerDao.create(newSpeaker(ROMAN_ANTIPIN, RUSSIA));
             speakerDao.create(newSpeaker(DENIS_MAGDA, RUSSIA));
-            // TODO: Deal with multiple speakers for presentation
             speakerDao.create(newSpeaker(ANDREY_ADAMOVICH, LATVIA));
 
             getEventDao();
@@ -99,7 +101,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             eventDao.create(newEvent(6, "9:45", "Conference Opening", null));
             eventDao.create(newEvent(6, "10:00", "Room 4", null));
             eventDao.create(newEvent(6, "11:00", "Coffee Pause", COFFEE_ICON));
-            eventDao.create(newEvent(6, "11:30", LUCIANO_FIANDESIQ));
+            eventDao.create(newEvent(6, "11:30", true, LUCIANO_FIANDESIO, ANDREY_ADAMOVICH));
             eventDao.create(newEvent(6, "12:30", "Lunch", LUNCH_ICON));
             eventDao.create(newEvent(6, "13:30", PATROKLOS_PAPAPERROU));
             eventDao.create(newEvent(6, "14:30", JAROSLAW_PALKA));
@@ -145,19 +147,19 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
      }
 
     private Speaker newSpeaker(String name, String country) {
-        return new Speaker(strings.loadString(name + "_name"),
-                           strings.loadString(name + "_company"),
+        return new Speaker(stringService.loadString(name + "_name"),
+                           stringService.loadString(name + "_company"),
                            name,
-                           strings.loadString(name + "_description"),
+                           stringService.loadString(name + "_description"),
                            country);
     }
 
     private Event newEvent(int roomId, String time, String title, String speakerName, String icon) {
         String description = null;
         if (speakerName != null) {
-            title = strings.loadString(speakerName + "_presentation_title");
-            description = strings.loadString(speakerName + "_presentation_description");
-            speakerName = strings.loadString(speakerName + "_name");
+            title = stringService.loadString(speakerName + "_presentation_title");
+            description = stringService.loadString(speakerName + "_presentation_description");
+            speakerName = stringService.loadString(speakerName + "_name");
         }
         return new Event(roomId,
                          time,
@@ -173,5 +175,16 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
     private Event newEvent(int roomId, String time, String speakerName) {
         return newEvent(roomId, time, null, speakerName, null);
+    }
+
+    private Event newEvent(int roomId, String time, boolean multipleSpeakers, String ... speakerNames) {
+        Event event = newEvent(roomId, time, null, speakerNames[0], null);
+        List<String> names = new ArrayList<String>();
+        for (String speakerName : speakerNames) {
+            names.add(speakerName + "_name");
+        }
+        List<String> strings = stringService.loadStrings(names);
+        event.setSpeakerName(StringUtils.join(strings, SPEAKER_DELIMITER));
+        return event;
     }
 }

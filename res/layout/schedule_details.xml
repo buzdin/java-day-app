@@ -6,11 +6,6 @@
               android:layout_width="fill_parent"
               android:layout_height="fill_parent">
 
-    <ImageView
-            android:id="@+id/speaker_photo"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/no_img_found"/>
 
     <TextView
             android:id="@+id/speaker_name"

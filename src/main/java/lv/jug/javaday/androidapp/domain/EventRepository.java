@@ -1,6 +1,5 @@
 package lv.jug.javaday.androidapp.domain;
 
-import android.util.Log;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.stmt.PreparedQuery;
 import com.j256.ormlite.stmt.QueryBuilder;
@@ -32,4 +31,19 @@ public class EventRepository {
         return null;
     }
 
+    public Event loadForSpeaker(Speaker speaker) {
+        try {
+            String speakerName = speaker.getName();
+            Dao<Event, Integer> dao = db.getEventDao();
+            QueryBuilder<Event, Integer> builder = dao.queryBuilder();
+            builder.where().like(Event.SPEAKER_NAME_ID, "%" + speakerName + "%");
+            PreparedQuery<Event> preparedQuery = builder.prepare();
+
+            return dao.queryForFirst(preparedQuery);
+        } catch (SQLException e){
+            logger.e(e.getLocalizedMessage());
+        }
+
+        return null;
+    }
 }

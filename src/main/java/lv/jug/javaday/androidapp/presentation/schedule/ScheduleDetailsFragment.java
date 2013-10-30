@@ -1,14 +1,11 @@
 package lv.jug.javaday.androidapp.presentation.schedule;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.widget.ImageView;
 import android.widget.TextView;
 import butterknife.InjectView;
 import lv.jug.javaday.androidapp.R;
 import lv.jug.javaday.androidapp.application.DrawableService;
 import lv.jug.javaday.androidapp.domain.Event;
-import lv.jug.javaday.androidapp.domain.Speaker;
 import lv.jug.javaday.androidapp.domain.SpeakerRepository;
 import lv.jug.javaday.androidapp.presentation.BaseFragment;
 
@@ -26,9 +23,6 @@ public class ScheduleDetailsFragment extends BaseFragment {
 
     @InjectView(R.id.speaker_name)
     TextView speakerName;
-
-    @InjectView(R.id.speaker_photo)
-    ImageView speakerPhoto;
 
     @InjectView(R.id.event_title)
     TextView eventTitle;
@@ -49,11 +43,7 @@ public class ScheduleDetailsFragment extends BaseFragment {
 
     private void showEvent(Event event) {
         String speakerId = event.getSpeakerName();
-        Speaker speaker = speakerRepository.loadByName(speakerId);
-
         speakerName.setText(speakerId);
-        Drawable drawable = drawableService.loadDrawable(speaker.getPhoto());
-        speakerPhoto.setImageDrawable(drawable);
 
         eventTitle.setText(event.getTitle());
         eventDescription.setText(event.getDescription());

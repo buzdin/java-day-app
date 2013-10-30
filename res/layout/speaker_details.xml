@@ -36,6 +36,11 @@
                       android:fontFamily="sans-serif"
                       android:textSize="14sp"
                       android:textColor="@color/dark_grey"/>
+
+            <ImageView android:layout_width="100dp"
+                       android:layout_height="100dp"
+                       android:id="@+id/speakerflag"
+                       android:contentDescription="@string/no_img_found"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -54,6 +59,14 @@
                   android:textColor="@color/lighted_black"
                   android:id="@+id/speakerinfo"/>
     </LinearLayout>
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/speakerpresentation"
+              android:textStyle="bold"
+              android:textSize="24sp"
+              android:fontFamily="sans-serif-condensed"
+              android:textColor="@color/almost_black"/>
 
     <!--<LinearLayout-->
     <!--android:layout_width="match_parent"-->

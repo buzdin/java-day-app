@@ -10,7 +10,7 @@ public class Event implements Parcelable {
 
     public static final String ID_ID = "id";
     public static final String ROOM_ID_ID = "roomId";
-
+    public static final String SPEAKER_NAME_ID = "speakerName";
 
     @DatabaseField(generatedId = true, allowGeneratedIdInsert=true)
     private int id;

@@ -1,6 +1,5 @@
 package lv.jug.javaday.androidapp.domain;
 
-import android.util.Log;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.stmt.PreparedQuery;
 import com.j256.ormlite.stmt.QueryBuilder;
@@ -31,14 +30,15 @@ public class SpeakerRepository {
         return null;
     }
 
-    public Speaker loadByName(String speakerId) {
+    public List<Speaker> load(String speakerId) {
         try {
+            String[] speakerNames = speakerId.split(Speaker.SPEAKER_DELIMITER);
             Dao<Speaker, String> dao = db.getSpeakerDao();
             QueryBuilder<Speaker, String> builder = dao.queryBuilder();
-            builder.where().idEq(speakerId);
+            builder.where().in(Speaker.NAME_ID, speakerNames);
             PreparedQuery<Speaker> preparedQuery = builder.prepare();
 
-            return dao.queryForFirst(preparedQuery);
+            return dao.query(preparedQuery);
         } catch (SQLException e){
             logger.e(e.getLocalizedMessage());
         }

@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.res.Resources;
 
 import javax.inject.Inject;
+import java.util.ArrayList;
+import java.util.List;
 
 public class StringService {
 
@@ -38,5 +40,21 @@ public class StringService {
 
     public String loadStringArrayItem(String name, int index) {
         return loadStringArray(name)[index];
+    }
+
+    public List<String> loadStrings(List<String> strings) {
+        List<String> result = new ArrayList<String>();
+        for (String string : strings) {
+            result.add(loadString(string));
+        }
+        return result;
+    }
+
+    public List<String> loadStrings(int ... ids) {
+        List<String> result = new ArrayList<String>();
+        for (int id : ids) {
+            result.add(loadString(id));
+        }
+        return result;
     }
 }

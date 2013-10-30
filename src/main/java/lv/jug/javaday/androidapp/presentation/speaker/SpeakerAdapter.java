@@ -3,7 +3,8 @@ package lv.jug.javaday.androidapp.presentation.speaker;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.*;
+import android.widget.ImageView;
+import android.widget.TextView;
 import butterknife.Views;
 import lv.jug.javaday.androidapp.R;
 import lv.jug.javaday.androidapp.application.DrawableService;
@@ -33,7 +34,7 @@ public class SpeakerAdapter extends BaseListAdapter {
         TextView company = Views.findById(view, R.id.speakercompany);
         company.setText(speaker.getCompany());
 
-        ImageView flag = Views.findById(view, R.id.country_flag);
+        ImageView flag = Views.findById(view, R.id.countryflag);
         flag.setImageDrawable(drawableService.loadDrawable(speaker.getCountry()));
 
         return view;

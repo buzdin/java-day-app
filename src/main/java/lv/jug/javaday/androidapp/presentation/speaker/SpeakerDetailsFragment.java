@@ -7,6 +7,8 @@ import android.widget.TextView;
 import butterknife.InjectView;
 import lv.jug.javaday.androidapp.R;
 import lv.jug.javaday.androidapp.application.DrawableService;
+import lv.jug.javaday.androidapp.domain.Event;
+import lv.jug.javaday.androidapp.domain.EventRepository;
 import lv.jug.javaday.androidapp.domain.Speaker;
 import lv.jug.javaday.androidapp.presentation.BaseFragment;
 
@@ -19,6 +21,9 @@ public class SpeakerDetailsFragment extends BaseFragment {
     @Inject
     DrawableService drawableService;
 
+    @Inject
+    EventRepository eventRepository;
+
     @InjectView(R.id.speakername)
     TextView speakerName;
 
@@ -28,8 +33,14 @@ public class SpeakerDetailsFragment extends BaseFragment {
     @InjectView(R.id.speakerphoto)
     ImageView speakerPhoto;
 
+    @InjectView(R.id.speakerflag)
+    ImageView speakerFlag;
+
     @InjectView(R.id.speakerinfo)
     TextView speakerInfo;
+
+    @InjectView(R.id.speakerpresentation)
+    TextView speakerPresentation;
 
     @Override
     protected int contentViewId() {
@@ -44,10 +55,17 @@ public class SpeakerDetailsFragment extends BaseFragment {
 
     private void showSpeaker(Speaker speaker) {
         Drawable portrait = drawableService.loadDrawable(speaker.getPhoto());
+        Drawable countryFlag = drawableService.loadDrawable(speaker.getCountry());
+
+        // TODO: Should start ScheduleDetailsFragment
+        Event presentation = eventRepository.loadForSpeaker(speaker);
+        String presentationTitle = presentation.getTitle();
 
         speakerName.setText(speaker.getName());
-        speakerCompany.setText(speaker.getCompany());
-        speakerPhoto.setImageDrawable(portrait);
+        speakerFlag.setImageDrawable(countryFlag);
         speakerInfo.setText(speaker.getInfo());
+        speakerPhoto.setImageDrawable(portrait);
+        speakerCompany.setText(speaker.getCompany());
+        speakerPresentation.setText(presentationTitle);
     }
 }

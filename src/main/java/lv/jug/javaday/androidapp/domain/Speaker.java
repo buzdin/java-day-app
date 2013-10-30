@@ -7,6 +7,9 @@ import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "speakers")
 public class Speaker implements Parcelable {
+    public static final String NAME_ID = "name";
+
+    public static final String SPEAKER_DELIMITER = ", ";
 
     public static final String SIMON_RITTER = "simon_ritter";
     public static final String CEDRIC_CHAMPEAU = "cedric";
@@ -20,7 +23,7 @@ public class Speaker implements Parcelable {
     public static final String JAROSLAW_PALKA = "jaroslaw_palka";
     public static final String NICK_ZEEB = "zeeb";
     public static final String ALEXEY_FEDOROV = "fedorov";
-    public static final String LUCIANO_FIANDESIQ = "luciano";
+    public static final String LUCIANO_FIANDESIO = "luciano";
     public static final String ROMAN_ANTIPIN = "antipin";
     public static final String DENIS_MAGDA = "magda";
     public static final String ANDREY_ADAMOVICH = "adamovich";
