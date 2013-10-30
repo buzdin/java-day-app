@@ -1,8 +1,6 @@
 package lv.jug.javaday.androidapp.presentation;
 
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -15,7 +13,7 @@ import butterknife.InjectView;
 import butterknife.Views;
 import com.squareup.otto.Bus;
 import lv.jug.javaday.androidapp.R;
-import lv.jug.javaday.androidapp.application.StringService;
+import lv.jug.javaday.androidapp.common.StringService;
 import lv.jug.javaday.androidapp.presentation.feed.TwitterFeedFragment;
 import lv.jug.javaday.androidapp.presentation.home.HomeFragment;
 import lv.jug.javaday.androidapp.presentation.schedule.ScheduleDashboardFragment;

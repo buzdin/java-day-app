@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import butterknife.InjectView;
 import lv.jug.javaday.androidapp.R;
-import lv.jug.javaday.androidapp.application.DrawableService;
+import lv.jug.javaday.androidapp.common.DrawableService;
 import lv.jug.javaday.androidapp.domain.Event;
 import lv.jug.javaday.androidapp.domain.EventRepository;
 import lv.jug.javaday.androidapp.domain.Speaker;

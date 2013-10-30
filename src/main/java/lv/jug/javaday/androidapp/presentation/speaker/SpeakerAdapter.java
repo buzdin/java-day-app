@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import butterknife.Views;
 import lv.jug.javaday.androidapp.R;
-import lv.jug.javaday.androidapp.application.DrawableService;
+import lv.jug.javaday.androidapp.common.DrawableService;
 import lv.jug.javaday.androidapp.domain.Speaker;
 import lv.jug.javaday.androidapp.presentation.common.BaseListAdapter;
 

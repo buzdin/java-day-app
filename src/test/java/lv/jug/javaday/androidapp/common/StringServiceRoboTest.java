@@ -1,4 +1,4 @@
-package lv.jug.javaday.androidapp.application;
+package lv.jug.javaday.androidapp.common;
 
 import android.content.Context;
 import dagger.Module;

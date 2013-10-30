@@ -2,7 +2,6 @@ package lv.jug.javaday.androidapp.presentation.feed;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -11,9 +10,9 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 import butterknife.InjectView;
 import lv.jug.javaday.androidapp.R;
-import lv.jug.javaday.androidapp.application.AssetsService;
-import lv.jug.javaday.androidapp.application.NetworkService;
-import lv.jug.javaday.androidapp.application.StringService;
+import lv.jug.javaday.androidapp.common.AssetsService;
+import lv.jug.javaday.androidapp.common.NetworkService;
+import lv.jug.javaday.androidapp.common.StringService;
 import lv.jug.javaday.androidapp.presentation.BaseFragment;
 import org.apache.http.protocol.HTTP;
 

@@ -6,8 +6,8 @@ import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
-import lv.jug.javaday.androidapp.application.StringService;
-import lv.jug.javaday.androidapp.application.StringUtils;
+import lv.jug.javaday.androidapp.common.StringService;
+import lv.jug.javaday.androidapp.common.StringUtils;
 import lv.jug.javaday.androidapp.infrastructure.common.ClassLogger;
 
 import javax.inject.Inject;

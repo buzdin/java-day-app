@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 import butterknife.InjectView;
 import lv.jug.javaday.androidapp.R;
-import lv.jug.javaday.androidapp.application.DrawableService;
+import lv.jug.javaday.androidapp.common.DrawableService;
 import lv.jug.javaday.androidapp.domain.Event;
 import lv.jug.javaday.androidapp.domain.SpeakerRepository;
 import lv.jug.javaday.androidapp.presentation.BaseFragment;
