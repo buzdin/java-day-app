@@ -2,6 +2,7 @@ package lv.jug.javaday.androidapp.presentation.feed;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -56,7 +57,7 @@ public class TwitterFeedFragment extends BaseFragment {
 
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                return false;
+                return true;
             }
 
             @Override
@@ -78,7 +79,7 @@ public class TwitterFeedFragment extends BaseFragment {
             "<a class=\"twitter-timeline\" " +
                 "href=\"https://twitter.com/search?q=%23jdayriga\" " +
                 "data-widget-id=\"394922021928173568\">" +
-                    "Tweets about \"#jdayriga\"" +
+/*                    "Tweets about \"#jdayriga\"" +*/
             "</a>" +
             "<script src=\"file:///android_asset/widgets.js\"></script>";
 }

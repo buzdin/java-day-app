@@ -22,7 +22,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private static ClassLogger logger = new ClassLogger(DatabaseHelper.class);
 
     private static final String DATABASE_NAME = "javaday.db";
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 5;
 
     private Dao<Speaker, String> speakerDao;
     private Dao<Event, Integer> eventDao;
@@ -148,7 +148,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         // TODO: should change portrait
         return new Speaker(strings.loadString(name + "_name"),
                            strings.loadString(name + "_company"),
-                           "portrait",
+                           name,
                            strings.loadString(name + "_description"),
                            country);
     }
