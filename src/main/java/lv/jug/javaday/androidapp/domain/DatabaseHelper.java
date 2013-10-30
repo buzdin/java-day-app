@@ -145,7 +145,6 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
      }
 
     private Speaker newSpeaker(String name, String country) {
-        // TODO: should change portrait
         return new Speaker(strings.loadString(name + "_name"),
                            strings.loadString(name + "_company"),
                            name,

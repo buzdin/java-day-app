@@ -1,7 +1,6 @@
 package lv.jug.javaday.androidapp.domain;
 
 public final class CountryCodes {
-    // TODO: Add country flags drawables
     public static final String UK = "uk";
     public static final String FRANCE = "fr";
     public static final String SWISS = "ch";
