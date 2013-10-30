@@ -22,7 +22,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private static ClassLogger logger = new ClassLogger(DatabaseHelper.class);
 
     private static final String DATABASE_NAME = "javaday.db";
-    private static final int DATABASE_VERSION = 5;
+    private static final int DATABASE_VERSION = 6;
 
     private Dao<Speaker, String> speakerDao;
     private Dao<Event, Integer> eventDao;
@@ -59,7 +59,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             speakerDao.create(newSpeaker(ROMAN_ANTIPIN, RUSSIA));
             speakerDao.create(newSpeaker(DENIS_MAGDA, RUSSIA));
             // TODO: Deal with multiple speakers for presentation
-//            speakerDao.create(newSpeaker(ANDREY_ADAMOVICH, LATVIA));
+            speakerDao.create(newSpeaker(ANDREY_ADAMOVICH, LATVIA));
 
             getEventDao();
             // Room 4

@@ -306,5 +306,15 @@
         with Java ME Embedded.
     </string>
 
+    <!--Andrey Adamovich-->
+    <string name="adamovich_name">Andrey Adamovich</string>
+    <string name="adamovich_company">Aestas IT</string>
+    <string name="adamovich_description">Andrey Adamovich is a software craftsman with many years of experience in
+        different lifecycle phases of software creation. He is passionate about defining good development practices,
+        documenting and presenting architecture, reuse of code and design patterns, profiling and analysis of
+        application performance as well as extreme automation of development and operations activities. Andrey has
+        Master Degree in Computer Science from Latvian State University.
+    </string>
+
     <!--speakers end-->
 </resources>
