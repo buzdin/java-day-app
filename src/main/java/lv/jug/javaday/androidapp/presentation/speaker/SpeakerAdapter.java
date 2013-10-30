@@ -24,7 +24,6 @@ public class SpeakerAdapter extends BaseListAdapter {
         int resource = R.layout.speaker_row;
         View view = LayoutInflater.from(getContext()).inflate(resource, parent, false);
 
-
         ImageView photo = Views.findById(view, R.id.speakerphoto);
         photo.setImageDrawable(drawableService.loadDrawable(speaker.getPhoto()));
 
@@ -33,6 +32,9 @@ public class SpeakerAdapter extends BaseListAdapter {
 
         TextView company = Views.findById(view, R.id.speakercompany);
         company.setText(speaker.getCompany());
+
+        ImageView flag = Views.findById(view, R.id.country_flag);
+        flag.setImageDrawable(drawableService.loadDrawable(speaker.getCountry()));
 
         return view;
     }

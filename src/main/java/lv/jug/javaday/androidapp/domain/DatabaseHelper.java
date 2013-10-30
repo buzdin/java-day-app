@@ -44,22 +44,22 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
             getSpeakerDao();
             speakerDao.create(newSpeaker(SIMON_RITTER, UK));
-            speakerDao.create(newSpeaker(CEDRIC_CHAMPEAU, FR));
-            speakerDao.create(newSpeaker(MIRCO_DOTTA, CH));
-            speakerDao.create(newSpeaker(TERO_PARVIAINEN, FI));
-            speakerDao.create(newSpeaker(PATROKLOS_PAPAPERROU, GR));
-            speakerDao.create(newSpeaker(SERGEY_KUKSENKO, RU));
-            speakerDao.create(newSpeaker(EDUARD_SIZOV, LV));
-            speakerDao.create(newSpeaker(SHEKHAR_GULATI, IN));
-            speakerDao.create(newSpeaker(JAN_VALENTA, CZ));
-            speakerDao.create(newSpeaker(JAROSLAW_PALKA, PL));
+            speakerDao.create(newSpeaker(CEDRIC_CHAMPEAU, FRANCE));
+            speakerDao.create(newSpeaker(MIRCO_DOTTA, SWISS));
+            speakerDao.create(newSpeaker(TERO_PARVIAINEN, FINLAND));
+            speakerDao.create(newSpeaker(PATROKLOS_PAPAPERROU, GREECE));
+            speakerDao.create(newSpeaker(SERGEY_KUKSENKO, RUSSIA));
+            speakerDao.create(newSpeaker(EDUARD_SIZOV, LATVIA));
+            speakerDao.create(newSpeaker(SHEKHAR_GULATI, INDIA));
+            speakerDao.create(newSpeaker(JAN_VALENTA, CZECH));
+            speakerDao.create(newSpeaker(JAROSLAW_PALKA, POLAND));
             speakerDao.create(newSpeaker(NICK_ZEEB, UK));
-            speakerDao.create(newSpeaker(ALEXEY_FEDOROV, RU));
-            speakerDao.create(newSpeaker(LUCIANO_FIANDESIQ, IT));
-            speakerDao.create(newSpeaker(ROMAN_ANTIPIN, RU));
-            speakerDao.create(newSpeaker(DENIS_MAGDA, RU));
+            speakerDao.create(newSpeaker(ALEXEY_FEDOROV, RUSSIA));
+            speakerDao.create(newSpeaker(LUCIANO_FIANDESIQ, ITALY));
+            speakerDao.create(newSpeaker(ROMAN_ANTIPIN, RUSSIA));
+            speakerDao.create(newSpeaker(DENIS_MAGDA, RUSSIA));
             // TODO: Deal with multiple speakers for presentation
-//            speakerDao.create(newSpeaker(ANDREY_ADAMOVICH, LV));
+//            speakerDao.create(newSpeaker(ANDREY_ADAMOVICH, LATVIA));
 
             getEventDao();
             // Room 4

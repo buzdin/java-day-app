@@ -40,6 +40,14 @@
 
 
     <ImageView
+            android:id="@+id/country_flag"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:contentDescription="@string/no_img_found"
+            />
+
+    <ImageView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:src="@drawable/people_arrow"
