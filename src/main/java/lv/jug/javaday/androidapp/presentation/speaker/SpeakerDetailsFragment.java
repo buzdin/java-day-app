@@ -2,6 +2,7 @@ package lv.jug.javaday.androidapp.presentation.speaker;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import butterknife.InjectView;
@@ -11,6 +12,7 @@ import lv.jug.javaday.androidapp.domain.Event;
 import lv.jug.javaday.androidapp.domain.EventRepository;
 import lv.jug.javaday.androidapp.domain.Speaker;
 import lv.jug.javaday.androidapp.presentation.BaseFragment;
+import lv.jug.javaday.androidapp.presentation.schedule.ScheduleDetailsFragment;
 
 import javax.inject.Inject;
 
@@ -57,8 +59,7 @@ public class SpeakerDetailsFragment extends BaseFragment {
         Drawable portrait = drawableService.loadDrawable(speaker.getPhoto());
         Drawable countryFlag = drawableService.loadDrawable(speaker.getCountry());
 
-        // TODO: Should start ScheduleDetailsFragment
-        Event presentation = eventRepository.loadForSpeaker(speaker);
+        final Event presentation = eventRepository.loadForSpeaker(speaker);
         String presentationTitle = presentation.getTitle();
 
         speakerName.setText(speaker.getName());
@@ -67,5 +68,18 @@ public class SpeakerDetailsFragment extends BaseFragment {
         speakerPhoto.setImageDrawable(portrait);
         speakerCompany.setText(speaker.getCompany());
         speakerPresentation.setText(presentationTitle);
+
+        speakerPresentation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle data = new Bundle();
+                data.putParcelable(ScheduleDetailsFragment.KEY_EVENT, presentation);
+
+                ScheduleDetailsFragment fragment = new ScheduleDetailsFragment();
+                fragment.setArguments(data);
+
+                getMainActivity().changeFragment(fragment);
+            }
+        });
     }
 }
