@@ -15,7 +15,6 @@
         <ImageView android:layout_width="100dp"
                    android:layout_height="100dp"
                    android:id="@+id/speakerphoto"
-                   android:src="@drawable/portrait"
                    android:contentDescription="@string/no_img_found"/>
         <LinearLayout
                 android:layout_width="fill_parent"
