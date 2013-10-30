@@ -23,8 +23,8 @@ public class DrawableServiceRoboTest extends BaseRobolectricTest {
 
     @Test
     public void shouldFindPortraitDrawable() {
-        Drawable expected = context.getResources().getDrawable(R.drawable.portrait);
-        Drawable actual = service.loadDrawable("portrait");
+        Drawable expected = context.getResources().getDrawable(R.drawable.ch);
+        Drawable actual = service.loadDrawable("ch");
 
         assertThat(actual.toString(), equalTo(expected.toString()));
     }
