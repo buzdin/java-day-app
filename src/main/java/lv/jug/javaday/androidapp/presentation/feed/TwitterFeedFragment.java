@@ -1,6 +1,8 @@
 package lv.jug.javaday.androidapp.presentation.feed;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebSettings;
@@ -13,6 +15,7 @@ import lv.jug.javaday.androidapp.R;
 import lv.jug.javaday.androidapp.common.AssetsService;
 import lv.jug.javaday.androidapp.common.NetworkService;
 import lv.jug.javaday.androidapp.common.StringService;
+import lv.jug.javaday.androidapp.common.WindowService;
 import lv.jug.javaday.androidapp.presentation.BaseFragment;
 import org.apache.http.protocol.HTTP;
 
@@ -28,6 +31,9 @@ public class TwitterFeedFragment extends BaseFragment {
 
     @Inject
     NetworkService networkService;
+
+    @Inject
+    WindowService windowService;
 
     @InjectView(R.id.progressBar)
     ProgressBar progressBar;
@@ -66,19 +72,34 @@ public class TwitterFeedFragment extends BaseFragment {
         });
 
         if (networkService.internetAvailable()){
-            webView.loadDataWithBaseURL("https://twitter.com", data, "text/html", HTTP.UTF_8, null);
+            int width = windowService.getDisplayWidth();
+            String html = String.format(data, width);
+            webView.loadDataWithBaseURL("https://twitter.com", html, "text/html", HTTP.UTF_8, null);
         } else {
-            progressBar.setVisibility(View.VISIBLE);
-            String message = stringService.loadString(R.string.no_internet);
-            Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
+            webView.loadData(data, "text/html", HTTP.UTF_8);
         }
     }
 
     private String data =
-            "<a class=\"twitter-timeline\" " +
-                "href=\"https://twitter.com/search?q=%23jdayriga\" " +
-                "data-widget-id=\"394922021928173568\">" +
-/*                    "Tweets about \"#jdayriga\"" +*/
-            "</a>" +
-            "<script src=\"file:///android_asset/widgets.js\"></script>";
+            "<head>" +
+                "<style>" +
+                    "* {" +
+                        "overflow-x: hidden;" +
+                        "max-width:100%%;" +
+                    "}" +
+                "</style>" +
+            "</head>" +
+            "<body>" +
+                "<div>" +
+                    "<a class=\"twitter-timeline\"" +
+                        "href=\"https://twitter.com/search?q=%%23jdayriga\" " +
+                        "data-widget-id=\"394922021928173568\"" +
+                        "data-chrome=\"noheader nofooter\"" +
+                        "data-dnt=\"true\"  >" +
+                    "</a>" +
+                    "<script src=\"file:///android_asset/widgets.js\"></script>"+
+                "</div>" +
+            "</body>";
+
+    private String noInternet = "";
 }

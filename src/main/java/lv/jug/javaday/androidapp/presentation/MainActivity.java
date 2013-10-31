@@ -1,5 +1,7 @@
 package lv.jug.javaday.androidapp.presentation;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -138,6 +140,12 @@ public class MainActivity extends FragmentActivity {
 
     private void selectItem(int position) {
         String selectedItem = stringService.loadStringArrayItem(R.array.navigation_drawer, position);
+
+        // TODO: temporal workaround
+        if(selectedItem.equals(getString(R.string.twitter))) {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/search?q=%23jdayriga/")));
+            return;
+        }
 
         Fragment fragment = getSupportFragmentManager().findFragmentByTag(selectedItem);
         Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.content_frame);
