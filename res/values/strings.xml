@@ -38,6 +38,7 @@
     <!--simon-->
     <string name="simon_ritter_name">Simon Ritter</string>
     <string name="simon_ritter_company">Oracle</string>
+    <string name="simon_ritter_twitter">speakjava</string>
     <string name="simon_ritter_description">
         Simon Ritter is a Java Technology Evangelist at Oracle Corporation.
         Simon has been in the IT business since 1984 and holds a Bachelor of Science degree in Physics from Brunel University in the U.K.
@@ -61,6 +62,7 @@
     <!--cedric-->
     <string name="cedric_name">Cédric Champeau</string>
     <string name="cedric_company">Pivotal</string>
+    <string name="cedric_twitter">CedricChampeau</string>
     <string name="cedric_description">
         Cédric Champeau is a core Groovy committer.
         He joined SpringSource, a division of VMware, in order to help developing the language.
@@ -78,6 +80,7 @@
     <!--mirco-->
     <string name="mirco_dotta_name">Mirco Dotta</string>
     <string name="mirco_dotta_company">Typesafe</string>
+    <string name="mirco_dotta_twitter">mircodotta</string>
     <string name="mirco_dotta_description">
         Mirco Dotta is a Software Engineer at Typesafe,
         building tools for the Scala language.
@@ -96,6 +99,7 @@
     <!--tero-->
     <string name="tero_name">Tero Parviainen</string>
     <string name="tero_company">Independent</string>
+    <string name="tero_twitter">teropa</string>
     <string name="tero_description">Tero Parviainen is an independent software maker with 12 years of professional yak shaving under the belt.
         During this time he has worn many different hats, ranging from consultant to startup CTO.
         His weapons of choice are Clojure, JavaScript, Java, and Ruby.
@@ -117,6 +121,7 @@
     <!--patraklos-->
     <string name="patroklos_name">Patroklos Papapetrou</string>
     <string name="patroklos_company">FoodTec Solutions Inc.</string>
+    <string name="patroklos_twitter">ppapapetrou76</string>
     <string name="patroklos_description">Patroklos Papapetrou is a Java architect,
         addicted to software quality and an agile team leader with more than 15 years of experience in software development.
         He believes and invests in people and team spirit seeking quality excellence.
@@ -134,6 +139,7 @@
     <!--kuksenko-->
     <string name="kuksenko_name">Sergey Kuksenko</string>
     <string name="kuksenko_company">Oracle</string>
+    <string name="kuksenko_twitter">kuksenk0</string>
     <string name="kuksenko_description">Sergey is Java Performance Engineer working for Oracle.
         His primary skills are performance engineering, benchmarking, JVMs, JIT compilers, and class libraries.
         He’s been accelerating JVMs since 2005 when he was worked for Intel in Apache Harmony performance team.</string>
@@ -148,6 +154,7 @@
     <!--sizov-->
     <string name="sizov_name">Eduard Sizov</string>
     <string name="sizov_company">4finance</string>
+    <string name="sizov_twitter">eduardsi</string>
     <string name="sizov_description">CEduards is software craftsman passionate about every aspect of software development.
         His interests include lightweight architectures, clean code, domain-driven design, automation,
         continuous delivery and other spices. Being a Chief Software Architect in 4finance,
@@ -163,6 +170,7 @@
     <!--gulati-->
     <string name="gulati_name">Shekhar Gulati</string>
     <string name="gulati_company">Red Hat</string>
+    <string name="gulati_twitter">shekhargulati</string>
     <string name="gulati_description">Shekhar Gulati is Principal OpenShift Developer Evangelist working with Red Hat.
         He has 8 years of software web development experience. He regularly speaks at various conference and user groups around the world.
         Shekhar is an active writer and has written many technical articles for IBM DeveloperWorks, Developer.com, and JavaLobby.
@@ -184,6 +192,7 @@
     <!--valenta-->
     <string name="valenta_name">Jan Valenta</string>
     <string name="valenta_company">Oracle</string>
+    <string name="valenta_twitter"></string>
     <string name="valenta_description">Jan Valenta has been developing physics algorithms and
         designing user interface for experiments at CERN before he joined Sun Microsystems in 2006.
         At Sun, he contributed to Java Wireless Toolkit project, participated on the SVG Tiny implementation and low level renderer development.
@@ -202,6 +211,7 @@
     <!--palka-->
     <string name="jaroslaw_palka_name">Jarosław Pałka</string>
     <string name="jaroslaw_palka_company">Lumesse</string>
+    <string name="jaroslaw_palka_twitter">j_palka</string>
     <string name="jaroslaw_palka_description">Jarek spent last 15 years of his life in IT working as database and system administrator,
         developer, architect, manager and "on site disaster engineer ".
         He was involved in small, medium and horribly and nonsense large systems,
@@ -229,6 +239,7 @@
     <!--zeeb-->
     <string name="zeeb_name">Nick Zeeb</string>
     <string name="zeeb_company">LMAX</string>
+    <string name="zeeb_twitter">NickZeeb</string>
     <string name="zeeb_description">Nick Zeeb is a core Java developer at LMAX Exchange in London.
         LMAX operates a financial exchange that is capable of handling 20,000 orders per second with a
         mean latency of 1.5 milliseconds. Nick has been involved in the financial industry since 2006 and
@@ -244,6 +255,7 @@
     <!--fedorov-->
     <string name="fedorov_name">Alexey Fedorov</string>
     <string name="fedorov_company">Oracle</string>
+    <string name="fedorov_twitter">23derevo</string>
     <string name="fedorov_description">Alexey graduated Saint-Petersburg State University,
         where he defended his diploma and PhD thesis on the theory of dynamical systems.
         He works in Oracle, Java Platform group, Java Compatibility Kit (JCK).
@@ -259,6 +271,7 @@
     <!--luciano-->
     <string name="luciano_name">Luciano Fiandesio</string>
     <string name="luciano_company">Aestas/IT</string>
+    <string name="luciano_twitter"></string>
     <string name="luciano_description">Luciano Fiandesio is a programmer, technology enthusiast and entrepreneur living in Zurich, Switzerland.
         Luciano has been working for the last 18 years in 12 different countries as architect and developer for large
         corporations and small start-ups: Nokia, European Central Bank, BNP Paribas, Ericsson are among his clients.
@@ -276,6 +289,7 @@
     <!--antipin-->
     <string name="antipin_name">Roman Antipin</string>
     <string name="antipin_company">Odnoklassniki</string>
+    <string name="antipin_twitter"></string>
     <string name="antipin_description">Roman is a leading developer at Odnoklassniki since 2010.
         As a platform team member, he is engaged in the development and implementation of distributed storage systems.
         Before joining Odnoklassniki team he gained distributed systems experience developing server side of a real-time
@@ -291,6 +305,7 @@
     <!--Magda-->
     <string name="magda_name">Denis Magda</string>
     <string name="magda_company">Oracle</string>
+    <string name="magda_twitter"></string>
     <string name="magda_description">Denis is a technical lead of Java ME Embedded porting team at Oracle.
         The team is responsible for the Java ME Embedded porting process on wide variety of systems on a chip,
         micro controllers and other constrained devices. Before Denis moved its interest
@@ -309,6 +324,7 @@
     <!--Andrey Adamovich-->
     <string name="adamovich_name">Andrey Adamovich</string>
     <string name="adamovich_company">Aestas IT</string>
+    <string name="adamovich_twitter"></string>
     <string name="adamovich_description">Andrey Adamovich is a software craftsman with many years of experience in
         different lifecycle phases of software creation. He is passionate about defining good development practices,
         documenting and presenting architecture, reuse of code and design patterns, profiling and analysis of

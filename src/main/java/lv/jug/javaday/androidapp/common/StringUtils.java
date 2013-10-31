@@ -4,6 +4,10 @@ import java.util.List;
 
 public class StringUtils {
 
+    public static boolean isEmpty(String s) {
+        return s == null || s.isEmpty();
+    }
+
     public static String join(List<?> list, String separator) {
         return join(list.toArray(), separator);
     }

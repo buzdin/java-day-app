@@ -25,7 +25,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private static ClassLogger logger = new ClassLogger(DatabaseHelper.class);
 
     private static final String DATABASE_NAME = "javaday.db";
-    private static final int DATABASE_VERSION = 10;
+    private static final int DATABASE_VERSION = 11;
 
     private Dao<Speaker, String> speakerDao;
     private Dao<Event, Integer> eventDao;
@@ -151,7 +151,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
                            stringService.loadString(name + "_company"),
                            name,
                            stringService.loadString(name + "_description"),
-                           country);
+                           country,
+                           stringService.loadString(name + "_twitter"));
     }
 
     private Event newEvent(int roomId, String time, String title, String speakerName, String icon) {

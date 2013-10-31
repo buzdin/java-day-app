@@ -43,14 +43,18 @@ public class Speaker implements Parcelable {
     @DatabaseField
     private String country;
 
+    @DatabaseField
+    private String twitter;
+
     public Speaker() {}
 
-    public Speaker(String name, String company, String photo, String info, String country) {
+    public Speaker(String name, String company, String photo, String info, String country, String twitter) {
         this.name = name;
         this.company = company;
         this.photo = photo;
         this.info = info;
         this.country = country;
+        this.twitter = twitter;
     }
 
     private Speaker(Parcel in) {
@@ -59,6 +63,7 @@ public class Speaker implements Parcelable {
         photo = in.readString();
         info = in.readString();
         country = in.readString();
+        twitter = in.readString();
     }
 
     public String getName() {
@@ -101,6 +106,14 @@ public class Speaker implements Parcelable {
         this.country = country;
     }
 
+    public String getTwitter() {
+        return twitter;
+    }
+
+    public void setTwitter(String twitter) {
+        this.twitter = twitter;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -113,6 +126,7 @@ public class Speaker implements Parcelable {
         out.writeString(photo);
         out.writeString(info);
         out.writeString(country);
+        out.writeString(twitter);
     }
 
     public static final Parcelable.Creator<Speaker> CREATOR = new Parcelable.Creator<Speaker>() {
