@@ -144,6 +144,7 @@ public class MainActivity extends FragmentActivity {
         // TODO: temporal workaround
         if(selectedItem.equals(getString(R.string.twitter))) {
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/search?q=%23jdayriga/")));
+            drawerLayout.closeDrawer(drawerList);
             return;
         }
 
