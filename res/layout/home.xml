@@ -115,7 +115,7 @@
                 android:orientation="vertical"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:weightSum="2"
+                android:weightSum="3"
                 >
             <LinearLayout
                     android:orientation="horizontal"
@@ -183,6 +183,39 @@
                         android:layout_marginLeft="5dp"
                         android:src="@drawable/ipr"
                         android:contentDescription="@string/no_img_found"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_height="0dp"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:weightSum="3"
+                    >
+                <Space android:layout_width="0dp"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="0.5"/>
+
+                <ImageView
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:src="@drawable/accenture"
+                        android:contentDescription="@string/no_img_found"/>
+                <ImageView
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:src="@drawable/neueda"
+                        android:contentDescription="@string/no_img_found"/>
+
+                <Space android:layout_width="0dp"
+                       android:layout_height="wrap_content"
+                       android:layout_weight="0.5"/>
             </LinearLayout>
         </LinearLayout>
         <!--sponsors block end-->
