@@ -1,90 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:id="@+id/content_frame"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical">
-    <LinearLayout
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/content_frame"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="10dp"
-            android:id="@+id/speakerHead">
+            android:layout_height="wrap_content">
 
-        <ImageView android:layout_width="100dp"
-                   android:layout_height="100dp"
-                   android:id="@+id/speakerphoto"
-                   android:contentDescription="@string/no_img_found"/>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical">
         <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:orientation="vertical"
-                android:layout_marginLeft="10dp">
-
-            <TextView android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:id="@+id/speakername"
-                      android:textStyle="bold"
-                      android:textSize="24sp"
-                      android:fontFamily="sans-serif-condensed"
-                      android:textColor="@color/almost_black"/>
-
-            <TextView android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:id="@+id/speakercompany"
-                      android:fontFamily="sans-serif"
-                      android:textSize="14sp"
-                      android:textColor="@color/dark_grey"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:id="@+id/speakerHead">
 
             <ImageView android:layout_width="100dp"
                        android:layout_height="100dp"
-                       android:id="@+id/speakerflag"
+                       android:scaleType="fitCenter"
+                       android:id="@+id/speakerphoto"
                        android:contentDescription="@string/no_img_found"/>
+            <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="10dp">
+
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:id="@+id/speakername"
+                          android:textStyle="bold"
+                          android:textSize="24sp"
+                          android:fontFamily="sans-serif-condensed"
+                          android:textColor="@color/almost_black"/>
+
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:adjustViewBounds="true"
+                            android:id="@+id/speakerflag"
+                            android:layout_gravity="center"
+                            android:contentDescription="@string/no_img_found"
+                            />
+
+                    <TextView android:layout_width="wrap_content"
+                              android:layout_height="wrap_content"
+                              android:fontFamily="sans-serif"
+                              android:textSize="16sp"
+                              android:layout_gravity="center"
+                              android:layout_marginLeft="10dp"
+                              android:textColor="@color/dark_grey"
+                              android:id="@+id/speakercompany"/>
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:paddingBottom="10dp"
+                android:id="@+id/speakerDescription">
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:lineSpacingExtra="2sp"
+                      android:textColor="@color/lighted_black"
+                      android:id="@+id/speakerinfo"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:background="@drawable/solid_round_shape"
+                >
+            <TextView android:layout_width="0dp"
+                      android:layout_weight="1"
+                      android:layout_height="wrap_content"
+                      android:id="@+id/speakerpresentation"
+                      android:textSize="18sp"
+                      android:fontFamily="sans-serif-condensed"
+                      android:textColor="@color/almost_black"/>
+
+            <ImageView
+                    android:layout_height="15dp"
+                    android:layout_width="wrap_content"
+                    android:src="@drawable/people_arrow"
+                    android:layout_marginLeft="5dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/no_img_found"
+                    />
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center">
+
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:id="@+id/twitter_button_group"
+                    >
+
+                <ImageView android:layout_width="50dp"
+                           android:layout_height="50dp"
+                           android:scaleType="fitCenter"
+                           android:background="@null"
+                           android:src="@drawable/twitter_icon"/>
+
+                <TextView android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:id="@+id/speakertwitter"
+                          android:layout_marginLeft="10dp"
+                          android:textStyle="bold"
+                          android:layout_gravity="center"
+                          android:textSize="18sp"
+                          android:fontFamily="sans-serif-condensed"
+                          android:textColor="@color/lighted_black"/>
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!-->-->
+        <!--<ImageView android:layout_height="1dp"-->
+        <!--android:background="@color/border_color"-->
+        <!--android:layout_width="fill_parent"/>-->
+
+
+        <!--</LinearLayout>-->
+
+
     </LinearLayout>
-
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingRight="10dp"
-            android:paddingLeft="10dp"
-            android:paddingBottom="10dp"
-            android:id="@+id/speakerDescription">
-
-        <TextView android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:lineSpacingExtra="2sp"
-                  android:textColor="@color/lighted_black"
-                  android:id="@+id/speakerinfo"/>
-    </LinearLayout>
-
-    <TextView android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:id="@+id/speakertwitter"
-              android:textStyle="bold"
-              android:textSize="18sp"
-              android:fontFamily="sans-serif-condensed"
-              android:textColor="@color/almost_black"/>
-
-    <TextView android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:id="@+id/speakerpresentation"
-              android:textStyle="bold"
-              android:textSize="24sp"
-              android:fontFamily="sans-serif-condensed"
-              android:textColor="@color/almost_black"/>
-
-    <!--<LinearLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!-->-->
-    <!--<ImageView android:layout_height="1dp"-->
-    <!--android:background="@color/border_color"-->
-    <!--android:layout_width="fill_parent"/>-->
-
-
-    <!--</LinearLayout>-->
-
-</LinearLayout>
+</ScrollView>

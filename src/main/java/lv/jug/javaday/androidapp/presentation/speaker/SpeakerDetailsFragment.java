@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import butterknife.InjectView;
 import lv.jug.javaday.androidapp.R;
@@ -50,6 +51,9 @@ public class SpeakerDetailsFragment extends BaseFragment {
     @InjectView(R.id.speakerpresentation)
     TextView speakerPresentation;
 
+	@InjectView(R.id.twitter_button_group)
+	LinearLayout twitterButtonGroup;
+
     @Override
     protected int contentViewId() {
         return R.layout.speaker_details;
@@ -69,7 +73,13 @@ public class SpeakerDetailsFragment extends BaseFragment {
         String presentationTitle = presentation.getTitle();
 
         final String twitterName = speaker.getTwitter();
-        String twitter = "Follow @" + twitterName;
+	    if (StringUtils.isEmpty(twitterName)) {
+		    twitterButtonGroup.setVisibility(View.GONE);
+	    } else {
+		    twitterButtonGroup.setVisibility(View.VISIBLE);
+		    String twitter = "Follow @" + twitterName;
+		    speakerTwitter.setText(twitter);
+	    }
 
         speakerName.setText(speaker.getName());
         speakerFlag.setImageDrawable(countryFlag);
@@ -77,13 +87,12 @@ public class SpeakerDetailsFragment extends BaseFragment {
         speakerPhoto.setImageDrawable(portrait);
         speakerCompany.setText(speaker.getCompany());
         speakerPresentation.setText(presentationTitle);
-        speakerTwitter.setText(twitter);
 
-        speakerTwitter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showSpeakerTwitter(twitterName);
-            }
+	    twitterButtonGroup.setOnClickListener(new View.OnClickListener() {
+	        @Override
+	        public void onClick(View v) {
+		        showSpeakerTwitter(twitterName);
+	        }
         });
         speakerPresentation.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,10 +100,6 @@ public class SpeakerDetailsFragment extends BaseFragment {
                 showPresentationDetails(presentation);
             }
         });
-
-        if (StringUtils.isEmpty(twitterName)) {
-            speakerTwitter.setVisibility(View.GONE);
-        }
     }
 
     private void showPresentationDetails(Event presentation) {

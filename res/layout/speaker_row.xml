@@ -30,29 +30,31 @@
                   android:textSize="18sp"
                   android:textColor="@color/almost_black"/>
 
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-        <TextView android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:textSize="13sp"
-                  android:textColor="@color/dark_grey"
-                  android:id="@+id/speakercompany"/>
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:adjustViewBounds="true"
+                    android:id="@+id/countryflag"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/no_img_found"
+                    />
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:textSize="13sp"
+                      android:layout_gravity="center"
+                      android:minWidth="50dp"
+                      android:layout_marginLeft="10dp"
+                      android:textColor="@color/dark_grey"
+                      android:id="@+id/speakercompany"/>
+
+
+        </LinearLayout>
+
     </LinearLayout>
-
-
-    <ImageView
-            android:id="@+id/countryflag"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_gravity="center"
-            android:contentDescription="@string/no_img_found"
-            />
-
-    <ImageView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:src="@drawable/people_arrow"
-            android:layout_gravity="center"
-            android:contentDescription="@string/no_img_found"
-            />
-
 </LinearLayout>
