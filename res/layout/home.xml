@@ -91,6 +91,7 @@
                     android:textAllCaps="true"
                     android:textSize="13sp"
                     android:fontFamily="sans"
+                    android:textStyle="bold"
                     android:textColor="@color/almost_black"/>
 
             <ImageView android:layout_height="1dp"
