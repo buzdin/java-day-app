@@ -19,7 +19,6 @@
                 android:id="@+id/event_title"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/antipin_presentation_title"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="@color/almost_black"
@@ -30,8 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="3dp"
-                android:textColor="@color/lighted_black"
-                android:text="10:00 - Room 4"/>
+                android:textColor="@color/lighted_black"/>
     </LinearLayout>
 
     <ImageView android:layout_width="match_parent"
@@ -53,7 +51,6 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:text="@string/adamovich_description"
                     />
 
             <!--speakers start-->
