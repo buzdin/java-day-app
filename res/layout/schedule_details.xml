@@ -2,27 +2,162 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:id="@+id/content_frame"
-              android:orientation="vertical"
               android:layout_width="fill_parent"
+              android:orientation="vertical"
               android:layout_height="fill_parent">
 
-
-    <TextView
-            android:id="@+id/speaker_name"
-            android:layout_width="fill_parent"
+    <LinearLayout
+            android:background="@drawable/repeat_bg"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            />
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:orientation="vertical">
 
-    <TextView
-            android:id="@+id/event_title"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            />
+        <TextView
+                android:id="@+id/event_title"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/antipin_presentation_title"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/almost_black"
+                />
+        <TextView
+                android:id="@+id/event_info"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="3dp"
+                android:textColor="@color/lighted_black"
+                android:text="10:00 - Room 4"/>
+    </LinearLayout>
 
-    <TextView
-            android:id="@+id/event_description"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            />
+    <ImageView android:layout_width="match_parent"
+               android:layout_height="1dp"
+               android:background="@color/border_color"/>
 
+
+    <ScrollView android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+        <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:orientation="vertical">
+
+            <TextView
+                    android:id="@+id/event_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text="@string/adamovich_description"
+                    />
+
+            <!--speakers start-->
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="10dp"
+                    >
+
+                <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="fill_parent"
+                        android:text="@string/speakers"
+                        android:textAllCaps="true"
+                        android:textSize="13sp"
+                        android:fontFamily="sans"
+                        android:textStyle="bold"
+                        android:textColor="@color/almost_black"/>
+
+                <ImageView android:layout_height="1dp"
+                           android:background="@color/border_color"
+                           android:layout_width="fill_parent"
+                           android:layout_marginBottom="5dp"/>
+
+                <!--topic 1st speaker -->
+                <LinearLayout
+                        android:id="@+id/speaker_group_1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:orientation="horizontal">
+
+
+                    <ImageView
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"
+                            android:id="@+id/speaker_photo_1"/>
+
+                    <TextView
+                            android:id="@+id/speaker_name_1"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:textColor="@color/almost_black"
+                            android:textStyle="bold"
+                            android:layout_marginLeft="7dp"
+                            />
+
+                    <ImageView android:layout_width="wrap_content"
+                               android:layout_height="15dp"
+                               android:layout_margin="5dp"
+                               android:src="@drawable/people_arrow"
+                               android:layout_gravity="center"
+                               android:contentDescription="@string/no_img_found"/>
+
+                </LinearLayout>
+
+                <!--topic 1st speaker end-->
+                <ImageView android:layout_height="1dp"
+                           android:layout_width="fill_parent"
+                           android:background="@color/border_color"
+                           android:id="@+id/speaker_separator"
+                           android:visibility="gone"
+                           android:layout_margin="5dp"/>
+                <!--topic 2nd speaker -->
+                <LinearLayout
+                        android:id="@+id/speaker_group_2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+
+                    <ImageView
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"
+                            android:id="@+id/speaker_photo_2"/>
+
+                    <TextView
+                            android:id="@+id/speaker_name_2"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:textColor="@color/almost_black"
+                            android:textStyle="bold"
+                            android:layout_marginLeft="7dp"
+                            />
+
+                    <ImageView android:layout_width="wrap_content"
+                               android:layout_height="15dp"
+                               android:layout_margin="5dp"
+                               android:src="@drawable/people_arrow"
+                               android:layout_gravity="center"
+                               android:contentDescription="@string/no_img_found"/>
+
+                </LinearLayout>
+                <!--topic 2st speaker end-->
+
+            </LinearLayout>
+            <!--speakers end-->
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
