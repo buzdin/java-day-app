@@ -1,37 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="horizontal"
               android:layout_width="match_parent"
-              android:layout_height="wrap_content">
-
-    <ImageView android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:id="@+id/eventIcon"
-               android:background="@null"
-               android:layout_gravity="center"
-               android:contentDescription="@string/no_img_found"/>
-
-    <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:id="@+id/eventTime"
-              android:layout_gravity="center_vertical"/>
+              android:minHeight="60dp"
+              android:weightSum="10">
 
-    <TextView android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:id="@+id/eventTitle"
-              android:layout_gravity="center_vertical"/>
+    <LinearLayout android:layout_height="match_parent"
+                  android:layout_width="0dp"
+                  android:layout_weight="2"
+                  android:orientation="vertical"
+                  android:background="@drawable/repeat_bg">
 
-    <TextView android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:id="@+id/speakerName"
-              android:layout_gravity="center_vertical"/>
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:id="@+id/eventTime"
+                  android:gravity="center"
+                  android:textColor="@color/almost_black"
+                  android:textSize="16sp"
+                />
+    </LinearLayout>
 
-    <ImageView android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:id="@+id/additionalDetailsImg"
-               android:background="@null"
-               android:layout_gravity="center"
-               android:contentDescription="@string/no_img_found"/>
+    <LinearLayout
+            android:layout_height="wrap_content"
+            android:minHeight="60dp"
+            android:layout_width="0dp"
+            android:layout_weight="8"
+            android:orientation="horizontal">
+
+
+        <ImageView android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:id="@+id/eventIcon"
+                   android:layout_marginLeft="10dp"
+                   android:layout_gravity="center"
+                   android:contentDescription="@string/no_img_found"/>
+
+        <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp">
+
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:id="@+id/eventTitle"
+                      android:textColor="@color/almost_black"
+                      android:textStyle="bold"
+                      android:textSize="14sp"
+                      android:layout_gravity="center_vertical"/>
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:id="@+id/speakerName"
+                      android:textColor="@color/dark_grey"
+                      android:textSize="12sp"
+                      android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+        <ImageView android:layout_width="wrap_content"
+                   android:layout_height="15dp"
+                   android:layout_margin="5dp"
+                   android:id="@+id/additionalDetailsImg"
+                   android:layout_gravity="center"
+                   android:contentDescription="@string/no_img_found"/>
+
+    </LinearLayout>
 
 </LinearLayout>
