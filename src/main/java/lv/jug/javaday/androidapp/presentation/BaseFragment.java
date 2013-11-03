@@ -1,17 +1,16 @@
 package lv.jug.javaday.androidapp.presentation;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import butterknife.Views;
+import com.actionbarsherlock.app.SherlockFragment;
 import com.squareup.otto.Bus;
 
 import javax.inject.Inject;
 
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment extends SherlockFragment {
 
     @Inject
     Bus bus;

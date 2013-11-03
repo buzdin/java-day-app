@@ -6,13 +6,13 @@ import android.support.v4.app.Fragment;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.*;
 import android.widget.*;
 import butterknife.InjectView;
 import butterknife.Views;
+import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.squareup.otto.Bus;
 import lv.jug.javaday.androidapp.R;
 import lv.jug.javaday.androidapp.common.StringService;
@@ -23,7 +23,7 @@ import lv.jug.javaday.androidapp.presentation.speaker.SpeakerDashboardFragment;
 
 import javax.inject.Inject;
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends SherlockFragmentActivity {
 
     @Inject
     Bus bus;
@@ -81,8 +81,13 @@ public class MainActivity extends FragmentActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        return drawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
+    public boolean onOptionsItemSelected(com.actionbarsherlock.view.MenuItem item) {
+        if (drawerLayout.isDrawerOpen(drawerList)) {
+            drawerLayout.closeDrawer(drawerList);
+        } else {
+            drawerLayout.openDrawer(drawerList);
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void initDrawerLayout(Bundle state) {
@@ -99,8 +104,8 @@ public class MainActivity extends FragmentActivity {
 
         title = drawerTitle = getTitle();
 
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-        getActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
 
         // ActionBarDrawerToggle ties together the the proper interactions
         // between the sliding drawer and the action bar app icon
@@ -112,12 +117,12 @@ public class MainActivity extends FragmentActivity {
                 R.string.drawer_close  /* "close drawer" description for accessibility */
         ) {
             public void onDrawerClosed(View view) {
-                getActionBar().setTitle(title);
+                getSupportActionBar().setTitle(title);
                 invalidateOptionsMenu();
             }
 
             public void onDrawerOpened(View drawerView) {
-                getActionBar().setTitle(drawerTitle);
+                getSupportActionBar().setTitle(drawerTitle);
                 invalidateOptionsMenu();
             }
         };
@@ -135,7 +140,7 @@ public class MainActivity extends FragmentActivity {
     @Override
     public void setTitle(CharSequence title) {
         this.title = title;
-        getActionBar().setTitle(title);
+        getSupportActionBar().setTitle(title);
     }
 
     private void selectItem(int position) {
