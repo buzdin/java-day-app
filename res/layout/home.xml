@@ -131,6 +131,14 @@
                         android:layout_weight="1"
                         android:layout_marginRight="5dp"
                         android:layout_marginLeft="5dp"
+                        android:src="@drawable/oracle_logo"
+                        android:contentDescription="@string/no_img_found"/>
+                <ImageView
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginLeft="5dp"
                         android:src="@drawable/odnoklassniki"
                         android:contentDescription="@string/no_img_found"/>
                 <ImageView
@@ -140,15 +148,6 @@
                         android:layout_marginRight="5dp"
                         android:layout_marginLeft="5dp"
                         android:src="@drawable/ctco_logo"
-                        android:contentDescription="@string/no_img_found"/>
-
-                <ImageView
-                        android:layout_height="wrap_content"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginLeft="5dp"
-                        android:src="@drawable/fourfinance"
                         android:contentDescription="@string/no_img_found"/>
             </LinearLayout>
 
@@ -160,6 +159,15 @@
                     android:layout_weight="1"
                     android:weightSum="3"
                     >
+
+                <ImageView
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:src="@drawable/fourfinance"
+                        android:contentDescription="@string/no_img_found"/>
                 <ImageView
                         android:layout_height="wrap_content"
                         android:layout_width="0dp"
@@ -176,14 +184,6 @@
                         android:layout_marginLeft="5dp"
                         android:src="@drawable/skills_matter_logo"
                         android:contentDescription="@string/no_img_found"/>
-                <ImageView
-                        android:layout_height="wrap_content"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginLeft="5dp"
-                        android:src="@drawable/ipr"
-                        android:contentDescription="@string/no_img_found"/>
             </LinearLayout>
 
             <LinearLayout
@@ -193,10 +193,15 @@
                     android:layout_weight="1"
                     android:weightSum="3"
                     >
-                <!--<Space android:layout_width="0dp"-->
-                       <!--android:layout_height="wrap_content"-->
-                       <!--android:layout_weight="0.5"/>-->
 
+                <ImageView
+                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:src="@drawable/ipr"
+                        android:contentDescription="@string/no_img_found"/>
                 <ImageView
                         android:layout_height="wrap_content"
                         android:layout_width="0dp"
@@ -214,9 +219,6 @@
                         android:src="@drawable/neueda"
                         android:contentDescription="@string/no_img_found"/>
 
-                <!--<Space android:layout_width="0dp"-->
-                       <!--android:layout_height="wrap_content"-->
-                       <!--android:layout_weight="0.5"/>-->
             </LinearLayout>
         </LinearLayout>
         <!--sponsors block end-->
