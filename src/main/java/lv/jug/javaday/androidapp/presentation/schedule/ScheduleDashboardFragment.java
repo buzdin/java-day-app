@@ -29,10 +29,6 @@ public class ScheduleDashboardFragment extends BaseFragment {
 
     @Override
     protected void init(Bundle savedInstanceState) {
-//        final ActionBar bar = getActionBar();
-//        bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-//        bar.setDisplayOptions(0, ActionBar.DISPLAY_SHOW_TITLE);
-
         pageAdapter = new SchedulePageAdapter((getActivity()).getSupportFragmentManager(), createFragments());
         pager.setAdapter(pageAdapter);
 
