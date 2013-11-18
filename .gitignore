@@ -25,3 +25,4 @@ gen-external-apklibs/
 
 # Misc
 .DS_Store
+*.swp
