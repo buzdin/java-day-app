@@ -7,7 +7,7 @@ public class NavigationItem {
 
     public NavigationItem(String titleName) {
         this.titleName = titleName;
-        this.iconName = "it";//titleName + "_icon";
+        this.iconName = titleName + "_icon";
     }
 
     public String getIconName() {
