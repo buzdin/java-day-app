@@ -18,6 +18,8 @@ import lv.jug.javaday.androidapp.R;
 import lv.jug.javaday.androidapp.common.StringService;
 import lv.jug.javaday.androidapp.presentation.feed.TwitterFeedFragment;
 import lv.jug.javaday.androidapp.presentation.home.HomeFragment;
+import lv.jug.javaday.androidapp.presentation.navigation.NavigationDrawerAdapter;
+import lv.jug.javaday.androidapp.presentation.navigation.NavigationItem;
 import lv.jug.javaday.androidapp.presentation.schedule.ScheduleDashboardFragment;
 import lv.jug.javaday.androidapp.presentation.speaker.SpeakerDashboardFragment;
 
@@ -30,6 +32,9 @@ public class MainActivity extends SherlockFragmentActivity {
 
     @Inject
     StringService stringService;
+
+    @Inject
+    NavigationDrawerAdapter drawerAdapter;
 
     @InjectView(R.id.drawer_layout)
     DrawerLayout drawerLayout;
@@ -91,9 +96,7 @@ public class MainActivity extends SherlockFragmentActivity {
     }
 
     private void initDrawerLayout(Bundle state) {
-        String[] navigationItems = getResources().getStringArray(R.array.navigation_drawer);
-
-        drawerList.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, navigationItems));
+        drawerList.setAdapter(drawerAdapter);
         drawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
         drawerList.setOnItemClickListener(new ListView.OnItemClickListener() {
             @Override
@@ -144,7 +147,8 @@ public class MainActivity extends SherlockFragmentActivity {
     }
 
     private void selectItem(int position) {
-        String selectedItem = stringService.loadStringArrayItem(R.array.navigation_drawer, position);
+        NavigationItem navigationItem = drawerAdapter.get(position);
+        String selectedItem = stringService.loadString(navigationItem.getTitleName());
 
         // TODO: temporal workaround
         if(selectedItem.equals(getString(R.string.twitter))) {

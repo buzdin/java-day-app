@@ -29,14 +29,6 @@ public class StringServiceRoboTest extends BaseRobolectricTest {
         assertThat(actual, equalTo(expected));
     }
 
-    @Test
-    public void shouldFindStringArray() {
-        String[] expected = context.getResources().getStringArray(R.array.navigation_drawer);
-        String[] actual = service.loadStringArray("navigation_drawer");
-
-        assertThat(actual, arrayContaining(expected));
-    }
-
     @Override
     public DaggerModule getModule() {
         return new TestModule();

@@ -20,28 +20,40 @@ import java.util.List;
 public class ScheduleDetailsFragment extends BaseFragment {
 
 	public static final String KEY_EVENT = "event";
-	@Inject
+
+    @Inject
 	DrawableService drawableService;
+
 	@Inject
 	SpeakerRepository speakerRepository;
+
 	@InjectView(R.id.speaker_photo_1)
 	ImageView speakerPhoto1;
+
 	@InjectView(R.id.speaker_name_1)
 	TextView speakerName1;
+
 	@InjectView(R.id.speaker_photo_2)
 	ImageView speakerPhoto2;
+
 	@InjectView(R.id.speaker_name_2)
 	TextView speakerName2;
+
 	@InjectView(R.id.speaker_separator)
 	ImageView speakerSeparator;
+
 	@InjectView(R.id.speaker_group_1)
 	LinearLayout speakerGroup1;
+
 	@InjectView(R.id.speaker_group_2)
 	LinearLayout speakerGroup2;
+
 	@InjectView(R.id.event_info)
 	TextView eventInfo;
+
 	@InjectView(R.id.event_title)
 	TextView eventTitle;
+
 	@InjectView(R.id.event_description)
 	TextView eventDescription;
 

@@ -13,14 +13,6 @@
     <string name="speakers">Speakers</string>
     <string name="twitter">Twitter</string>
 
-    <string-array name="navigation_drawer">
-        <item>@string/home</item>
-        <item>@string/schedule</item>
-        <item>@string/speakers</item>
-        <item>@string/twitter</item>
-    </string-array>
-
-
     <string name="conf_title">Java Day Riga conference 2013</string>
     <string name="where">Kino Citadele</string>
     <string name="adress">13 Janvara st. 8, LV 1050 Riga, Latvia</string>
