@@ -9,4 +9,4 @@ Java Day Riga Official App
 3. mvn android:run
 ============
 
-<img src="http://maxwelldirect.org/astore/wp-content/uploads/2013/10/button-get-it-on-google-play.png" alt="Drawing" style="width: 200px;"/> Google Play link
+<img src="http://maxwelldirect.org/astore/wp-content/uploads/2013/10/button-get-it-on-google-play.png" alt="Drawing" style="width: 100px;"/> Google Play link
