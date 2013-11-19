@@ -1,4 +1,4 @@
-![Google Play](http://uniosoft.org/wp-content/uploads/2013/05/google-play1.png)java-day-app
+java-day-app
 ============
 
 Java Day Riga Official App
@@ -7,3 +7,6 @@ Java Day Riga Official App
 1. mvn install
 2. mvn android:deploy
 3. mvn android:run
+============
+
+<img src="http://maxwelldirect.org/astore/wp-content/uploads/2013/10/button-get-it-on-google-play.png" alt="Drawing" style="width: 200px;"/> Google Play link
