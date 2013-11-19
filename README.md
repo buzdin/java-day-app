@@ -1,4 +1,4 @@
-![Google Play](http://techraptor.net/wp-content/uploads/2013/08/google_play_icon___logo_by_chrisbanks2-d4s1i75.png)java-day-app
+![Google Play](http://uniosoft.org/wp-content/uploads/2013/05/google-play1.png)java-day-app
 ============
 
 Java Day Riga Official App
