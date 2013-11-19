@@ -12,6 +12,7 @@ public final class CountryCodes {
     public static final String POLAND = "pl";
     public static final String RUSSIA = "ru";
     public static final String ITALY = "it";
+    public static final String GERMANY = "ge";
 
     private CountryCodes() {}
 }

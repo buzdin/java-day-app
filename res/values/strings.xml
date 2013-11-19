@@ -324,5 +324,47 @@
         Master Degree in Computer Science from Latvian State University.
     </string>
 
+    <!--Alexander Mironenko-->
+    <string name="mironenko_name">Alexander Mironenko</string>
+    <string name="mironenko_company">Oracle</string>
+    <string name="mironenko_twitter"></string>
+    <string name="mironenko_description">
+        Alexander is a member of Java ME porting team. He started working with Java technology at university focusing
+        his interest in programming for embedded systems. As result he developed several robots that were shown in Sun
+        Tech Days conferences. Having more than 5 years experience in Java development he joined Oracle\'s Java ME
+        Embedded team to participate in the improving of this platform.
+    </string>
+    <string name="mironenko_presentation_title">Modernize Your Home or Garage with Java ME Embedded</string>
+    <string name="mironenko_presentation_description">
+        Modern technologies are everywhere in our life, but do you know how to use them? Have you ever tried to automate
+        something in your house? Maybe you dream of creating a robot or another automated mechanism but the task seems
+        too complex for you? Java ME Embedded is a new generation of the well-known Java ME platform that aims to bring
+        a simple and unified way to develop applications for embedded systems. In this session, you will learn how it is
+        easy to get information from different sensors and control a variety of peripheral devices with Java’s device
+        access API library. The session includes a step-by-step guide that enables you to start automating your life
+        with Java Embedded.
+    </string>
+
+    <!--Dirk Mahler-->
+    <string name="mahler_name">Dirk Mahler</string>
+    <string name="mahler_company">buschmais GbR</string>
+    <string name="mahler_twitter">dirkmahler</string>
+    <string name="mahler_description">
+        Dirk Mahler is working as a Senior Consultant in the area of Java EE technologies with an expertise of more than
+        10 years. In his daily work he focusses on creating sustainable solutions in software design, architecture and
+        integration and is passionate in applying agile methodologies.
+    </string>
+    <string name="mahler_presentation_title">Exploration and Verification of Java Applications Using a Graph Database</string>
+    <string name="mahler_presentation_description">
+        Every change committed by a developer potentially affects the
+        structure of the whole software system. One of the big challenges is to keep overview of these structures and to
+        ensure that similar problems are solved using similar patterns. A common approach is the definition of
+        conventions and constraints for system design and architecture. But how can a team verify that these rules are
+        really applied? How can a developer efficiently gather information about existing structures? The talk presents
+        an approach based on bytecode analysis and storing the gathered information into a Neo4j graph database. It is
+        demonstrated how software structures can be modeled as nodes and relationships and how queries can be used to
+        gather valuable information about software systems and to enforce defined constraints.
+    </string>
+
     <!--speakers end-->
 </resources>
