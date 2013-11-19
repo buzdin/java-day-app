@@ -6,6 +6,15 @@
               android:layout_width="fill_parent"
               android:layout_height="fill_parent">
 
+    <ImageView android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:adjustViewBounds="true"
+               android:src="@drawable/header2"/>
+
+    <ImageView android:layout_width="match_parent"
+               android:layout_height="2dp"
+               android:background="@color/border_color"/>
+
     <ListView android:layout_width="fill_parent"
               android:layout_height="fill_parent"
               android:id="@+id/speakers"/>
