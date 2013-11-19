@@ -15,7 +15,7 @@ import lv.jug.javaday.androidapp.presentation.common.BaseListAdapter;
 
 import javax.inject.Inject;
 
-public class ScheduleAdapter extends BaseListAdapter {
+public class ScheduleAdapter extends BaseListAdapter<Event> {
 
 	@Inject
 	DrawableService drawableService;
@@ -46,7 +46,6 @@ public class ScheduleAdapter extends BaseListAdapter {
 		} else {
 			speakerName.setVisibility(View.GONE);
 		}
-
 
 		ImageView moreButton = Views.findById(view, R.id.additionalDetailsImg);
 		if (event.getDescription() != null) {

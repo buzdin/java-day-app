@@ -3,15 +3,14 @@ package lv.jug.javaday.androidapp.presentation.common;
 import android.content.Context;
 import android.widget.BaseAdapter;
 import javax.inject.Inject;
-import java.util.ArrayList;
 import java.util.List;
 
-public abstract class BaseListAdapter extends BaseAdapter {
+public abstract class BaseListAdapter<T> extends BaseAdapter {
 
     @Inject
     Context context;
 
-    private List data;
+    private List<T> data;
 
     @Override
     public int getCount() {
@@ -23,8 +22,8 @@ public abstract class BaseListAdapter extends BaseAdapter {
         return getData().get(position);
     }
 
-    public <T> T get(int position) {
-        return (T) getData().get(position);
+    public T get(int position) {
+        return getData().get(position);
     }
 
     @Override
@@ -32,12 +31,12 @@ public abstract class BaseListAdapter extends BaseAdapter {
         return position;
     }
 
-    public <T> void setData(List<T> data) {
+    public void setData(List<T> data) {
         this.data = data;
         notifyDataSetChanged();
     }
 
-    public <T> List<T> getData() {
+    public List<T> getData() {
         return data;
     }
 

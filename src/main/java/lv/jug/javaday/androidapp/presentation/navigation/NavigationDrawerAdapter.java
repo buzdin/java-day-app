@@ -15,7 +15,7 @@ import lv.jug.javaday.androidapp.presentation.common.BaseListAdapter;
 import javax.inject.Inject;
 import java.util.Arrays;
 
-public class NavigationDrawerAdapter extends BaseListAdapter {
+public class NavigationDrawerAdapter extends BaseListAdapter<NavigationItem> {
 
     @Inject
     StringService stringService;

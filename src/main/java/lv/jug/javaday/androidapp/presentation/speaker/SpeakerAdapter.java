@@ -13,7 +13,7 @@ import lv.jug.javaday.androidapp.presentation.common.BaseListAdapter;
 
 import javax.inject.Inject;
 
-public class SpeakerAdapter extends BaseListAdapter {
+public class SpeakerAdapter extends BaseListAdapter<Speaker> {
 
     @Inject
     DrawableService drawableService;
