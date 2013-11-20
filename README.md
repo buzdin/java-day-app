@@ -9,4 +9,4 @@ Java Day Riga Official App
 3. mvn android:run
 
 
-<a href="google.com"><img src="http://www.nhl.com/nhl/images/mobile/landing/btn-google_play.png" alt="Drawing"/></a>
+<a href="https://play.google.com/store/apps/details?id=lv.jug.javaday.androidapp"><img src="http://www.nhl.com/nhl/images/mobile/landing/btn-google_play.png" alt="Drawing"/></a>
