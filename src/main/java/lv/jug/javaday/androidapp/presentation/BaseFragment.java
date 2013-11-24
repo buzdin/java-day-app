@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import butterknife.Views;
 import com.actionbarsherlock.app.SherlockFragment;
 import com.squareup.otto.Bus;
+import lv.jug.javaday.androidapp.common.StringUtils;
 
 import javax.inject.Inject;
 
@@ -29,6 +30,9 @@ public abstract class BaseFragment extends SherlockFragment {
     public void onResume() {
         super.onResume();
         bus.register(this);
+	    if (!StringUtils.isEmpty(this.getTag())) {
+		    getActivity().setTitle(this.getTag());
+	    }
     }
 
     @Override
