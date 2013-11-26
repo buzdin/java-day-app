@@ -35,6 +35,12 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.loopj.android</groupId>
+            <artifactId>android-async-http</artifactId>
+            <version>1.4.4</version>
+        </dependency>
+
         <!-- Android Support Libraries -->
         <dependency>
             <groupId>uk.co.icatalyst</groupId>

@@ -164,41 +164,101 @@
 
             </LinearLayout>
 
-            <!--TODO: Style this-->
             <LinearLayout
                     android:layout_height="wrap_content"
                     android:layout_width="fill_parent"
-                    android:orientation="horizontal">
+                    android:orientation="vertical"
+                    android:layout_margin="10dp">
 
-                <ImageButton
-                        android:layout_weight="1"
-                        android:scaleType="fitCenter"
-                        android:layout_margin="20dp"
-
-                        android:layout_width="0dp"
+                <TextView
                         android:layout_height="wrap_content"
-                        android:background="@null"
-                        android:src="@drawable/dislike"/>
+                        android:layout_width="fill_parent"
+                        android:text="@string/feedback"
+                        android:textAllCaps="true"
+                        android:textSize="13sp"
+                        android:fontFamily="sans"
+                        android:textStyle="bold"
+                        android:textColor="@color/almost_black"/>
 
-                <ImageButton
-                        android:layout_weight="1"
-                        android:scaleType="fitCenter"
-                        android:layout_margin="20dp"
+                <ImageView android:layout_height="1dp"
+                           android:background="@color/border_color"
+                           android:layout_width="fill_parent"
+                           android:layout_marginBottom="5dp"/>
 
-                        android:layout_width="0dp"
-                        android:background="@null"
+                <LinearLayout
+                        android:id="@+id/feedbackSuccessGroup"
+                        android:visibility="gone"
+                        android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ok"/>
+                        >
+                    <ImageButton
+                            android:id="@+id/currentVote"
+                            android:scaleType="fitCenter"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:background="@null"
+                            android:src="@drawable/like"/>
 
-                <ImageButton
-                        android:layout_weight="1"
-                        android:scaleType="fitCenter"
-                        android:layout_margin="20dp"
+                    <TextView
+                            android:layout_height="fill_parent"
+                            android:layout_width="fill_parent"
+                            android:gravity="center"
+                            android:text="Thank you for feedback!"/>
 
-                        android:layout_width="0dp"
-                        android:background="@null"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/like"/>
+                </LinearLayout>
+
+                <LinearLayout
+                        android:id="@+id/feedbackGroup"
+                        android:orientation="vertical"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+                    <EditText
+                            android:id="@+id/comment_to_speaker"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textMultiLine|textCapSentences"
+                            android:minLines="2"
+                            android:maxLines="5"
+                            android:scrollbars="vertical"
+                            android:maxLength="500"
+                            android:textSize="14sp"
+                            android:hint="@string/comment_hint"/>
+
+                    <LinearLayout
+                            android:layout_height="wrap_content"
+                            android:layout_width="fill_parent"
+                            android:layout_marginTop="20dp"
+                            android:orientation="horizontal">
+
+                        <ImageButton
+                                android:id="@+id/vote_bad"
+                                android:layout_weight="1"
+                                android:scaleType="fitCenter"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:background="@null"
+                                android:src="@drawable/dislike"/>
+
+                        <ImageButton
+                                android:id="@+id/vote_good"
+                                android:layout_weight="1"
+                                android:scaleType="fitCenter"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:background="@null"
+                                android:src="@drawable/ok"/>
+
+                        <ImageButton
+                                android:id="@+id/vote_excellent"
+                                android:layout_weight="1"
+                                android:scaleType="fitCenter"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:background="@null"
+                                android:src="@drawable/like"/>
+                    </LinearLayout>
+                </LinearLayout>
+
             </LinearLayout>
             <!--speakers end-->
         </LinearLayout>

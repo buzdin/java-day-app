@@ -12,7 +12,10 @@ public class Event implements Parcelable {
     public static final String ROOM_ID_ID = "roomId";
     public static final String SPEAKER_NAME_ID = "speakerName";
 
-    @DatabaseField(generatedId = true, allowGeneratedIdInsert=true)
+	@DatabaseField
+	private int sessionId;
+
+	@DatabaseField(generatedId = true, allowGeneratedIdInsert=true)
     private int id;
 
     @DatabaseField
@@ -35,8 +38,9 @@ public class Event implements Parcelable {
 
     public Event() {}
 
-    public Event(int roomId, String startingTime, String title, String description, String speakerName, String icon) {
-        this.roomId = roomId;
+    public Event(int mappingId, int roomId, String startingTime, String title, String description, String speakerName, String icon) {
+        this.sessionId = mappingId;
+	    this.roomId = roomId;
         this.startingTime = startingTime;
         this.title = title;
         this.description = description;
@@ -45,6 +49,7 @@ public class Event implements Parcelable {
     }
 
     private Event(Parcel in) {
+	    sessionId = in.readInt();
         roomId = in.readInt();
         startingTime = in.readString();
         title = in.readString();
@@ -109,13 +114,22 @@ public class Event implements Parcelable {
         this.id = id;
     }
 
-    @Override
+	public int getSessionId() {
+		return sessionId;
+	}
+
+	public void setSessionId(int sessionId) {
+		this.sessionId = sessionId;
+	}
+
+	@Override
     public int describeContents() {
         return 0;
     }
 
     @Override
     public void writeToParcel(Parcel out, int flags) {
+	    out.writeInt(sessionId);
         out.writeInt(roomId);
         out.writeString(startingTime);
         out.writeString(title);

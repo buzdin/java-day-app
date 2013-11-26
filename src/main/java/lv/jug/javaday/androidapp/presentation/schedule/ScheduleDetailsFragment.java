@@ -2,17 +2,21 @@ package lv.jug.javaday.androidapp.presentation.schedule;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.view.WindowManager;
+import android.widget.*;
 import butterknife.InjectView;
+import com.loopj.android.http.JsonHttpResponseHandler;
 import lv.jug.javaday.androidapp.R;
 import lv.jug.javaday.androidapp.common.DrawableService;
+import lv.jug.javaday.androidapp.common.FeedbackService;
 import lv.jug.javaday.androidapp.domain.Event;
 import lv.jug.javaday.androidapp.domain.Speaker;
 import lv.jug.javaday.androidapp.domain.SpeakerRepository;
+import lv.jug.javaday.androidapp.domain.Vote;
 import lv.jug.javaday.androidapp.presentation.BaseFragment;
 import lv.jug.javaday.androidapp.presentation.speaker.SpeakerDetailsFragment;
+import org.apache.http.HttpEntity;
+import org.json.JSONObject;
 
 import javax.inject.Inject;
 import java.util.List;
@@ -20,42 +24,43 @@ import java.util.List;
 public class ScheduleDetailsFragment extends BaseFragment {
 
 	public static final String KEY_EVENT = "event";
-
-    @Inject
+	@Inject
 	DrawableService drawableService;
-
 	@Inject
 	SpeakerRepository speakerRepository;
-
 	@InjectView(R.id.speaker_photo_1)
 	ImageView speakerPhoto1;
-
 	@InjectView(R.id.speaker_name_1)
 	TextView speakerName1;
-
 	@InjectView(R.id.speaker_photo_2)
 	ImageView speakerPhoto2;
-
 	@InjectView(R.id.speaker_name_2)
 	TextView speakerName2;
-
 	@InjectView(R.id.speaker_separator)
 	ImageView speakerSeparator;
-
 	@InjectView(R.id.speaker_group_1)
 	LinearLayout speakerGroup1;
-
 	@InjectView(R.id.speaker_group_2)
 	LinearLayout speakerGroup2;
-
 	@InjectView(R.id.event_info)
 	TextView eventInfo;
-
 	@InjectView(R.id.event_title)
 	TextView eventTitle;
-
 	@InjectView(R.id.event_description)
 	TextView eventDescription;
+	@InjectView(R.id.comment_to_speaker)
+	EditText commentToSpeaker;
+	@InjectView(R.id.vote_bad)
+	ImageButton voteBadButton;
+	@InjectView(R.id.vote_good)
+	ImageButton voteGoodButton;
+	@InjectView(R.id.vote_excellent)
+	ImageButton voteExcellentButton;
+	@InjectView(R.id.feedbackSuccessGroup)
+	LinearLayout successGroup;
+	@InjectView(R.id.feedbackGroup)
+	LinearLayout feedbackGroup;
+
 
 	@Override
 	protected int contentViewId() {
@@ -64,8 +69,28 @@ public class ScheduleDetailsFragment extends BaseFragment {
 
 	@Override
 	protected void init(Bundle bundle) {
+		getActivity().getWindow()
+				.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 		Event event = getArguments().getParcelable(KEY_EVENT);
+
+		initOnClickListeners(event.getSessionId());
+
 		showEvent(event);
+	}
+
+	private void sendVote(int rate, int sessionId) {
+		String comment = commentToSpeaker.getText().toString().trim();
+		HttpEntity entity = Vote.create(rate, sessionId, comment);
+
+		FeedbackService.post(getActivity().getApplicationContext(), entity, new JsonHttpResponseHandler() {
+			@Override
+			public void onSuccess(JSONObject response) {
+				super.onSuccess(response);
+				//TODO: implement save in shared preferences and limit vote to 1 time for session
+				feedbackGroup.setVisibility(View.GONE);
+				successGroup.setVisibility(View.VISIBLE);
+			}
+		});
 	}
 
 	private void showEvent(Event event) {
@@ -118,5 +143,23 @@ public class ScheduleDetailsFragment extends BaseFragment {
 		fragment.setArguments(data);
 
 		getMainActivity().changeFragment(fragment);
+	}
+
+	private void initOnClickListeners(final int sessionId) {
+		View.OnClickListener onClickListener = new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				if (view.equals(voteBadButton)) {
+					sendVote(Vote.BAD, sessionId);
+				} else if (view.equals(voteGoodButton)) {
+					sendVote(Vote.GOOD, sessionId);
+				} else {
+					sendVote(Vote.EXCELLENT, sessionId);
+				}
+			}
+		};
+		voteBadButton.setOnClickListener(onClickListener);
+		voteGoodButton.setOnClickListener(onClickListener);
+		voteExcellentButton.setOnClickListener(onClickListener);
 	}
 }
