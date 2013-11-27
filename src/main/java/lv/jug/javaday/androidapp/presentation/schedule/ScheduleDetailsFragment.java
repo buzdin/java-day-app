@@ -20,6 +20,8 @@ import org.json.JSONObject;
 
 import javax.inject.Inject;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class ScheduleDetailsFragment extends BaseFragment {
 
@@ -60,7 +62,6 @@ public class ScheduleDetailsFragment extends BaseFragment {
 	LinearLayout successGroup;
 	@InjectView(R.id.feedbackGroup)
 	LinearLayout feedbackGroup;
-
 
 	@Override
 	protected int contentViewId() {
@@ -147,15 +148,32 @@ public class ScheduleDetailsFragment extends BaseFragment {
 
 	private void initOnClickListeners(final int sessionId) {
 		View.OnClickListener onClickListener = new View.OnClickListener() {
+			private Timer timer = new Timer();
+			private boolean showToast = true;
 			@Override
 			public void onClick(View view) {
-				if (view.equals(voteBadButton)) {
-					sendVote(Vote.BAD, sessionId);
-				} else if (view.equals(voteGoodButton)) {
-					sendVote(Vote.GOOD, sessionId);
-				} else {
-					sendVote(Vote.EXCELLENT, sessionId);
+				if (isNetworkAvailable()) {
+					sendVote(getRating(view), sessionId);
+				} else if (showToast) {
+					showToast = false;
+					Toast.makeText(getActivity().getBaseContext(), getString(R.string.check_internet), Toast.LENGTH_SHORT).show();
+
+					timer.schedule(new TimerTask() {
+						@Override
+						public void run() {
+							showToast = true;
+						}
+					}, 5000);
 				}
+			}
+
+			private int getRating(View view) {
+				if (view.equals(voteBadButton)) {
+					return Vote.BAD;
+				} else if (view.equals(voteGoodButton)) {
+					return Vote.GOOD;
+				}
+				return Vote.EXCELLENT;
 			}
 		};
 		voteBadButton.setOnClickListener(onClickListener);
