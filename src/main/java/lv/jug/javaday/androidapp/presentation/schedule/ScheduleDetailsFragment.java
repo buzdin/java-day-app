@@ -9,6 +9,8 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import lv.jug.javaday.androidapp.R;
 import lv.jug.javaday.androidapp.common.DrawableService;
 import lv.jug.javaday.androidapp.common.FeedbackService;
+import lv.jug.javaday.androidapp.common.NetworkService;
+import lv.jug.javaday.androidapp.common.SharedPrefsService;
 import lv.jug.javaday.androidapp.domain.Event;
 import lv.jug.javaday.androidapp.domain.Speaker;
 import lv.jug.javaday.androidapp.domain.SpeakerRepository;
@@ -25,11 +27,14 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class ScheduleDetailsFragment extends BaseFragment {
-    private static ClassLogger logger = new ClassLogger(ScheduleDetailsFragment.class);
-
-    public static final String KEY_EVENT = "event";
+	public static final String KEY_EVENT = "event";
+	private static ClassLogger logger = new ClassLogger(ScheduleDetailsFragment.class);
 	@Inject
 	DrawableService drawableService;
+	@Inject
+	SharedPrefsService sharedPrefsService;
+	@Inject
+	NetworkService networkService;
 	@Inject
 	SpeakerRepository speakerRepository;
 	@InjectView(R.id.speaker_photo_1)
@@ -72,16 +77,25 @@ public class ScheduleDetailsFragment extends BaseFragment {
 
 	@Override
 	protected void init(Bundle bundle) {
-		getActivity().getWindow()
-				.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+		getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 		Event event = getArguments().getParcelable(KEY_EVENT);
 
 		initOnClickListeners(event.getSessionId());
-
+		setVoteGroupState(event.getSessionId());
 		showEvent(event);
 	}
 
-	private void sendVote(int rate, int sessionId) {
+	private void setVoteGroupState(int sessionId) {
+		if (sharedPrefsService.hasVotedForSession(sessionId)) {
+			feedbackGroup.setVisibility(View.GONE);
+			successGroup.setVisibility(View.VISIBLE);
+		} else {
+			successGroup.setVisibility(View.GONE);
+			feedbackGroup.setVisibility(View.VISIBLE);
+		}
+	}
+
+	private void sendVote(int rate, final int sessionId) {
 		String comment = commentToSpeaker.getText().toString().trim();
 		HttpEntity entity = Vote.create(rate, sessionId, comment);
 
@@ -89,16 +103,15 @@ public class ScheduleDetailsFragment extends BaseFragment {
 			@Override
 			public void onSuccess(JSONObject response) {
 				super.onSuccess(response);
-				//TODO: implement save in shared preferences and limit vote to 1 time for session
-				feedbackGroup.setVisibility(View.GONE);
-				successGroup.setVisibility(View.VISIBLE);
+				sharedPrefsService.saveVoteForSession(sessionId);
+				setVoteGroupState(sessionId);
 			}
 
-            @Override
-            public void onFailure(Throwable e, JSONObject errorResponse) {
-                logger.w("Failed to send Vote");
-            }
-        });
+			@Override
+			public void onFailure(Throwable e, JSONObject errorResponse) {
+				logger.w("Failed to send Vote");
+			}
+		});
 	}
 
 	private void showEvent(Event event) {
@@ -121,11 +134,11 @@ public class ScheduleDetailsFragment extends BaseFragment {
 		speakerPhoto1.setImageDrawable(drawableService.loadDrawable(speaker.getPhoto()));
 
 		speakerGroup1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showSpeaker(speaker);
-            }
-        });
+			@Override
+			public void onClick(View view) {
+				showSpeaker(speaker);
+			}
+		});
 	}
 
 	private void populateSecondSpeaker(final Speaker speaker) {
@@ -157,9 +170,10 @@ public class ScheduleDetailsFragment extends BaseFragment {
 		View.OnClickListener onClickListener = new View.OnClickListener() {
 			private Timer timer = new Timer();
 			private boolean showToast = true;
+
 			@Override
 			public void onClick(View view) {
-				if (isNetworkAvailable()) {
+				if (networkService.internetAvailable()) {
 					sendVote(getRating(view), sessionId);
 				} else if (showToast) {
 					showToast = false;
