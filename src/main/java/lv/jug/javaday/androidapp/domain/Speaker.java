@@ -18,36 +18,15 @@ public class Speaker implements Parcelable {
     public static final String PATROKLOS_PAPAPERROU = "patroklos";
     public static final String SERGEY_KUKSENKO = "kuksenko";
     public static final String EDUARD_SIZOV = "sizov";
-    public static final String SHEKHAR_GULATI = "gulati";
     public static final String JAN_VALENTA = "valenta";
-    public static final String JAROSLAW_PALKA = "jaroslaw_palka";
     public static final String NICK_ZEEB = "zeeb";
     public static final String ALEXEY_FEDOROV = "fedorov";
     public static final String LUCIANO_FIANDESIO = "luciano";
     public static final String ROMAN_ANTIPIN = "antipin";
-    public static final String DENIS_MAGDA = "magda";
     public static final String ALEXANDER_MIRONENKO = "mironenko";
     public static final String ANDREY_ADAMOVICH = "adamovich";
     public static final String DIRK_MAHLER = "mahler";
-
-	public static final int PROJ_LAMBA = 0;
-	public static final int GROOVY = 1;
-	public static final int EFF_SCALA = 2;
-	public static final int IMMUTABLE_JAVA = 3;
-	public static final int SONAR = 4;
-	public static final int JDK8_STREAM = 5;
-	public static final int QUANTUM_PERF = 6;
-	public static final int MICRO_SERVICE = 7;
-	public static final int JAVA_FX_DEPL = 8;
-	public static final int HP_DESIGN = 9;
-	public static final int JP_TRADEOFFS = 10;
-	public static final int GROOVY_DEV_OPS = 11;
-	public static final int HIGH_CONCURRENT = 12;
-	public static final int JE_GARAGE = 13;
-	public static final int ANDREY_ADAM_TOPIC = 14;
-	public static final int GRAPH_DB = 15;
-	public static final int SHEVCHUK = 16;
-
+    public static final String ALEXEY_SHEVCHUK = "shevchuk";
 
     @DatabaseField(id = true)
     private String name;

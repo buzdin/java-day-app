@@ -18,6 +18,16 @@ public class StringService {
         return resources.getString(id);
     }
 
+    public String safeLoadString(String name) {
+        try {
+            Resources resources = context.getResources();
+            int id = resources.getIdentifier(name, "string", context.getPackageName());
+            return resources.getString(id);
+        } catch (Resources.NotFoundException e) {
+            return null;
+        }
+    }
+
     public String loadString(int id) {
         Resources resources = context.getResources();
         return resources.getString(id);

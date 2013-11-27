@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              android:layout_margin="10dp"
+              android:padding="10dp"
+              android:background="@drawable/solid_round_shape"
+        >
+    <TextView android:layout_width="0dp"
+              android:layout_weight="1"
+              android:layout_height="wrap_content"
+              android:id="@+id/speaker_presentation"
+              android:textSize="18sp"
+              android:fontFamily="sans-serif-condensed"
+              android:textColor="@color/almost_black"/>
+
+    <ImageView
+            android:layout_height="15dp"
+            android:layout_width="wrap_content"
+            android:src="@drawable/people_arrow"
+            android:layout_marginLeft="5dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/no_img_found"
+            />
+</LinearLayout>

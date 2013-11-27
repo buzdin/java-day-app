@@ -41,6 +41,7 @@
         Having moved to Oracle as part of the Sun acquisition he now focuses on the core Java platform, Java for client applications and embedded Java.
         He also continues to develop demonstrations that push the boundaries of Java for applications like gestural interfaces and embedded robot controllers.
         Follow him on Twitter, @speakjava and his blog at blogs.oracle.com/speakjava.</string>
+    <string name="simon_ritter_presentation_title_session_id">0</string>
     <string name="simon_ritter_presentation_title">
         Project Lambda: Functional Programming Constructs and Simpler Concurrency in Java SE 8</string>
     <string name="simon_ritter_presentation_description">
@@ -62,6 +63,7 @@
         He joined SpringSource, a division of VMware, in order to help developing the language.
         Prior to that, he spent several years at using Groovy in multiple industrial contexts including DSLs for natural language processing, scripting or even workflows.
         He worked on the implementation of static type checking and static compilation for Groovy 2.</string>
+    <string name="cedric_presentation_title_session_id">1</string>
     <string name="cedric_presentation_title">10 years of Groovy!</string>
     <string name="cedric_presentation_description">
         The Groovy language has celebrated its 10th anniversary! First dynamic language on the JVM, with more than 1.7
@@ -81,6 +83,7 @@
         He spends most of his time working on the Scala IDE for Eclipse and related ecosystem.
         His interests include concurrency, both OO and functional programming, software design, and testing.
         Mirco enjoys tweeting as @mircodotta. In his freetime, you\'ll often see him next to a foosball table.</string>
+    <string name="mirco_dotta_presentation_title_session_id">2</string>
     <string name="mirco_dotta_presentation_title">Effective Scala</string>
     <string name="mirco_dotta_presentation_description">
         Everything you always wanted to know about Scala but were afraid to ask. If you want to be able to optimize your
@@ -99,6 +102,7 @@
         His weapons of choice are Clojure, JavaScript, Java, and Ruby.
         Tero is currently putting together the Clojure Cup programming competition and has also just finished writing a book
         called Real-time Web Application Development with Vert.x 2.0.</string>
+    <string name="tero_presentation_title_session_id">3</string>
     <string name="tero_presentation_title">Immutable Java</string>
     <string name="tero_presentation_description">
         Following the rise of Clojure, many of us have become aware of the idea of immutable data structures and their
@@ -121,6 +125,7 @@
         He believes and invests in people and team spirit seeking quality excellence.
         He\'s co-authoring Sonar in action book, he is an active Sonar community member and plugin contributor.
         He treats software systems as flowers that\'s why he prefers calling himself a software gardener.</string>
+    <string name="patroklos_presentation_title_session_id">4</string>
     <string name="patroklos_presentation_title">Tracking and Improving Software Quality with Sonar</string>
     <string name="patroklos_presentation_description">
         Software quality is about a lot more than slinging good code. As a java developer you use numerous tools,
@@ -137,12 +142,21 @@
     <string name="kuksenko_description">Sergey is Java Performance Engineer working for Oracle.
         His primary skills are performance engineering, benchmarking, JVMs, JIT compilers, and class libraries.
         He’s been accelerating JVMs since 2005 when he was worked for Intel in Apache Harmony performance team.</string>
-    <string name="kuksenko_presentation_title">JDK8: Stream style</string>
-    <string name="kuksenko_presentation_description">
+    <string name="kuksenko_presentation_title1_session_id">5</string>
+    <string name="kuksenko_presentation_title1">JDK8: Stream style</string>
+    <string name="kuksenko_presentation_description1">
         JDK8 is bringing lambdas into the Java world. But without significant Java SE 8 libraries extensions lambdas
         would be only a toy. The centerpiece of the new libraries is the Streams API (formerly ‘Collections bulk
         operations’). This session presents the Streams API and examples how to get the best performance and scalability
         using the library.
+    </string>
+    <string name="kuksenko_presentation_title2_session_id">6</string>
+    <string name="kuksenko_presentation_title2">"Quantum" Performance Effects</string>
+    <string name="kuksenko_presentation_description2">
+        Nowadays, CPU microarchitecture is concealed from developers by compilers, VMs, etc. Do Java developers need to
+        know microarchitecture details of modern processors? Or, does it like to learn quantum mechanics for cooking?
+        Are Java developers safe from leaking low-level microarchitecture details into high level application
+        performance behaviour? We will try to answer these questions by analyzing several Java examples.
     </string>
 
     <!--sizov-->
@@ -154,33 +168,12 @@
         continuous delivery and other spices. Being a Chief Software Architect in 4finance,
         he is responsible for building a premier kick-ass financial platform speaking Java,
         running in the form of various products around the globe.</string>
+    <string name="sizov_presentation_title_session_id">7</string>
     <string name="sizov_presentation_title">Micro Service Architecture</string>
     <string name="sizov_presentation_description">
         Eduards will talk about micro service architecture - approach to designing software when complex app is broken
         into tiny, cohesive services which are apps themselves. Anatomy of micro services will be covered with practical
         implementation advices in Java.
-    </string>
-
-    <!--gulati-->
-    <string name="gulati_name">Shekhar Gulati</string>
-    <string name="gulati_company">Red Hat</string>
-    <string name="gulati_twitter">shekhargulati</string>
-    <string name="gulati_description">Shekhar Gulati is Principal OpenShift Developer Evangelist working with Red Hat.
-        He has 8 years of software web development experience. He regularly speaks at various conference and user groups around the world.
-        Shekhar is an active writer and has written many technical articles for IBM DeveloperWorks, Developer.com, and JavaLobby.
-        His current interests are NoSQL databases, cloud computing, mainly Platform-as-a-Service (PaaS), mobile development,
-        javascript frameworks, and new things happening in Java community.
-        When he is not traveling, he loves to write code and read technology books. You can follow him on twitter @ shekhargulati.</string>
-    <string name="gulati_presentation_title">Thinking Beyond RDBMS : Building Polyglot Persistence Java Applications</string>
-    <string name="gulati_presentation_description">
-        Time has come to start thinking about multiple data storage solutions while building applications. A single
-        application can use multiple data storage technologies depending on its use case - right tool for right job.
-        The session will start by introducing polyglot persistence to the audience. Next we will cover the pros and cons
-        of Polyglot persistence. Then we will see how to build location aware Job search application using MongoDB,
-        PostgreSQL, Redis, and Solr. The different data storage solutions are used to persist different types of data
-        like MongoDB to store Job data along with its location, PostgreSQL to store User data, Redis as a cache for User
-        objects and other goodies, and Solr as a full text search engine. Finally, the application will be deployed to
-        OpenShift - open source Platform as a Service.
     </string>
 
     <!--valenta-->
@@ -192,6 +185,7 @@
         At Sun, he contributed to Java Wireless Toolkit project, participated on the SVG Tiny implementation and low level renderer development.
         In the JavaFX area, he worked on support for hardware accelerated devices and recently focuses on
         tools support, deployment, and javadoc doclet.</string>
+    <string name="valenta_presentation_title_session_id">8</string>
     <string name="valenta_presentation_title">JavaFX Deployment</string>
     <string name="valenta_presentation_description">
         The presentation focuses on two aspects of publishing JavaFX applications and libraries: learn how to deploy
@@ -202,34 +196,6 @@
         provides a set of useful JavaFX-specific features to ease JavaFX code documentation.
     </string>
 
-    <!--palka-->
-    <string name="jaroslaw_palka_name">Jarosław Pałka</string>
-    <string name="jaroslaw_palka_company">Lumesse</string>
-    <string name="jaroslaw_palka_twitter">j_palka</string>
-    <string name="jaroslaw_palka_description">Jarek spent last 15 years of his life in IT working as database and system administrator,
-        developer, architect, manager and "on site disaster engineer ".
-        He was involved in small, medium and horribly and nonsense large systems,
-        from "waterfall" through Agile to "no methodology" methodology.
-        It all lead him to conclusion that it doesn\'t matter what you do as long as you do it right,
-        keep it simple and use the right tool to do the job for you. In the meantime he fell in love it TDD,
-        Software Craftmanship and beautiful and simple ideas like REST, JavaScript and NOSQL.
-        From time to time you can hear his low quality jokes about architecture on conferences in Poland.
-        He is trying to make a world a better place as member of SSEEP and blog author at http://geekyprimitives.wordpress.com.</string>
-    <string name="jaroslaw_palka_presentation_title">Practical Spring Data</string>
-    <string name="jaroslaw_palka_presentation_description">
-        Spring Data is an \'umbrella\' project, developed by SpringSource community, which easies development of
-        applications while working with different database models. From relational databases over "good old" JDBC,
-        through O/R mappings with a little bit of help from JPA, to hottest and newest NoSQL databases, which span from
-        key-value, document to graph databases. Spring Data simplifies connectivity with variety of databases, provides
-        unified programming model and patterns.It also frees you from writing boilerplate code by promoting convention
-        over coding and extensive use of runtime generated code. Thanks to this you can focus on building valid and
-        complete domain models with less annoying errors in your data access layer, which results in higher quality code
-        delivered in less time. During this presentation you will get familiar with four different data models,
-        including O/R mappings (JPA 2.0), key-value stores (Redis), document databases (MongoDB) and graph databases
-        (Neo4j). You will understand how Spring Data works undercover, and how different data models fit into modern web
-        applications and how to work "polyglot persistance" concept.
-    </string>
-
     <!--zeeb-->
     <string name="zeeb_name">Nick Zeeb</string>
     <string name="zeeb_company">LMAX</string>
@@ -238,6 +204,7 @@
         LMAX operates a financial exchange that is capable of handling 20,000 orders per second with a
         mean latency of 1.5 milliseconds. Nick has been involved in the financial industry since 2006 and
         has seen some interesting times while working at a hedge fund, an investment bank and now an exchange.</string>
+    <string name="zeeb_presentation_title_session_id">9</string>
     <string name="zeeb_presentation_title">High Performance Design</string>
     <string name="zeeb_presentation_description">
         When economic news comes out, trading volumes spike and the LMAX Exchange needs to push out the latest prices to
@@ -255,6 +222,7 @@
         He works in Oracle, Java Platform group, Java Compatibility Kit (JCK).
         Alexey is one of the leaders of the St. Petersburg Java User Group and cross-technology community CodeFreeze.
         Also he is one of the organizers of the St. Petersburg Java-conferences JPoint and Joker.</string>
+    <string name="fedorov_presentation_title_session_id">10</string>
     <string name="fedorov_presentation_title">Java platform trade-offs</string>
     <string name="fedorov_presentation_description">
         As with any software, the Java Platform is existing and developing under tight restrictions. Therefore, Java
@@ -273,6 +241,7 @@
         he likes playing with his analogue cameras and cooking Italian food.
         Two years ago he started a consulting company focused on software factory automation, Aestas IT, where Groovy plays a big role.
         He holds a Master Degree in Literature and Philosophy from Rome University.</string>
+    <string name="luciano_presentation_title_session_id">11</string>
     <string name="luciano_presentation_title">Groovy DevOps in the Cloud</string>
     <string name="luciano_presentation_description">
         This talk focuses on a set of tools to automate the provisioning of virtual machines on Amazon EC2 using Groovy
@@ -288,31 +257,13 @@
         As a platform team member, he is engaged in the development and implementation of distributed storage systems.
         Before joining Odnoklassniki team he gained distributed systems experience developing server side of a real-time
         network distributed monitoring system at Devexperts company.</string>
+    <string name="antipin_presentation_title_session_id">12</string>
     <string name="antipin_presentation_title">Managing highly concurrent data at Odnoklassniki</string>
     <string name="antipin_presentation_description">
         Odnoklassniki use Voldemort based data storages to manage data having high concurrency and extreme availability
         access requirements. We cover why and how we migrated from our old, Berkeley DB based storage solution, why
         Voldemort seems the best solution here (beating even Cassandra!) and why we replaced storage engine of Voldemort
         again and again to meet our tight requirements.
-    </string>
-
-    <!--Magda-->
-    <string name="magda_name">Denis Magda</string>
-    <string name="magda_company">Oracle</string>
-    <string name="magda_twitter"></string>
-    <string name="magda_description">Denis is a technical lead of Java ME Embedded porting team at Oracle.
-        The team is responsible for the Java ME Embedded porting process on wide variety of systems on a chip,
-        micro controllers and other constrained devices. Before Denis moved its interest
-        into the small embedded world he was working as a member of Java ME Multimedia team at Oracle for several years.</string>
-    <string name="magda_presentation_title">Modernize Your Home or Garage with Java ME Embedded</string>
-    <string name="magda_presentation_description">
-        Modern technologies are everywhere in our life, but do you know how to use them? Have you ever tried to automate
-        something in your house? Maybe you dream of creating a robot or another automated mechanism but the task seems
-        too complex for you? Java ME Embedded is a new generation of the well-known Java ME platform that aims to bring
-        a simple and unified way to develop applications for embedded systems. In this session, you will learn how it is
-        easy to get information from different sensors and control a variety of peripheral devices with Java’s device
-        access API library. The session includes a step-by-step guide that enables you to start automating your life
-        with Java ME Embedded.
     </string>
 
     <!--Andrey Adamovich-->
@@ -336,6 +287,7 @@
         Tech Days conferences. Having more than 5 years experience in Java development he joined Oracle\'s Java ME
         Embedded team to participate in the improving of this platform.
     </string>
+    <string name="mironenko_presentation_title_session_id">13</string>
     <string name="mironenko_presentation_title">Modernize Your Home or Garage with Java ME Embedded</string>
     <string name="mironenko_presentation_description">
         Modern technologies are everywhere in our life, but do you know how to use them? Have you ever tried to automate
@@ -357,6 +309,7 @@
         integration and is passionate in applying agile methodologies.
     </string>
     <string name="mahler_presentation_title">Exploration and Verification of Java Applications Using a Graph Database</string>
+    <string name="mahler_presentation_title_session_id">15</string>
     <string name="mahler_presentation_description">
         Every change committed by a developer potentially affects the
         structure of the whole software system. One of the big challenges is to keep overview of these structures and to
@@ -366,6 +319,25 @@
         an approach based on bytecode analysis and storing the gathered information into a Neo4j graph database. It is
         demonstrated how software structures can be modeled as nodes and relationships and how queries can be used to
         gather valuable information about software systems and to enforce defined constraints.
+    </string>
+
+
+    <!--Alexey Shevchuk-->
+    <string name="shevchuk_name">Alexey Shevchuk</string>
+    <string name="shevchuk_company">Odnoklassniki</string>
+    <string name="shevchuk_twitter">AlekseyShevchuk</string>
+    <string name="shevchuk_description">
+        Алексей Шевчук работает в Одноклассниках с мая 2009 года и отвечает за поисковые системы.
+    </string>
+    <string name="shevchuk_presentation_title_session_id">16</string>
+    <string name="shevchuk_presentation_title">Odnoklassniki.ru Search Engine</string>
+    <string name="shevchuk_presentation_description">
+        Каждый день 40 млн. человек заходят на Одноклассники для того, чтобы пообщаться с друзьями, поиграть в игры и
+        поискать что-то интересное. При этом минимум четверть из них пользуется поиском, создавая 220 млн. поисковых
+        запросов в день. Поиск в Одноклассниках построен на базе модифицированной Apache Lucene и работает с дюжиной
+        разных групп данных, каждая из которых имеет свои особенности. Чтобы эффективнее отвечать на запросы, поисковая
+        система учитывает социальный граф. Доклад будет интересен всем кто занимается разработкой нагруженных систем на
+        Java. Представленный опыт позволит предугадывать и решать проблемы возникающие при их работе.
     </string>
 
     <!--speakers end-->

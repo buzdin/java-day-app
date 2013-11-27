@@ -13,6 +13,7 @@ import lv.jug.javaday.androidapp.domain.Event;
 import lv.jug.javaday.androidapp.domain.Speaker;
 import lv.jug.javaday.androidapp.domain.SpeakerRepository;
 import lv.jug.javaday.androidapp.domain.Vote;
+import lv.jug.javaday.androidapp.infrastructure.common.ClassLogger;
 import lv.jug.javaday.androidapp.presentation.BaseFragment;
 import lv.jug.javaday.androidapp.presentation.speaker.SpeakerDetailsFragment;
 import org.apache.http.HttpEntity;
@@ -22,8 +23,9 @@ import javax.inject.Inject;
 import java.util.List;
 
 public class ScheduleDetailsFragment extends BaseFragment {
+    private static ClassLogger logger = new ClassLogger(ScheduleDetailsFragment.class);
 
-	public static final String KEY_EVENT = "event";
+    public static final String KEY_EVENT = "event";
 	@Inject
 	DrawableService drawableService;
 	@Inject
@@ -90,7 +92,12 @@ public class ScheduleDetailsFragment extends BaseFragment {
 				feedbackGroup.setVisibility(View.GONE);
 				successGroup.setVisibility(View.VISIBLE);
 			}
-		});
+
+            @Override
+            public void onFailure(Throwable e, JSONObject errorResponse) {
+                logger.w("Failed to send Vote");
+            }
+        });
 	}
 
 	private void showEvent(Event event) {
@@ -113,11 +120,11 @@ public class ScheduleDetailsFragment extends BaseFragment {
 		speakerPhoto1.setImageDrawable(drawableService.loadDrawable(speaker.getPhoto()));
 
 		speakerGroup1.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				showSpeaker(speaker);
-			}
-		});
+            @Override
+            public void onClick(View view) {
+                showSpeaker(speaker);
+            }
+        });
 	}
 
 	private void populateSecondSpeaker(final Speaker speaker) {

@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import butterknife.InjectView;
+import butterknife.Views;
 import lv.jug.javaday.androidapp.R;
 import lv.jug.javaday.androidapp.common.DrawableService;
 import lv.jug.javaday.androidapp.common.StringUtils;
@@ -19,6 +20,10 @@ import lv.jug.javaday.androidapp.presentation.BaseFragment;
 import lv.jug.javaday.androidapp.presentation.schedule.ScheduleDetailsFragment;
 
 import javax.inject.Inject;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class SpeakerDetailsFragment extends BaseFragment {
 
@@ -48,8 +53,8 @@ public class SpeakerDetailsFragment extends BaseFragment {
     @InjectView(R.id.speakertwitter)
     TextView speakerTwitter;
 
-    @InjectView(R.id.speakerpresentation)
-    TextView speakerPresentation;
+    @InjectView(R.id.presentation_panel)
+    LinearLayout presentationPanel;
 
 	@InjectView(R.id.twitter_button_group)
 	LinearLayout twitterButtonGroup;
@@ -69,8 +74,12 @@ public class SpeakerDetailsFragment extends BaseFragment {
         Drawable portrait = drawableService.loadDrawable(speaker.getPhoto());
         Drawable countryFlag = drawableService.loadDrawable(speaker.getCountry());
 
-        final Event presentation = eventRepository.loadForSpeaker(speaker);
-        String presentationTitle = presentation.getTitle();
+        List<Event> presentations = eventRepository.loadForSpeaker(speaker);
+        presentations = filterSameTopics(presentations);
+
+        for (Event event : presentations) {
+            renderPresentation(event);
+        }
 
         final String twitterName = speaker.getTwitter();
 	    if (StringUtils.isEmpty(twitterName)) {
@@ -80,26 +89,44 @@ public class SpeakerDetailsFragment extends BaseFragment {
 		    String twitter = "Follow @" + twitterName;
 		    speakerTwitter.setText(twitter);
 	    }
+        twitterButtonGroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showSpeakerTwitter(twitterName);
+            }
+        });
 
         speakerName.setText(speaker.getName());
         speakerFlag.setImageDrawable(countryFlag);
         speakerInfo.setText(speaker.getInfo());
         speakerPhoto.setImageDrawable(portrait);
         speakerCompany.setText(speaker.getCompany());
-        speakerPresentation.setText(presentationTitle);
+    }
 
-	    twitterButtonGroup.setOnClickListener(new View.OnClickListener() {
-	        @Override
-	        public void onClick(View v) {
-		        showSpeakerTwitter(twitterName);
-	        }
-        });
+    private void renderPresentation(final Event event) {
+        View panel = getActivity().getLayoutInflater().inflate(R.layout.presentation_title_bubble, null);
+        String presentationTitle = event.getTitle();
+
+        TextView speakerPresentation = Views.findById(panel, R.id.speaker_presentation);
+        speakerPresentation.setText(presentationTitle);
         speakerPresentation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showPresentationDetails(presentation);
+                showPresentationDetails(event);
             }
         });
+        presentationPanel.addView(panel);
+    }
+
+    private List<Event> filterSameTopics(List<Event> presentations) {
+        Map<String, Event> map = new HashMap<String, Event>();
+        for (Event presentation : presentations) {
+            String title = presentation.getTitle();
+            if(!map.containsKey(title)) {
+                map.put(title, presentation);
+            }
+        }
+        return new ArrayList<Event>(map.values());
     }
 
     private void showPresentationDetails(Event presentation) {

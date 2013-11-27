@@ -7,12 +7,6 @@ import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 
-/**
- * Created with IntelliJ IDEA.
- * User: Aleksey Nikolaenko
- * Date: 11/26/13
- * Time: 9:58 PM
- */
 public class Vote {
 	public static final Integer EXCELLENT = 1;
 	public static final Integer GOOD = 0;
