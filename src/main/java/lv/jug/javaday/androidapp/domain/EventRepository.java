@@ -31,7 +31,7 @@ public class EventRepository {
         return null;
     }
 
-    public Event loadForSpeaker(Speaker speaker) {
+    public List<Event> loadForSpeaker(Speaker speaker) {
         try {
             String speakerName = speaker.getName();
             Dao<Event, Integer> dao = db.getEventDao();
@@ -39,9 +39,9 @@ public class EventRepository {
             builder.where().like(Event.SPEAKER_NAME_ID, "%" + speakerName + "%");
             PreparedQuery<Event> preparedQuery = builder.prepare();
 
-            return dao.queryForFirst(preparedQuery);
+            return dao.query(preparedQuery);
         } catch (SQLException e){
-            logger.e(e.getLocalizedMessage());
+            logger.e("Failed to find Events for speaker", e);
         }
 
         return null;

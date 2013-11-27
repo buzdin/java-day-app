@@ -135,12 +135,19 @@
     <string name="kuksenko_description">Sergey is Java Performance Engineer working for Oracle.
         His primary skills are performance engineering, benchmarking, JVMs, JIT compilers, and class libraries.
         He’s been accelerating JVMs since 2005 when he was worked for Intel in Apache Harmony performance team.</string>
-    <string name="kuksenko_presentation_title">JDK8: Stream style</string>
-    <string name="kuksenko_presentation_description">
+    <string name="kuksenko_presentation_title1">JDK8: Stream style</string>
+    <string name="kuksenko_presentation_description1">
         JDK8 is bringing lambdas into the Java world. But without significant Java SE 8 libraries extensions lambdas
         would be only a toy. The centerpiece of the new libraries is the Streams API (formerly ‘Collections bulk
         operations’). This session presents the Streams API and examples how to get the best performance and scalability
         using the library.
+    </string>
+    <string name="kuksenko_presentation_title2">"Quantum" Performance Effects</string>
+    <string name="kuksenko_presentation_description2">
+        Nowadays, CPU microarchitecture is concealed from developers by compilers, VMs, etc. Do Java developers need to
+        know microarchitecture details of modern processors? Or, does it like to learn quantum mechanics for cooking?
+        Are Java developers safe from leaking low-level microarchitecture details into high level application
+        performance behaviour? We will try to answer these questions by analyzing several Java examples.
     </string>
 
     <!--sizov-->
@@ -364,6 +371,24 @@
         an approach based on bytecode analysis and storing the gathered information into a Neo4j graph database. It is
         demonstrated how software structures can be modeled as nodes and relationships and how queries can be used to
         gather valuable information about software systems and to enforce defined constraints.
+    </string>
+
+
+    <!--Alexey Shevchuk-->
+    <string name="shevchuk_name">Alexey Shevchuk</string>
+    <string name="shevchuk_company">Odnoklassniki</string>
+    <string name="shevchuk_twitter">AlekseyShevchuk</string>
+    <string name="shevchuk_description">
+        Алексей Шевчук работает в Одноклассниках с мая 2009 года и отвечает за поисковые системы.
+    </string>
+    <string name="shevchuk_presentation_title">Odnoklassniki.ru Search Engine</string>
+    <string name="shevchuk_presentation_description">
+        Каждый день 40 млн. человек заходят на Одноклассники для того, чтобы пообщаться с друзьями, поиграть в игры и
+        поискать что-то интересное. При этом минимум четверть из них пользуется поиском, создавая 220 млн. поисковых
+        запросов в день. Поиск в Одноклассниках построен на базе модифицированной Apache Lucene и работает с дюжиной
+        разных групп данных, каждая из которых имеет свои особенности. Чтобы эффективнее отвечать на запросы, поисковая
+        система учитывает социальный граф. Доклад будет интересен всем кто занимается разработкой нагруженных систем на
+        Java. Представленный опыт позволит предугадывать и решать проблемы возникающие при их работе.
     </string>
 
     <!--speakers end-->

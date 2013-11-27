@@ -29,6 +29,7 @@ public class Speaker implements Parcelable {
     public static final String ALEXANDER_MIRONENKO = "mironenko";
     public static final String ANDREY_ADAMOVICH = "adamovich";
     public static final String DIRK_MAHLER = "mahler";
+    public static final String ALEXEY_SHEVCHUK = "shevchuk";
 
     @DatabaseField(id = true)
     private String name;
