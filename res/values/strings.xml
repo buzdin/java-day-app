@@ -260,7 +260,7 @@
         Before joining Odnoklassniki team he gained distributed systems experience developing server side of a real-time
         network distributed monitoring system at Devexperts company.</string>
     <string name="antipin_presentation_title_session_id">12</string>
-    <string name="antipin_presentation_title">Managing highly concurrent data at Odnoklassniki</string>
+    <string name="antipin_presentation_title">Managing highly concurrent data at Odnoklassniki (Rus)</string>
     <string name="antipin_presentation_description">
         Odnoklassniki use Voldemort based data storages to manage data having high concurrency and extreme availability
         access requirements. We cover why and how we migrated from our old, Berkeley DB based storage solution, why
@@ -290,7 +290,7 @@
         Embedded team to participate in the improving of this platform.
     </string>
     <string name="mironenko_presentation_title_session_id">13</string>
-    <string name="mironenko_presentation_title">Modernize Your Home or Garage with Java ME Embedded</string>
+    <string name="mironenko_presentation_title">Modernize Your Home or Garage with Java ME Embedded (Rus)</string>
     <string name="mironenko_presentation_description">
         Modern technologies are everywhere in our life, but do you know how to use them? Have you ever tried to automate
         something in your house? Maybe you dream of creating a robot or another automated mechanism but the task seems
@@ -332,7 +332,7 @@
         Алексей Шевчук работает в Одноклассниках с мая 2009 года и отвечает за поисковые системы.
     </string>
     <string name="shevchuk_presentation_title_session_id">16</string>
-    <string name="shevchuk_presentation_title">Odnoklassniki.ru Search Engine</string>
+    <string name="shevchuk_presentation_title">Odnoklassniki.ru Search Engine (Rus)</string>
     <string name="shevchuk_presentation_description">
         Каждый день 40 млн. человек заходят на Одноклассники для того, чтобы пообщаться с друзьями, поиграть в игры и
         поискать что-то интересное. При этом минимум четверть из них пользуется поиском, создавая 220 млн. поисковых

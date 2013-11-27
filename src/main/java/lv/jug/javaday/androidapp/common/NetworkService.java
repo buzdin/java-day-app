@@ -14,8 +14,7 @@ public class NetworkService {
     @Inject
     public Context context;
 
-    public boolean internetAvailable()
-    {
+    public boolean internetAvailable() {
         NetworkInfo info = ((ConnectivityManager)
                 context.getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo();
 
