@@ -1,5 +1,8 @@
 package lv.jug.javaday.androidapp.presentation;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,4 +52,13 @@ public abstract class BaseFragment extends SherlockFragment {
         return (MainActivity) getActivity();
     }
 
+	protected boolean isNetworkAvailable() {
+		ConnectivityManager cs = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo activeNetworkInfo = cs.getActiveNetworkInfo();
+		if (activeNetworkInfo == null) {
+			return false;
+		} else {
+			return true;
+		}
+	}
 }

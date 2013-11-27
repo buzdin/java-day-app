@@ -5,6 +5,7 @@
     <string name="drawer_close">Close</string>
 
     <string name="no_internet">No internet available</string>
+    <string name="check_internet">Check your internet connection</string>
     <string name="no_img_found">No IMG found</string>
     <string name="app_not_available">App not available</string>
 
@@ -14,6 +15,7 @@
     <string name="feedback">Feedback</string>
     <string name="twitter">Twitter</string>
     <string name="comment_hint">Leave your comment here</string>
+    <string name="thank_you_vote">Thank you for the vote!</string>
 
     <string name="conf_title">Java Day Riga conference 2013</string>
     <string name="where">Kino Citadele</string>
