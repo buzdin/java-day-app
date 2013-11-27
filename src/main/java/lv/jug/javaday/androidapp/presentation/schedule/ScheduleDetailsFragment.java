@@ -98,18 +98,20 @@ public class ScheduleDetailsFragment extends BaseFragment {
 	private void sendVote(int rate, final int sessionId) {
 		String comment = commentToSpeaker.getText().toString().trim();
 		HttpEntity entity = Vote.create(rate, sessionId, comment);
-
+		showProgressDialog();
 		FeedbackService.post(getActivity().getApplicationContext(), entity, new JsonHttpResponseHandler() {
 			@Override
 			public void onSuccess(JSONObject response) {
 				super.onSuccess(response);
 				sharedPrefsService.saveVoteForSession(sessionId);
 				setVoteGroupState(sessionId);
+				hideProgressDialog();
 			}
 
 			@Override
 			public void onFailure(Throwable e, JSONObject errorResponse) {
 				logger.w("Failed to send Vote");
+				hideProgressDialog();
 			}
 		});
 	}

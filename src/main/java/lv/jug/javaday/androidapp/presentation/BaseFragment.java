@@ -1,5 +1,6 @@
 package lv.jug.javaday.androidapp.presentation;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +17,9 @@ public abstract class BaseFragment extends SherlockFragment {
     @Inject
     Bus bus;
 
-    @Override
+	private ProgressDialog pd;
+
+	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         BaseApplication.inject(this);
         View view = inflater.inflate(contentViewId(), container, false);
@@ -48,4 +51,19 @@ public abstract class BaseFragment extends SherlockFragment {
     public MainActivity getMainActivity() {
         return (MainActivity) getActivity();
     }
+
+
+	public void showProgressDialog() {
+		pd = new ProgressDialog(getActivity());
+		pd.setMessage("Please wait");
+		pd.setCancelable(false);
+		pd.show();
+	}
+
+	public void hideProgressDialog() {
+		if (pd != null) {
+			pd.hide();
+			pd = null;
+		}
+	}
 }
