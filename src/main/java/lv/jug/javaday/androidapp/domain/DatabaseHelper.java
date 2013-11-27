@@ -24,7 +24,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private static ClassLogger logger = new ClassLogger(DatabaseHelper.class);
 
     private static final String DATABASE_NAME = "javaday.db";
-    private static final int DATABASE_VERSION = 22;
+    private static final int DATABASE_VERSION = 23;
 	private static final int NOT_MAPPED = -1;
 
     private Dao<Speaker, String> speakerDao;
