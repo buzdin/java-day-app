@@ -1,7 +1,7 @@
-java-day-app
+Java Day Riga 2013 Official App
 ============
 
-Java Day Riga Official App
+<img src="http://cdn7.staztic.com/app/a/3340/3340723/riga-java-day-2013-4-0-s-307x512.jpg" width="100"/>
 
 ### To start the project
 1. mvn install
